@@ -1,1087 +1,2165 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Networks</title>
+
     <!-- Font Awesome CDN -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+
+
     <style>
+
         * {
+
             margin: 0;
+
             padding: 0;
+
             box-sizing: border-box;
+
         }
 
+
+
         body {
+
             background: linear-gradient(135deg, #000, #1a1a1a, #000);
+
             color: #fff;
+
             font-family: Arial, sans-serif;
+
             padding: 20px;
+
             cursor: none; /* Hides the default cursor */
+
         }
+
+
+
 
 
         .trail {
+
     position: absolute;
+
     width: 20px;
+
     height: 20px;
+
     background-color: rgba(255, 255, 255, 0.8);
+
     border-radius: 50%;
+
     pointer-events: none;
+
     box-shadow: 0 0 40px rgba(255, 255, 255, 0.7);
+
     animation: smooth-trail 0.5s forwards ease-out;
+
 }
 
+
+
 @keyframes smooth-trail {
+
     0% {
+
         opacity: 1;
+
         transform: scale(1);
+
     }
+
     100% {
+
         opacity: 0;
+
         transform: scale(0.5);
+
     }
+
 }
+
+
+
 
 
         .container {
+
             max-width: 900px;
+
             margin: 0 auto;
+
         }
+
+
 
         header h1 {
+
             text-align: center;
+
             font-size: 2rem;
+
             margin-bottom: 20px;
+
             margin-top: 20px;
+
         }
+
+
 
         h2 {
+
             font-size: 1.5rem;
+
             margin-bottom: 20px;
+
             margin-top: 40px;
+
         }
+
+
 
         .grid {
+
             display: grid;
+
             grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+
             gap: 15px;
+
         }
+
+
 
         .chat-box {
+
             background-color: #141414;
+
             border-width: 20px;
+
             border-radius: 10px;
+
             padding: 30px 15px;
+
             text-align: center;
+
             position: relative;
+
             transition: transform 0.3s ease-in-out, background-color 0.3s;
+
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+
         }
+
+
 
         .chat-box:hover {
+
             transform: scale(1.05);
+
             background-color: #1a1a1a;
+
         }
+
+
 
         .chat-box p {
+
             margin-top: 10px;
+
             font-size: 1rem;
+
         }
+
+
 
         a {
+
             text-decoration: none;
+
             color: inherit;
+
         }
+
+
 
         .icon {
+
             font-size: 40px;
+
             color: #fff;
+
             display: block;
+
             margin: 0 auto;
+
             border-radius: 50%;
+
             width: 40px;
+
             height: 40px;
+
             line-height: 40px;
+
             filter: drop-shadow(0 0 20px currentcolor) drop-shadow(0 0 17px currentcolor);
+
             transition: color 0.3s ease, transform 0.3s ease;
+
         }
+
+
 
         .icon:hover {
+
             transform: scale(1.1);
+
             filter: drop-shadow(0 0 25px currentcolor) drop-shadow(0 0 22px currentcolor);
+
         }
+
+
 
         .icon-x svg {
+
             width: 40px;
+
             height: 40px;
+
             display: block;
+
             margin: 0 auto;
+
         }
+
+
 
         .icon-x {
+
             filter: drop-shadow(0 0 20px #1da1f2) drop-shadow(0 0 17px #1da1f2);
+
         }
+
+
 
         /* Placeholder icons */
+
         .icon.beeper { color: #3e83ff; }
+
         .icon.google { color: #db4437; }
+
         .icon.facebook { color: #1877f2; }
+
         .icon.rcs { color: #ffac33; }
+
         .icon.signal { color: #3a76f0; }
+
         .icon.telegram { color: #26a5e4; }
+
         .icon.whatsapp { color: #25d366; }
+
         .icon.instagram { color: #e1306c; }
+
         .icon.linkedin { color: #0077b5; }
+
         .icon.discord { color: #5865f2; }
+
         .icon.slack { color: #4a154b; }
+
         .icon.youtube { color: #FF0000; }
 
+
+
         /* Responsive text sizing */
+
         h1, h2, p {
+
             font-size: 1.2rem;
+
         }
 
+
+
         @media (min-width: 768px) {
+
             h1 {
+
                 font-size: 2.5rem;
+
             }
+
+
 
             h2 {
+
                 font-size: 1.5rem;
+
             }
+
+
 
             p {
+
                 font-size: 1.1rem;
+
             }
+
         }
+
+
 
         footer {
+
             text-align: center;
+
             margin-top: 40px;
+
             padding-top: 20px;
+
             border-top: 1px solid #333;
+
             text-decoration: none;
+
             color: inherit;
+
         }
+
+
 
         footer p {
+
             font-size: 0.9rem;
+
             color: #aaa;
+
         }
+
+
 
         footer a {
+
             color: #1da1f2;
+
             text-decoration: underline;
+
         }
+
+
 
         /* Smooth transitions */
+
         * {
+
             transition: all 0.3s ease-in-out;
+
         }
+
+
 
         /* Hero Section */
-        
-            .hero {
-    display: flex;
-             flex-direction: column;
-             align-items: center;
-             text-align: center;
-             margin-bottom: 40px;
-             background: #141414;
-             backdrop-filter: blur(10px);
-             border-radius: 20px;
-             padding: 20px;
-             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+
+        .hero {
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            text-align: center;
+
+            margin-bottom: 40px;
+
+            background: #141414;
+
+            backdrop-filter: blur(10px);
+
+            border-radius: 20px;
+
+            padding: 20px;
+
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+
+        }
+
+
 
         .hero img {
+
             border-radius: 50%;
+
             width: 150px;
+
             height: 150px;
+
             object-fit: cover;
+
             margin-bottom: 20px;
+
             box-shadow: 0 0 40px #ff073a80, 0 0 60px #ff073a80;
+
         }
+
+
 
         .hero h1 {
+
             font-size: 2rem;
+
             margin-bottom: 10px;
+
         }
+
+
 
         .hero p {
+
             font-size: 1rem;
+
             color: #ccc;
+
             max-width: 700px;
+
         }
-            
+
+
 
         @media (min-width: 768px) {
+
             .hero img {
+
                 width: 200px;
+
                 height: 200px;
+
             }
+
         }
 
+
+
         .share-button {
+
     position: absolute;
+
     top: 15px; /* Adjust as needed */
+
     right: 15px; /* Adjust as needed */
+
     background: linear-gradient(135deg, #1a1a1a, #000);
+
     border-radius: 20px; /* Rounded corners */
+
     padding: 5px 10px; /* Padding */
+
     text-decoration: none; /* Remove underline */
+
     z-index: 1; /* Above the background */
+
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+
     }
 
+
+
         .share-button a {
+
     color: inherit; /* Inherit the color */
+
     }
+
+
+
 
 
 /* Contact */
+
     .contact {
+
     margin-top: 20px; /* Space above the contact section */
+
     background-color: #141414; /* Dark background for the contact section */
+
     border-radius: 20px; /* Rounded corners */
+
     padding: 20px; /* Padding around the content */
+
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+
 }
+
+
 
 .contact h2 {
+
     text-align: center;
+
     margin-top: 5px;
+
     margin-bottom: 20px;
+
     color: #ff073a80; /* Neon red color for the heading */
+
 }
+
+
 
 .contact form {
+
     display: flex;
+
     flex-direction: column;
+
     max-width: 600px; /* Max width for the form */
+
     margin: 0 auto; /* Center the form */
+
 }
+
+
 
 .contact form div {
+
     margin-bottom: 15px; /* Space between form fields */
+
 }
+
+
 
 .contact label {
+
     margin-bottom: 10px; /* Space below the label */
+
     color: #fff; /* White text for labels */
+
     font-weight: bold;
+
 }
+
+
 
 .contact input, .contact textarea {
+
     padding: 12px; /* Increased padding for a better look */
+
     border-radius: 5px; /* Rounded corners */
+
     background-color: #222; /* Dark background for inputs */
+
     color: #fff; /* White text for inputs */
+
     font-size: 16px; /* Slightly larger font size */
+
     transition: border-color 0.3s; /* Smooth transition for border color */
+
     width: 100%;
+
     margin-top: 10px;
+
 }
+
+
 
 .contact input:focus, .contact textarea:focus {
+
     border-color: #ff073a80; /* Lighter neon red on focus */
+
     outline: none; /* Remove default outline */
+
     box-shadow: 0 0 5px #ff073a80; /* Subtle glow effect */
+
     background-color: #222;
+
     color: #fff;
+
 }
+
+
 
 .contact input::placeholder, .contact textarea::placeholder {
+
     color: #fff;
+
 }
+
+
 
 .contact input:focus, .contact textarea:focus, .contact input:focus:valid, .contact textarea:focus:valid {
+
     background-color: #222;
+
     color: #fff;
+
 }
+
+
 
 .contact input:-webkit-autofill {
+
     background-color: #222 !important;
+
     color: #fff !important;
+
     -webkit-box-shadow: 0 0 0 1000px #222 inset !important;
+
     box-shadow: 0 0 0 1000px #222 inset !important;
+
     -webkit-text-fill-color: #fff !important;
+
 }
+
+
 
 .contact button {
+
     padding: 10px;
+
     border-color: #ff073a80; /* Neon red button color */
+
     color: #000000; /* Text color */
+
     font-weight: bolder;
+
     border: none;
+
     cursor: pointer; /* Pointer on hover */
+
     transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+
     height: 40px;
+
     width: 100%;
+
     font-size: 15px;
+
 }
+
+
 
 .contact button:hover {
+
     background-color: #ff073a80; /* Darker shade on hover */
+
     box-shadow:  0 0 10px #ff073a80;
+
     color: #fff;
+
 }
+
+
 
 #response-message {
+
     text-align: center; /* Center response messages */
+
     color: #fff; /* White text color */
+
     margin-top: 15px; /* Space above response message */
+
 }
 
+
+
 /*Games*/
+
 /* Games Section */
+
 .games-section h2 {
+
             font-size: 20px;
+
             margin-bottom: 20px;
+
             margin-top: 40px;
+
             text-align: center;
+
         }
 
+
+
         .game-box {
+
             background-color: #141414;
+
             border-radius: 20px;
+
             padding: 20px;
+
             text-align: center;
+
             cursor: pointer;
+
             position: relative;
+
             transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+
             max-width: 100%;
+
         }
+
+
+
 
 
         .game-box i {
+
             color: #fff;
+
+        }
+
+
+
+        .game-box h2 {
+
+            margin-top: 10px;
+
+            color: #fff;
+
+            font-size: 20px;
+
+            display: none;
+
+            flex-wrap: wrap;
+
         }
 
         .game-box h2 {
+
             margin-top: 10px;
-            color: #fff;
-            font-size: 20px;
-            display: none;
-            flex-wrap: wrap;
+
         }
-        .game-box h2 {
-            margin-top: 10px;
-        }
+
         .game-desc p {
+
             margin-right: 10px;
+
             margin-top: 10px;
+
             display: none;
+
         }
+
         /* Hidden image container */
+
         .game-box img {
+
             display: none;
+
             margin-top: 15px;
+
             max-width: 100%;
+
             border-radius: 10px;
+
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+
         }
+
+
 
         /* Active state for expanded image */
+
         .game-box.active img {
+
             display: block;
+
         }
+
+
 
         /* Close Button Styling */
+
         .close-btn {
+
             display: none;
+
             position: absolute;
+
             top: 15px;
+
             right: 15px;
+
             margin-top: 10px;
+
             color: #fff;
+
             cursor: pointer;
+
             background: none;
+
             border-radius: 20px;
+
             font-size: 30px;
+
             padding-right: 15px;
+
         }
+
+
 
         .game-box.active .close-btn  {
+
             display: block;
+
         }
 
+
+
 /* Vault Section */
+
 .vault-section h2 {
+
     font-size: 20px;
+
     margin-bottom: 20px;
+
     margin-top: 40px;
+
     text-align: center;
+
 }
 
+
+
 .vault-box {
+
     background-color: #141414;
+
     border-radius: 20px;
+
     padding: 20px;
+
     text-align: center;
+
     cursor: pointer;
+
     position: relative;
+
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+
     max-width: 100%;
+
 }
+
+
+
 
 
 .vault-box i {
+
     color: #fff;
+
 }
+
+
 
 .vault-box h2 {
+
     margin-top: 10px;
+
     color: #fff;
+
     font-size: 20px;
+
     display: none;
+
 }
+
+
 
 .vault-box h2 p {
+
     margin-top: 10px;
+
 }
+
+
 
 .vault-box img {
+
     display: none;
+
     margin-top: 15px;
+
     max-width: 100%;
+
     border-radius: 10px;
+
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+
 }
+
+
 
 .vault-box.active img {
+
     display: block;
+
 }
+
+
 
 .close-btn {
+
     display: none;
+
     position: absolute;
+
     top: 15px;
+
     right: 15px;
+
     margin-top: 10px;
+
     color: #fff;
+
     cursor: pointer;
+
     background: none;
+
     border-radius: 20px;
+
     font-size: 30px;
+
     padding-right: 15px;
+
 }
 
+
+
 .vault-box.active .close-btn {
+
     display: block;
+
 }
+
+
+
 
 
 /*control button*/
+
 .custom-controls {
+
     display: flex;
+
 height: 70px;
+
 width: 100% ;
+
 background-color: #141414;
+
 font-size: 20px;
+
 font-weight: bold;
+
 border-radius: 20px;
+
 border: none;
+
 box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+
 margin-top: 20px;
+
 align-items: center;
+
 justify-content: center;
+
 gap: 20px;
+
 }
+
+
 
 .custom-controls .button {
+
 background-color: #fff;
+
 font-size: 20px;
+
 border-radius: 10px;
+
 border: none;
+
 height: fit-content;
+
 width: fit-content;
+
 align-items: center;
+
 justify-content: center;
+
 padding: 10px;
+
 margin-top: 13px;
+
 margin-bottom: 10px;
+
 gap: 50px;
+
 }
+
+
 
 /* Password Input */
+
 #password-container {
+
     display: flex;
+
     justify-content: center;
+
     margin-top: 20px;
+
 }
+
+
 
 #vault-password {
+
     padding: 10px;
+
     border: 1px solid #ccc;
+
     border-radius: 5px;
+
     margin-right: 10px;
+
 }
+
+
 
 #submit-password {
+
     padding: 10px;
+
     background-color: #1a1a1a;
+
     color: #fff;
+
     border: none;
+
     border-radius: 5px;
+
     cursor: pointer;
+
 }
+
+
 
 #submit-password:hover {
+
     background-color: #333;
+
 }
+
+
 
 /* Utility Class for Hidden Elements */
+
 .hidden {
+
     display: none;
+
 }
 
+
+
 #submit:hover {
+
     background-color: #ff073a80; /* Darker shade on hover */
+
     box-shadow:  0 0 20px #ff073a80;
+
     color: #fff;
+
 }
+
 #content .overlay {
+
 position: absolute;
+
 top: 0;
+
 left: 0;
+
 width: 100%;
+
 height: 100%;
+
 background: #00000000;
+
 pointer-events: all;
+
 }
+
+
+
 
 
 /*modal for p previews*/
+
 /* Modal Styles */
+
 .img-container {
+
     max-width: auto;
+
     height: auto;
+
 }
+
 @media (max-width: 768px)
+
 {
+
     .img-container img{
+
         max-width:calc(120%);
+
         height: auto;
+
         border-radius: 5px;
+
     }
+
 }
+
 .modal {
+
     position: fixed;
+
     z-index: 1000;
+
     left: 0;
+
     top: 0;
+
     width: 100%;
+
     height: 100%;
+
     overflow: auto;
+
     background-color: rgba(0, 0, 0, 0.8);
+
     display: flex;
+
     justify-content: center;
+
     align-items: center;
+
 }
+
+
 
 .modal-content {
+
     max-width: 90%;
+
     max-height: 90%;
+
 }
 
+
+
 .close-modal {
+
     position: absolute;
+
     top: 20px;
+
     right: 40px;
+
     color: #fff;
+
     font-size: 30px;
+
     cursor: pointer;
+
 }
+
+
+
 
 
 </style>
+
 </head>
+
 <body>
+
     <div class="container">
 
+
+
         <!-- Hero Section -->
+
         
+
         <section class="hero">
+
             <div class="share-button">
+
                 <a href="#" onclick="sharePage()">
+
                 <i class="fas fa-share-alt"></i>  Share</a>
+
             </div>
+
             <img src="Dp/+91 87778 45713 20241201_101310.jpg" alt="Profile Picture">
+
             <h1>Shovith Debnath</h1>
+
             <p>Howdy silly goose, it's your homeboy Shovith. Multi-talented, goofy, a little off-topic, and a lot of autism. Hope to know each other more!</p>
+
         </section>
+
         
+
+
 
 <!-- Games Section -->
+
         <footer>
+
 <header>
+
     <h1>Games</h1>
+
 </header>
+
 <section class="games-section">
+
     <div class="game-box" id="game-box">
+
         <i class="fas fa-gamepad" style="font-size: 40px;"></i>
+
         <!-- Hidden content -->
+
         <i id="game-desc" style="display: flex none; justify-content: center; flex-wrap: wrap;">
+
             <b style="font-size: 20px; margin-top: 20px;">Pokemon UNITE</b>
+
             <a href="https://uniteapi.dev/p/LXLC5ET">
+
                 <img src="Game ss/Pokémon Unite/2024-09-23_1105471.jpg" alt="Game Image" style="margin-bottom: 20px;">
+
             </a>
+
             ↓↓↓↓↓↓↓↓↓↓  Click to Enlarge  ↓↓↓↓↓↓↓↓↓↓
+
             <div class="img-container" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 10px;">
+
                 <p style="margin-right: 10px;">
+
                     <img src="Game ss/Pokémon Unite/2024-09-23_1298212.jpg" alt="Game 1" class="preview-img">
+
                 </p>
+
                 <p style="margin-right: 10px;">
+
                     <img src="Game ss/Pokémon Unite/Screenshot_20240923-181136_Pokmon UNITE.jpg" alt="Game 2" class="preview-img">
+
                 </p>
+
                 <p style="margin-right: 10px;">
+
                     <img src="Game ss/Pokémon Unite/Screenshot_20240923-181231_Pokmon UNITE.jpg" alt="Game 3" class="preview-img">
+
                 </p>
+
                 <p style="margin-right: 10px;">
+
                     <img src="Game ss/Pokémon Unite/Screenshot_20240923-181238_Pokmon UNITE.jpg" alt="Game 4" class="preview-img">
+
                 </p>
+
             </div>
+
             
+
             <footer>
+
                 <b style="font-size: 20px; margin-top: 10px; color: #fff;">Clash of Clans</b>
+
                 <a href="https://www.clashofstats.com/players/hawkay-9V9VRYJCL/summary">
+
                     <img src="Game ss/Clash of Clans/main1.jpg" alt="Game Image" style="margin-bottom: 20px;">
+
                 </a>
+
                 ↓↓↓↓↓↓↓↓↓↓  Click to Enlarge  ↓↓↓↓↓↓↓↓↓↓
+
                 <div class="img-container" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 10px;">
+
                     <p style="margin-right: 10px;">
+
                         <img src="Game ss/Clash of Clans/sk1.jpg" alt="Game 1" class="preview-img">
+
                     </p>
+
                     <p style="margin-right: 10px;">
+
                         <img src="Game ss/Clash of Clans/sk2.jpg" alt="Game 2" class="preview-img">
+
                     </p>
+
                     <p style="margin-right: 10px;">
+
                         <img src="Game ss/Clash of Clans/sk3.jpg" alt="Game 3" class="preview-img">
+
                     </p>
+
                     <p style="margin-right: 10px;">
+
                         <img src="Game ss/Clash of Clans/sk4.jpg" alt="Game 4" class="preview-img">
+
                     </p>
+
                 </div>
+
             </footer>
+
             <footer>
+
                 <b style="font-size: 20px; margin-top: 10px; color: #fff;">Brawl Stars</b>
+
                 <a href="https://brawlify.com/stats/profile/88880U08G">
+
                     <img src="Game ss/Brawl Stars/main1.jpg" alt="Game Image" style="margin-bottom: 20px;">
+
                 </a>
+
                 ↓↓↓↓↓↓↓↓↓↓  Click to Enlarge  ↓↓↓↓↓↓↓↓↓↓
+
                 <div class="img-container" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 10px;">
+
                     <p style="margin-right: 10px;">
+
                         <img src="Game ss/Brawl Stars/ns1.jpg" alt="Game 1" class="preview-img">
+
                     </p>
+
                     <p style="margin-right: 10px;">
+
                         <img src="Game ss/Brawl Stars/ns2.jpg" alt="Game 2" class="preview-img">
+
                     </p>
+
                     <p style="margin-right: 10px;">
+
                         <img src="Game ss/Brawl Stars/ns3.jpg" alt="Game 3" class="preview-img">
+
                     </p>
+
                     <p style="margin-right: 10px;">
+
                         <img src="Game ss/Brawl Stars/ns4.jpg" alt="Game 4" class="preview-img">
+
                     </p>
+
                 </div>
+
             </footer>
+
         </i>
 
+
+
         <i class="fas fa-times close-btn" id="close-btn"></i>
+
     </div>
+
 </section>
+
+
 
     <!-- Modal for image preview -->
+
     <div id="modal" class="modal" style="display: none;">
+
         <span class="close-modal" id="close-modal">&times;</span>
+
         <img class="modal-content" id="modal-img" alt="Preview">
+
     </div>
+
 </section>
+
         
+
         </footer>
 
+
+
         
+
         <header>
+
             <h1>Networks</h1>
+
         </header>
 
+
+
         <section class="chat-section">
+
             <h2>Call</h2>
+
             <div class="grid">
+
                 <div class="chat-box">
+
                     <a href="tel:+918777845713">
+
                         <span class="icon fas fa-phone" style="color: #ffffff;"></span>
+
                         <p>Phone</p>
+
                     </a>
+
                 </div>
+
             </div>
+
         </section>
 
 
+
+
+
         <section class="chat-section">
+
             <h2>Payments</h2>
+
             <div class="grid">
+
                 <div class="chat-box">
+
                     <a href="GooglePay_QR.png">
+
                         <span class="icon fab fa-google-pay" style="color: #db4437;"></span>
+
                         <p>Google Pay</p>
+
                     </a>
+
                 </div>
+
             </div>
+
         </section>
+
+
+
 
 
         <section class="chat-section">
+
             <h2>Chat</h2>
+
             <div class="grid">
+
                 <div class="chat-box">
+
                     <a href="sms:+918777845713">
+
                         <span class="icon fas fa-sms rcs"></span>
+
                         <p>Message</p>
+
                     </a>
+
                 </div>
+
                 <div class="chat-box">
+
                     <a href="https://wa.me/+918777845713">
+
                         <span class="icon fab fa-whatsapp whatsapp"></span>
+
                         <p>WhatsApp</p>
+
                     </a>
+
                 </div>
+
                 <div class="chat-box">
+
                     <a href="https://www.snapchat.com/add/shovith_deb002?share_id=Zo5SjSFJBfQ&locale=en-GB">
+
                         <span class="icon fab fa-snapchat-ghost" style="color: #FFFC00;"></span>
+
                         <p>Snapchat</p>
+
                     </a>
+
                 </div>
+
                 <div class="chat-box">
+
                     <a href="https://t.me/Shovith002">
+
                         <span class="icon fab fa-telegram-plane telegram"></span>
+
                         <p>Telegram</p>
+
                     </a>
+
                 </div>
+
             </div>
+
         </section>
+
+
 
         <section class="social-dms">
+
             <h2>Social Medias</h2>
+
             <div class="grid">
+
                 <div class="chat-box">
+
                     <a href="https://www.facebook.com/shovith.debnath.77?mibextid=ZbWKwL">
+
                         <span class="icon fab fa-facebook-f facebook"></span>
+
                         <p>Messenger</p>
+
                     </a>
+
                 </div>
+
                 <div class="chat-box">
+
                     <a href="https://www.instagram.com/tu_amante_sd?igsh=NWV4cng2MmNrMmp0">
+
                         <span class="icon fab fa-instagram instagram"></span>
+
                         <p>Instagram</p>
+
                     </a>
+
                 </div>
+
                 <div class="chat-box">
+
                     <a href="https://x.com/whoishawkay?t=pBbbMNKKeHVnRrcbPzAOpQ&s=09">
+
                         <span class="icon-x">
+
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="#1da1f2"><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>           
+
                         </span>
+
                         <p>X / Twitter</p>
+
                     </a>
+
                 </div>
+
             </div>
+
         </section>
 
+
+
         <!--<section class="community-chat">
+
             <h2>Community</h2>
+
             <div class="grid">
+
                 <div class="chat-box">
+
                     <a href="https://discord.com/">
+
                         <span class="icon fab fa-discord discord"></span>
+
                         <p>Discord</p>
+
                     </a>
+
                 </div>
+
                 <div class="chat-box">
+
                     <a href="https://www.reddit.com/">
+
                         <span class="icon fab fa-reddit-alien" style="color: #FF4500;"></span>
+
                         <p>Reddit</p>
+
                     </a>
+
                 </div>
+
             </div>
+
     </section>-->
+
         
+
         
+
         <footer>
+
         <header>
+
             <h1>Vault</h1>
+
         </header>
+
         <section class="vault-section">
+
             <div class="vault-box" id="vault-box">
+
                 <i class="fas fa-lock" style="font-size: 40px;"></i>
+
                 <i class="fas fa-times close-btn hidden" id="close-vault-btn"></i>
 
 
+
+
+
                <!-- Password Input -->
+
 <!-- Password Input -->
+
 <div id="vaultContent" style="margin-top: 20px;">
+
     <input type="password" id="password" placeholder="Enter Password" style="height: 50px; width: 100%; border-radius: 5px; margin-bottom: 10px; font-size: 20px; text-align: center; background-color: #222;">
+
     <button id="submit" style="height: 40px; width: 100%; border-radius: 20px; margin-bottom: 10px; border: none; font-size: 15px; font-weight: bold;">Submit</button>
+
     <div id="content" style="display: none;">
+
         <!-- Hidden content goes here -->
+
         <h2 id="vault-desc">Good Job, Now Close It</h2>
+
         <div id="vault-desc" style="margin-bottom: 20px; display: flex; justify-content: center; align-items: center;">
+
             <img id="vault-desc" src="line.gif" alt="Line GIF" style="max-width: 100%; height: auto; ">
+
         </div>
+
         <!--<div class="custom-controls">
+
             <button onclick="playPause()" class="button">Play/Pause</button>
+
             <button onclick="muteUnmute()" class="button">Mute/Unmute</button>
+
         </div>-->
+
     </div>
+
     <div id="error" style="color: red; display: none;"></div>
+
 </div>        
+
 </section>
+
         </footer>
 
 
 
 
+
+
+
+
+
         <footer>
+
         <header>
+
             <h1>Contact Form</h1>
+
         </header>
+
         <section class="contact">
+
             <h2>Contact Me</h2>
+
             <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+
                 <input type="hidden" name="access_key" value="e1fb3642-9b4f-426e-83e8-37c075513392"> <!-- Replace with your Web3Forms access key -->
+
                 <div>
+
                     <label for="name">Name:</label>
+
                     <input type="text" id="name" name="name" required>
+
                 </div>
+
                 <div>
+
                     <label for="email">Email:</label>
+
                     <input type="email" id="email" name="email" required>
+
                 </div>
+
                 <div>
+
                     <label for="message">Message:</label>
+
                     <textarea id="message" name="message" required></textarea>
+
                 </div>
+
                 <button type="submit" style="border-radius: 20px;">Send Message</button>
+
             </form>
+
             <div id="response-message"></div>
+
         </section>
+
         </footer>
+
         
+
         <footer>
+
             <p>&copy; 2024 Chat Networks, made by <a href="https://wa.me/+918777845713">Shovith</a>. All rights reserved. | <a href="#">Privacy Policy</a></p>
+
         </footer>
+
     </div>
+
     <script>
 
 
+
+
+
 //cursor//
+
 let lastX = 0;
+
 let lastY = 0;
 
+
+
 document.addEventListener('mousemove', function(e) {
+
     if (window.innerWidth > 768) {
+
         const trail = document.createElement('div');
+
         trail.classList.add('trail');
+
         document.body.appendChild(trail);
 
+
+
         const smoothX = lastX + (e.pageX - lastX) * 0.2;
+
         const smoothY = lastY + (e.pageY - lastY) * 0.2;
 
+
+
         trail.style.left = smoothX + 'px';
+
         trail.style.top = smoothY + 'px';
 
+
+
         lastX = smoothX;
+
         lastY = smoothY;
 
+
+
         // Remove the trail after 600ms
+
         setTimeout(() => {
+
             trail.remove();
+
         }, 600);
+
     }
+
 });
+
+
+
+
+
 
 
 
 
         function sharePage() {
+
             if (navigator.share) {
+
                 navigator.share({
+
                     title: 'Networks',
+
                     text: 'Check out my networks page to connect to me!',
+
                     url: window.location.href
+
                 }).then(() => {
+
                     console.log('Share successful');
+
                 }).catch((error) => {
+
                     console.error('Error sharing:', error);
+
                 });
+
             } else {
+
                 alert('Sharing not supported on this browser.');
+
             }
+
         }
+
+
+
 
 
         document.getElementById('contact-form').addEventListener('submit', function(event) {
+
     event.preventDefault(); // Prevent default form submission
+
     
+
     const formData = new FormData(this);
+
     
+
     fetch(this.action, {
+
         method: 'POST',
+
         body: formData,
+
     })
+
     .then(response => response.json())
+
     .then(data => {
+
         if (data.success) {
+
             document.getElementById('response-message').textContent = 'Message sent successfully!';
+
             this.reset(); // Reset form fields
+
         } else {
+
             document.getElementById('response-message').textContent = 'Error sending message. Please try again.';
+
         }
+
     })
+
     .catch(error => {
+
         console.error('Error:', error);
+
         document.getElementById('response-message').textContent = 'Error sending message. Please try again.';
+
     });
+
 });
 
+
+
 // JavaScript to handle the expand/collapse feature
+
 // JavaScript to handle the expand/collapse feature
+
 const gameBox = document.getElementById('game-box');
+
 const closeBtn = document.getElementById('close-btn');
+
 const gameDesc = document.getElementById('game-desc');
 
+
+
 // Ensure gameDesc is initially set to 'none' if needed
+
 gameDesc.style.display = 'none';
 
+
+
 gameBox.addEventListener('click', function () {
+
     if (!gameBox.classList.contains('active')) {
+
         gameBox.classList.add('active');
+
         gameDesc.style.display = 'flex'; // Changed from 'flex block' to 'flex'
+
     }
+
 });
+
+
 
 closeBtn.addEventListener('click', function (event) {
+
     event.stopPropagation(); // Prevent the event from triggering the game box click
+
     gameBox.classList.remove('active');
+
     gameDesc.style.display = 'none';
+
 });
 
+
+
         //vault
+
 // JavaScript to handle the expand/collapse feature
+
 const vaultBox = document.getElementById('vault-box');
+
 const closeVaultBtn = document.getElementById('close-vault-btn');
+
 const vaultDesc = document.getElementById('vault-desc');
 
+
+
         vaultBox.addEventListener('click', function () {
+
             if (!vaultBox.classList.contains('active')) {
+
                 vaultBox.classList.add('active');
+
                 vaultDesc.style.display = 'block';
+
             }
+
+        });
+
+
+
+        closeVaultBtn.addEventListener('click', function (event) {
+
+            event.stopPropagation(); // Prevent the event from triggering the game box click
+
+            vaultBox.classList.remove('active');
+
+            vaultDesc.style.display = 'none';
+
         });
 
         closeVaultBtn.addEventListener('click', function (event) {
-            event.stopPropagation(); // Prevent the event from triggering the game box click
-            vaultBox.classList.remove('active');
-            vaultDesc.style.display = 'none';
-        });
-        closeVaultBtn.addEventListener('click', function (event) {
+
             video.pause();
+
         })
 
 
 
 
 
+
+
+
+
+
+
 closeVaultBtn.addEventListener('click', function (event) {
+
     event.stopPropagation();
+
     vaultBox.classList.remove('active');
+
     vaultDesc.style.display = 'none';
+
     document.getElementById('password-container').classList.add('hidden'); // Hide password input
+
     vaultPasswordInput.value = ''; // Clear the input
+
 });
 
+
+
 closeVaultBtn.addEventListener('click', function (event) {
+
     video.pause();
+
 })
 
+
+
 const correctPassword = "12345"; // Replace with your actual password
+
   const submitButton = document.getElementById('submit');
+
   const passwordInput = document.getElementById('password');
+
   const content = document.getElementById('content');
+
   const error = document.getElementById('error');
 
+
+
   submitButton.addEventListener('click', () => {
+
     if (passwordInput.value === correctPassword) {
+
       content.style.display = 'block';
+
       error.style.display = 'none';
+
     } else {
+
       error.textContent = 'Incorrect password. Please try again.';
+
       error.style.display = 'block';
+
       content.style.display = 'none';
+
     }
 
+
+
     passwordInput.value = ''; // Clear the input field
+
   });
 
+
+
 //const video = document.getElementById('myVideo');
+
 //
+
 //    function playPause() {
+
 //        if (video.paused) {
+
 //            video.play();
+
 //        } else {
+
 //            video.pause();
+
 //        }
+
 //    }
+
 //
+
 //    function muteUnmute() {
+
 //        video.muted = !video.muted;
+
 //    }
+
 //
+
 //    // Disable right-click and touch interactions
+
 //    document.getElementById('content').addEventListener('contextmenu', function(e) {
+
 //        e.preventDefault();
+
 //    });
+
 //
+
 //    document.getElementById('content').addEventListener('touchstart', function(e) {
+
 //        e.preventDefault();
+
 //    });
 
 
 
+
+
+
+
 //modal for preview
+
 // Get modal elements
+
 const modal = document.getElementById('modal');
+
 const modalImg = document.getElementById('modal-img');
+
 const closeModal = document.getElementById('close-modal');
 
+
+
 // Add event listeners to preview images
+
 const previewImages = document.querySelectorAll('.preview-img');
+
 previewImages.forEach(img => {
+
     img.addEventListener('click', function() {
+
         modal.style.display = 'flex'; // Show the modal
+
         modalImg.src = this.src; // Set the modal image source to clicked image
+
     });
+
 });
+
+
 
 // Close modal when the close button is clicked
+
 closeModal.addEventListener('click', function() {
+
     modal.style.display = 'none'; // Hide the modal
+
 });
+
+
 
 // Close modal when clicking outside the image
+
 modal.addEventListener('click', function(event) {
+
     if (event.target === modal) {
+
         modal.style.display = 'none'; // Hide the modal
+
     }
+
 });
 
-        
-  
+
+
 
 
 </script>
+
 </body>
-</html>
+
+    </html>
