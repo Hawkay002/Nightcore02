@@ -1198,15 +1198,16 @@ pointer-events: all;
       display: none; /* Ensure it's hidden until loader finishes */
     }
 	    /* Loader Container */
+/* Loader Container */
 .loader-container {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh; /* Full viewport height */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
     background: linear-gradient(135deg, #000, #1a1a1a, #000); /* Matches body gradient */
     z-index: 10000; /* Ensures it's above all other content */
 }
@@ -1214,9 +1215,9 @@ pointer-events: all;
 /* SVG Loader Styling */
 svg {
     width: 150px; /* Adjust size of the loader */
-    height: 150px;
-    margin: 0 auto;
+    height: auto; /* Maintain aspect ratio */
 }
+
 
 	    /* From Uiverse.io by Juanes200122 */ 
 .container {
