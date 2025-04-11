@@ -1318,6 +1318,30 @@ svg {
     cursor: pointer;
 }
 
+
+	    /* Style for the datetime and weather container */
+#datetime-weather {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* Style for the datetime display */
+#datetime {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+/* Style for the weather display */
+#weather {
+    font-size: 1rem;
+}
+
+/* Style for weather icons */
+.weather-icon {
+    margin-right: 5px;
+}
+
 	    
 </style>
 
@@ -1473,7 +1497,16 @@ svg {
             <h1>Shovith Debnath</h1>
 
             <p>Howdy silly goose, it's your homeboy Shovith. Multi-talented, goofy, a little off-topic, and a lot of autism. Hope to know each other more!</p>
-	
+
+		<!-- Real-Time Clock and Weather Display -->
+<div id="datetime-weather">
+    <div id="datetime"></div>
+    <div id="weather">
+        <i id="weather-icon"></i>
+        <span id="temperature"></span>
+    </div>
+</div>
+		
 	</section>
 
         
@@ -2450,6 +2483,73 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+
+	    document.addEventListener("DOMContentLoaded", function () {
+    const apiKey = '8MAsRyTximVzAiORVrjg3EL5sHgCOFP3';
+    const latitude = '-22.725062';
+    const longitude = '88.339761';
+
+    function updateDateTime() {
+        const now = new Date();
+        const dateTimeString = now.toLocaleString();
+
+        document.getElementById("datetime").textContent = dateTimeString;
+    }
+
+    function getWeather() {
+        const apiUrl = `https://api.tomorrow.io/v4/weather/realtime?location=${latitude},${longitude}&apikey=${apiKey}`;
+
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                updateWeather(data);
+            })
+            .catch(error => {
+                console.error('Error fetching weather data:', error);
+                document.getElementById("weather").textContent = "Weather data not available.";
+            });
+    }
+
+    function getWeatherIcon(weatherCode) {
+        const weatherIcons = {
+            0: 'fas fa-sun',
+            1000: 'fas fa-sun',
+            1001: 'fas fa-cloud-sun',
+            1100: 'fas fa-cloud',
+            1101: 'fas fa-cloud-sun',
+            1102: 'fas fa-cloud',
+            4000: 'fas fa-cloud',
+            4001: 'fas fa-cloud-rain',
+            4200: 'fas fa-cloud-rain',
+            4201: 'fas fa-cloud-showers-heavy',
+            6000: 'fas fa-snowflake',
+            6001: 'fas fa-snowflake',
+            6200: 'fas fa-snowflake',
+            6201: 'fas fa-snowflake',
+            7000: 'fas fa-snowflake',
+            7101: 'fas fa-snowflake',
+            7102: 'fas fa-snowflake',
+            8000: 'fas fa-bolt'
+        };
+        return weatherIcons[weatherCode] || 'fas fa-question';
+    }
+
+    function updateWeather(data) {
+        const weatherCode = data.data.values.weatherCode;
+        const weatherIcon = getWeatherIcon(weatherCode);
+        const temperature = data.data.values.temperature;
+
+        document.getElementById("weather-icon").className = 'fas ' + weatherIcon + ' weather-icon';
+        document.getElementById("temperature").textContent = `${temperature}°C`;
+    }
+
+    // Update date and time every second
+    setInterval(updateDateTime, 1000);
+
+    // Initial call to display date, time, and weather immediately
+    updateDateTime();
+    getWeather();
+});
 
 </script>
 
