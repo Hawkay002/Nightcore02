@@ -1318,7 +1318,6 @@ svg {
     cursor: pointer;
 }
 
-
 /* Style for the datetime and weather container */
 #datetime-weather {
     text-align: center;
@@ -1326,47 +1325,49 @@ svg {
     color: #fff;
 }
 
-/* Style for the datetime container */
-#datetime-container {
-    display: flex; /* Use Flexbox to display items in a row */
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Align items vertically */
+/* Style for the labels container */
+#labels {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Style for the day */
-#day {
+/* Style for the values container */
+#values {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style for the individual labels */
+#day-label,
+#date-label,
+#time-label {
     font-size: 1rem;
-    margin-bottom: 5px;
-    margin-right: 10px; /* Add spacing between elements */
+    margin-right: 10px;
+    /* Spacing between labels */
 }
 
-/* Style for the date */
-#date {
-    font-size: 1rem;
-    margin-bottom: 5px;
-    margin-right: 10px; /* Add spacing between elements */
-}
-
-/* Style for the time */
+/* Style for the day, date, and time */
+#day,
+#date,
 #time {
     font-size: 1rem;
-    margin-bottom: 5px;
-    margin-right: 10px; /* Add spacing between elements */
+    margin-right: 10px;
+    /* Spacing between values */
 }
 
 /* Style for the weather display */
 #weather {
     font-size: 1rem;
-    margin-top: 5px; /* Add spacing between time and weather */
+    margin-top: 5px;
+    /* Spacing between time and weather */
 }
 
 /* Style for weather icons */
 .weather-icon {
     margin-right: 5px;
 }
-
-
-
 
 	    
 </style>
@@ -1410,7 +1411,7 @@ svg {
     ></polygon>
     <defs>
       <linearGradient y2="100%" x2="10%" y1="0%" x1="0%" id="gradiente">
-        <stop style="stop-color: #1e2026;stop-opacity:1" offset="20%"></stop>
+     0%"></stop>
         <stop style="stop-color:#414750;stop-opacity:1" offset="60%"></stop>
       </linearGradient>
     </defs>
@@ -1527,16 +1528,22 @@ svg {
 		<!-- Real-Time Clock and Weather Display -->
 <footer>
 <div id="datetime-weather">
-    <div id="datetime-container">
-        <div id="day">Day - </div>
-        <div id="date">Date - </div>
-        <div id="time">Time - </div>
+    <div id="labels">
+        <div id="day-label">Day -</div>
+        <div id="date-label">Date -</div>
+        <div id="time-label">Time -</div>
+    </div>
+    <div id="values">
+        <div id="day"></div>
+        <div id="date"></div>
+        <div id="time"></div>
     </div>
     <div id="weather">
         <i id="weather-icon"></i>
         <span id="temperature"></span>
     </div>
 </div>
+
 
 
 </footer>
@@ -2540,9 +2547,9 @@ document.addEventListener("DOMContentLoaded", function () {
             second: '2-digit'
         });
 
-        document.getElementById("day").textContent = `Day - ${day}`;
-        document.getElementById("date").textContent = `Date - ${date}`;
-        document.getElementById("time").textContent = `Time - ${time}`;
+        document.getElementById("day").textContent = `${day}`;
+        document.getElementById("date").textContent = `${date}`;
+        document.getElementById("time").textContent = `${time}`;
     }
 
     function getWeather() {
@@ -2597,6 +2604,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setInterval(updateDateTime, 1000);
 });
+
 
 	    
 </script>
