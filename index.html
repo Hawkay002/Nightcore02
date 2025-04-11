@@ -1326,8 +1326,26 @@ svg {
     color: #fff;
 }
 
-/* Style for the datetime display */
-#datetime {
+/* Style for the day */
+#day {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+/* Style for the date */
+#date {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+/* Style for the time */
+#time {
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+/* Style for the location */
+#location {
     font-size: 1rem;
     margin-bottom: 5px;
 }
@@ -1335,12 +1353,15 @@ svg {
 /* Style for the weather display */
 #weather {
     font-size: 1rem;
+    margin-top: 5px;
+    /* Add spacing between time and weather */
 }
 
 /* Style for weather icons */
 .weather-icon {
     margin-right: 5px;
 }
+
 
 	    
 </style>
@@ -1500,12 +1521,16 @@ svg {
 
 		<!-- Real-Time Clock and Weather Display -->
 <div id="datetime-weather">
-    <div id="datetime"></div>
+    <div id="day">Day - </div>
+    <div id="date">Date - </div>
+    <div id="time">Time - </div>
+    <div id="location">Location - </div>
     <div id="weather">
         <i id="weather-icon"></i>
         <span id="temperature"></span>
     </div>
 </div>
+
 		
 	</section>
 
@@ -2491,9 +2516,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function updateDateTime() {
         const now = new Date();
-        const dateTimeString = now.toLocaleString();
 
-        document.getElementById("datetime").textContent = dateTimeString;
+        const day = now.toLocaleDateString('en-US', { weekday: 'long' });
+        const date = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+        document.getElementById("day").textContent = `Day - ${day}`;
+        document.getElementById("date").textContent = `Date - ${date}`;
+        document.getElementById("time").textContent = `Time - ${time}`;
+        document.getElementById("location").textContent = `Location - Lat: ${latitude}, Long: ${longitude}`;
     }
 
     function getWeather() {
@@ -2543,14 +2574,15 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("temperature").textContent = `${temperature}°C`;
     }
 
-    // Update date and time every second
-    setInterval(updateDateTime, 1000);
-
-    // Initial call to display date, time, and weather immediately
+    // Initial call to display date, time, location, and weather immediately
     updateDateTime();
     getWeather();
+
+    // Update date, time, location every second
+    setInterval(updateDateTime, 1000);
 });
 
+	    
 </script>
 
 </body>
