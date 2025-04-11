@@ -1278,6 +1278,39 @@ svg {
   animation-delay: 0.5s;
 }
 
+/*--gpay--*/ 
+	    /* Popup Container */
+.popup-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Transparent dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Ensure it's above all other content */
+}
+
+/* Popup Content */
+.popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
 	    
 </style>
 
@@ -1656,17 +1689,21 @@ svg {
 
             <div class="grid">
 
-                <div class="chat-box">
+                <!-- Google Pay Button -->
+<div class="chat-box">
+    <button id="gpay-button" class="icon fab fa-google-pay" style="color: #db4437; border: none; background: none;"></button>
+    <p>Google Pay</p>
+</div>
 
-                    <a href="GooglePay_QR.png">
+<!-- Popup Modal -->
+<div id="gpay-popup" class="popup-container" style="display: none;">
+    <div class="popup-content">
+        <span id="close-popup" class="close-btn">&times;</span>
+        <img src="GooglePay_QR.png" alt="Google Pay QR Code" style="width: 300px; height: auto;">
+        <p>Scan the QR code to pay</p>
+    </div>
+</div>
 
-                        <span class="icon fab fa-google-pay" style="color: #db4437;"></span>
-
-                        <p>Google Pay</p>
-
-                    </a>
-
-                </div>
 
             </div>
 
@@ -2379,6 +2416,31 @@ modal.addEventListener('click', function(event) {
 
 
   
+document.addEventListener("DOMContentLoaded", function () {
+    const gpayButton = document.getElementById("gpay-button");
+    const gpayPopup = document.getElementById("gpay-popup");
+    const closePopup = document.getElementById("close-popup");
+
+    // Show popup on button click
+    gpayButton.addEventListener("click", () => {
+        gpayPopup.style.display = "flex"; // Show the popup
+        document.body.style.overflow = "hidden"; // Disable scrolling
+    });
+
+    // Close popup on close button click
+    closePopup.addEventListener("click", () => {
+        gpayPopup.style.display = "none"; // Hide the popup
+        document.body.style.overflow = "auto"; // Enable scrolling
+    });
+
+    // Close popup when clicking outside the content
+    gpayPopup.addEventListener("click", (event) => {
+        if (event.target === gpayPopup) {
+            gpayPopup.style.display = "none";
+            document.body.style.overflow = "auto";
+        }
+    });
+});
 
 
 
