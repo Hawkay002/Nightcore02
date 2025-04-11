@@ -1328,15 +1328,17 @@ svg {
 /* Style for the labels container */
 #labels {
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Distribute labels evenly */
     align-items: center;
+    width: 100%; /* Make sure it takes full width */
 }
 
 /* Style for the values container */
 #values {
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* Distribute values evenly */
     align-items: center;
+    width: 100%; /* Make sure it takes full width */
 }
 
 /* Style for the individual labels */
@@ -1344,8 +1346,6 @@ svg {
 #date-label,
 #time-label {
     font-size: 1rem;
-    margin-right: 20px;
-    /* Spacing between labels */
 }
 
 /* Style for the day, date, and time */
@@ -1353,21 +1353,20 @@ svg {
 #date,
 #time {
     font-size: 1rem;
-    margin-right: 20px;
-    /* Spacing between values */
 }
 
 /* Style for the weather display */
 #weather {
     font-size: 1rem;
-    margin-top: 10px;
+    margin-top: 5px;
     /* Spacing between time and weather */
 }
 
 /* Style for weather icons */
 .weather-icon {
-    margin-right: 8px;
+    margin-right: 5px;
 }
+
 
 	    
 </style>
