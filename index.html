@@ -1319,12 +1319,15 @@ svg {
 }
 
 
-	    /* Style for the datetime and weather container */
 /* Style for the datetime and weather container */
 #datetime-weather {
     text-align: center;
     margin-bottom: 20px;
     color: #fff;
+}
+
+/* Style for the datetime container */
+#datetime-container {
     display: flex; /* Use Flexbox to display items in a row */
     justify-content: center; /* Center items horizontally */
     align-items: center; /* Align items vertically */
@@ -1354,14 +1357,14 @@ svg {
 /* Style for the weather display */
 #weather {
     font-size: 1rem;
-    margin-top: 0;
-    /* Remove top margin */
+    margin-top: 5px; /* Add spacing between time and weather */
 }
 
 /* Style for weather icons */
 .weather-icon {
     margin-right: 5px;
 }
+
 
 
 
@@ -1524,14 +1527,17 @@ svg {
 		<!-- Real-Time Clock and Weather Display -->
 <footer>
 <div id="datetime-weather">
-    <div id="day">Day - </div>
-    <div id="date">Date - </div>
-    <div id="time">Time - </div>
+    <div id="datetime-container">
+        <div id="day">Day - </div>
+        <div id="date">Date - </div>
+        <div id="time">Time - </div>
+    </div>
     <div id="weather">
         <i id="weather-icon"></i>
         <span id="temperature"></span>
     </div>
 </div>
+
 
 </footer>
 		
