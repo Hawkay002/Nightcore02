@@ -2568,26 +2568,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function getWeatherIcon(weatherCode) {
         const weatherIcons = {
-            0: 'fas fa-sun',
-            1000: 'fas fa-sun',
-            1001: 'fas fa-cloud-sun',
-            1100: 'fas fa-cloud',
-            1101: 'fas fa-cloud-sun',
-            1102: 'fas fa-cloud',
-            4000: 'fas fa-cloud',
-            4001: 'fas fa-cloud-rain',
-            4200: 'fas fa-cloud-rain',
-            4201: 'fas fa-cloud-showers-heavy',
-            6000: 'fas fa-snowflake',
-            6001: 'fas fa-snowflake',
-            6200: 'fas fa-snowflake',
-            6201: 'fas fa-snowflake',
-            7000: 'fas fa-snowflake',
-            7101: 'fas fa-snowflake',
-            7102: 'fas fa-snowflake',
-            8000: 'fas fa-bolt'
+            0: 'fas fa-sun',         // Clear
+            1000: 'fas fa-sun',      // Clear
+            1001: 'fas fa-cloud-sun', // Cloudy
+            1100: 'fas fa-cloud',      // Partly Cloudy
+            1101: 'fas fa-cloud-sun', // Partly Cloudy
+            1102: 'fas fa-cloud',      // Mostly Cloudy
+            4000: 'fas fa-cloud',      // Drizzle
+            4001: 'fas fa-cloud-rain',  // Rain
+            4200: 'fas fa-cloud-rain', // Light Rain
+            4201: 'fas fa-cloud-showers-heavy', // Heavy Rain
+            6000: 'fas fa-snowflake', // Freezing Drizzle
+            6001: 'fas fa-snowflake', // Freezing Rain
+            6200: 'fas fa-snowflake', // Light Freezing Rain
+            6201: 'fas fa-snowflake', // Heavy Freezing Rain
+            7000: 'fas fa-snowflake', // Ice Pellets
+            7101: 'fas fa-snowflake', // Heavy Ice Pellets
+            7102: 'fas fa-snowflake', // Light Ice Pellets
+            8000: 'fas fa-bolt'      // Thunderstorm
         };
-        return weatherIcons[weatherCode] || 'fas fa-question';
+        return weatherIcons[weatherCode] || 'fas fa-cloud';  // Default to cloud
     }
 
     function updateWeather(data) {
@@ -2604,6 +2604,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     setInterval(updateDateTime, 1000);
 });
+
 
 
 	    
