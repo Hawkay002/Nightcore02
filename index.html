@@ -329,81 +329,121 @@ color: #fff; /* White text color */
 margin-top: 15px; /* Space above response message */
 }
 
-/*Games*/
-/* Games Section */
-.games-section h2 {
-font-size: 20px;
-margin-bottom: 20px;
-margin-top: 40px;
-text-align: center;
+/*GAMES*/
+.games-section {
+  background: #141414;
+  color: #fff;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.games-section h1 {
+  font-size: 32px;
+  margin-bottom: 30px;
 }
 
 .game-box {
-background-color: #141414;
-border-radius: 20px;
-padding: 20px;
-text-align: center;
-cursor: pointer;
-position: relative;
-transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
-max-width: 100%;
+  background: #1e1e1e;
+  border-radius: 15px;
+  padding: 20px;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 
-.game-box i {
-color: #fff;
+.game-desc {
+  display: none;
+  flex-direction: column;
+  gap: 40px;
+  margin-top: 20px;
 }
 
-.game-box h2 {
-margin-top: 10px;
-color: #fff;
-font-size: 20px;
-display: none;
-flex-wrap: wrap;
+.game-box.active .game-desc {
+  display: flex;
 }
 
-.game-box h2 {
-margin-top: 10px;
+.game-entry h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #6ee7b7;
 }
 
-.game-desc p {
-margin-right: 10px;
-margin-top: 10px;
-display: none;
+.game-entry img {
+  max-width: 100%;
+  border-radius: 10px;
+  margin-top: 10px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease;
 }
 
-/* Hidden image container */
-.game-box img {
-display: none;
-margin-top: 15px;
-max-width: 100%;
-border-radius: 10px;
-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+.preview-img {
+  width: 23%;
+  cursor: pointer;
+  transition: transform 0.3s;
 }
 
-/* Active state for expanded image */
-.game-box.active img {
-display: block;
+.preview-img:hover {
+  transform: scale(1.05);
 }
 
-/* Close Button Styling */
+.img-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.enlarge-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #aaa;
+}
+
 .close-btn {
-display: none;
-position: absolute;
-top: 15px;
-right: 15px;
-margin-top: 10px;
-color: #fff;
-cursor: pointer;
-background: none;
-border-radius: 20px;
-font-size: 30px;
-padding-right: 15px;
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
 }
 
-.game-box.active .close-btn  {
-display: block;
+.game-box.active .close-btn {
+  display: block;
 }
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 12px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  font-size: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+
 
 /* Vault Section */
 .vault-section h2 {
@@ -956,84 +996,71 @@ points="50,50 120.5,8 120.5,35 50,80">
 
 <!-- Games Section -->
 <footer>
-<header>
-<h1>Games</h1>
-</header>
+<!-- Games Section -->
 <section class="games-section">
-<div class="game-box" id="game-box">
-<i class="fas fa-gamepad" style="font-size: 40px;"></i>
-<!-- Hidden content -->
-<i id="game-desc" style="display: flex none; justify-content: center; flex-wrap: wrap;">
-<b style="font-size: 20px; margin-top: 20px;">Pokemon UNITE</b>
-<a href="https://uniteapi.dev/p/LXLC5ET">
-<img src="Game ss/Pokémon Unite/2024-09-23_1105471.jpg" alt="Game Image" style="margin-bottom: 20px;">
-</a>
-↓↓↓↓↓↓↓↓↓↓  Click to Enlarge  ↓↓↓↓↓↓↓↓↓↓
-<div class="img-container" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 10px;">
-<p style="margin-right: 10px;">
-<img src="Game ss/Pokémon Unite/2024-09-23_1298212.jpg" alt="Game 1" class="preview-img">
-</p>
-<p style="margin-right: 10px;">
-<img src="Game ss/Pokémon Unite/Screenshot_20240923-181136_Pokmon UNITE.jpg" alt="Game 2" class="preview-img">
-</p>
-<p style="margin-right: 10px;">
-<img src="Game ss/Pokémon Unite/Screenshot_20240923-181231_Pokmon UNITE.jpg" alt="Game 3" class="preview-img">
-</p>
-<p style="margin-right: 10px;">
-<img src="Game ss/Pokémon Unite/Screenshot_20240923-181238_Pokmon UNITE.jpg" alt="Game 4" class="preview-img">
-</p>
-</div>
-<footer>
-<b style="font-size: 20px; margin-top: 10px; color: #fff;">Clash of Clans</b>
-<a href="https://www.clashofstats.com/players/hawkay-9V9VRYJCL/summary">
-<img src="Game ss/Clash of Clans/main1.jpg" alt="Game Image" style="margin-bottom: 20px;">
-</a>
-↓↓↓↓↓↓↓↓↓↓  Click to Enlarge  ↓↓↓↓↓↓↓↓↓↓
-<div class="img-container" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 10px;">
-<p style="margin-right: 10px;">
-<img src="Game ss/Clash of Clans/sk1.jpg" alt="Game 1" class="preview-img">
-</p>
-<p style="margin-right: 10px;">
-<img src="Game ss/Clash of Clans/sk2.jpg" alt="Game 2" class="preview-img">
-</p>
-<p style="margin-right: 10px;">
-<img src="Game ss/Clash of Clans/sk3.jpg" alt="Game 3" class="preview-img">
-</p>
-<p style="margin-right: 10px;">
-<img src="Game ss/Clash of Clans/sk4.jpg" alt="Game 4" class="preview-img">
-</p>
-</div>
-</footer>
-<footer>
-<b style="font-size: 20px; margin-top: 10px; color: #fff;">Brawl Stars</b>
-<a href="https://brawlify.com/stats/profile/88880U08G">
-<img src="Game ss/Brawl Stars/main1.jpg" alt="Game Image" style="margin-bottom: 20px;">
-</a>
-↓↓↓↓↓↓↓↓↓↓  Click to Enlarge  ↓↓↓↓↓↓↓↓↓↓
-<div class="img-container" style="display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-top: 10px;">
-<p style="margin-right: 10px;">
-<img src="Game ss/Brawl Stars/ns1.jpg" alt="Game 1" class="preview-img">
-</p>
-<p style="margin-right: 10px;">
-<img src="Game ss/Brawl Stars/ns2.jpg" alt="Game 2" class="preview-img">
-</p>
-<p style="margin-right: 10px;">
-<img src="Game ss/Brawl Stars/ns3.jpg" alt="Game 3" class="preview-img">
-</p>
-<p style="margin-right: 10px;">
-<img src="Game ss/Brawl Stars/ns4.jpg" alt="Game 4" class="preview-img">
-</p>
-</div>
-</footer>
-</i>
-<i class="fas fa-times close-btn" id="close-btn"></i>
-</div>
-<!-- Modal for image preview -->
-<div id="modal" class="modal" style="display: none;">
-<span class="close-modal" id="close-modal">&times;</span>
-<img class="modal-content" id="modal-img" alt="Preview">
-</div>
-</section>
+  <header>
+    <h1>Games</h1>
+  </header>
+
+  <div class="game-box" id="game-box">
+    <i class="fas fa-gamepad" style="font-size: 40px;"></i>
+
+    <div id="game-desc" class="game-desc">
+      <!-- Game Block -->
+      <div class="game-entry">
+        <h2>Pokémon UNITE</h2>
+        <a href="https://uniteapi.dev/p/LXLC5ET" target="_blank">
+          <img src="Game ss/Pokémon Unite/2024-09-23_1105471.jpg" alt="Pokémon Unite Main">
+        </a>
+        <p class="enlarge-text">Click to Enlarge</p>
+        <div class="img-container">
+          <img src="Game ss/Pokémon Unite/2024-09-23_1298212.jpg" alt="Game 1" class="preview-img">
+          <img src="Game ss/Pokémon Unite/Screenshot_20240923-181136_Pokmon UNITE.jpg" alt="Game 2" class="preview-img">
+          <img src="Game ss/Pokémon Unite/Screenshot_20240923-181231_Pokmon UNITE.jpg" alt="Game 3" class="preview-img">
+          <img src="Game ss/Pokémon Unite/Screenshot_20240923-181238_Pokmon UNITE.jpg" alt="Game 4" class="preview-img">
+        </div>
+      </div>
+
+      <!-- Game Block -->
+      <div class="game-entry">
+        <h2>Clash of Clans</h2>
+        <a href="https://www.clashofstats.com/players/hawkay-9V9VRYJCL/summary" target="_blank">
+          <img src="Game ss/Clash of Clans/main1.jpg" alt="Clash Main">
+        </a>
+        <p class="enlarge-text">Click to Enlarge</p>
+        <div class="img-container">
+          <img src="Game ss/Clash of Clans/sk1.jpg" alt="Game 1" class="preview-img">
+          <img src="Game ss/Clash of Clans/sk2.jpg" alt="Game 2" class="preview-img">
+          <img src="Game ss/Clash of Clans/sk3.jpg" alt="Game 3" class="preview-img">
+          <img src="Game ss/Clash of Clans/sk4.jpg" alt="Game 4" class="preview-img">
+        </div>
+      </div>
+
+      <!-- Game Block -->
+      <div class="game-entry">
+        <h2>Brawl Stars</h2>
+        <a href="https://brawlify.com/stats/profile/88880U08G" target="_blank">
+          <img src="Game ss/Brawl Stars/main1.jpg" alt="Brawl Stars Main">
+        </a>
+        <p class="enlarge-text">Click to Enlarge</p>
+        <div class="img-container">
+          <img src="Game ss/Brawl Stars/ns1.jpg" alt="Game 1" class="preview-img">
+          <img src="Game ss/Brawl Stars/ns2.jpg" alt="Game 2" class="preview-img">
+          <img src="Game ss/Brawl Stars/ns3.jpg" alt="Game 3" class="preview-img">
+          <img src="Game ss/Brawl Stars/ns4.jpg" alt="Game 4" class="preview-img">
+        </div>
+      </div>
+    </div>
+
+    <i class="fas fa-times close-btn" id="close-btn"></i>
+  </div>
+
+  <!-- Modal Preview -->
+  <div id="modal" class="modal">
+    <span class="close-modal" id="close-modal">&times;</span>
+    <img class="modal-content" id="modal-img" alt="Preview">
+  </div>
+            </section>
 </footer>
 
 <header>
