@@ -1197,10 +1197,11 @@ cursor: pointer;
 /* Hide Main Content Initially */
 
 #mainContent {
-
-display: none; /* Ensure it's hidden until loader finishes */
-
+  opacity: 0;
+  transition: opacity 1s ease-in;
+  display: none; /* initially hidden */
 }
+
 
 /* Loader Container */
 
@@ -2487,24 +2488,21 @@ points="50,50 120.5,8 120.5,35 50,80">
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
-
-// Wait for the loader animation to finish (5 seconds)
-
-setTimeout(() => {
-
-const loader = document.querySelector(".loader-container");
-
-const mainContent = document.getElementById("mainContent");
-
-// Hide loader and show main content
-
-loader.style.display = "none"; // Remove the loader
-
-mainContent.style.display = "block"; // Reveal the main content
-
-}, 10000); // Changed to 6000 for a 6-second delay
-
+  // Wait for the loader animation to finish (10 seconds)
+  setTimeout(() => {
+    const loader = document.querySelector(".loader-container");
+    const mainContent = document.getElementById("mainContent");
+    // Hide loader
+    loader.style.display = "none";
+    // Show main content and trigger fade-in
+    mainContent.style.display = "block";
+    // Use a small delay to ensure display:block is applied before opacity change
+    setTimeout(() => {
+      mainContent.style.opacity = "1";
+    }, 50);
+  }, 6000);
 });
+
 
 
 
