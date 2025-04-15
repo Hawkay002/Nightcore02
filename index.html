@@ -1555,7 +1555,77 @@ margin-right: 7px;
 }
 
 
+/*new weather*/
+  #local-clock-weather {
+  background: #141414;
+  color: #fff;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
 
+#local-clock-weather h2 {
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+#date-day {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+#time {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+#day-night {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+#day-night-icon,
+#weather-icon {
+  margin-right: 8px;
+  filter: drop-shadow(0 0 5px #ff073a80);
+  transition: color 0.3s ease;
+}
+
+#day-night-icon.fas.fa-moon {
+  color: #a0aaff;
+}
+
+#day-night-icon.fas.fa-sun {
+  color: #ffd54f;
+}
+
+#weather-icon {
+  color: #fff;
+}
+
+#weather {
+  font-size: 1.2rem;
+}
+
+/* Responsive for small screens */
+@media (max-width: 480px) {
+  #local-clock-weather {
+    max-width: 90%;
+    padding: 15px;
+  }
+  #time {
+    font-size: 2rem;
+  }
+  #day-night {
+    font-size: 1.2rem;
+  }
+}
+  
 </style>
 
 </head>
@@ -2406,7 +2476,19 @@ points="50,50 120.5,8 120.5,35 50,80">
 
 </div>
 
-
+<section id="local-clock-weather">
+  <h2>Kolkata, India</h2>
+  <div id="date-day"></div>
+  <div id="time"></div>
+  <div id="day-night">
+    <i id="day-night-icon" class="fas fa-sun"></i>
+    <span id="day-night-text">Day</span>
+  </div>
+  <div id="weather">
+    <i id="weather-icon" class="fas fa-cloud"></i>
+    <span id="temperature">--°C</span>
+  </div>
+</section>
 
 <script>
 
@@ -2956,6 +3038,7 @@ const weatherIcons = {
 
 };
 
+  
 return weatherIcons[weatherCode] || 'fas fa-cloud';  // Default to cloud
 
 }
@@ -2982,8 +3065,91 @@ setInterval(updateDateTime, 1000);
 
 });
 
-</script>
 
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js">
+
+  const apiKey = 'da5cc509bc967933cf9f957a7a06eb9b';
+  const city = 'Kolkata';
+  const country = 'IN';
+
+  const dateDayEl = document.getElementById('date-day');
+  const timeEl = document.getElementById('time');
+  const dayNightIcon = document.getElementById('day-night-icon');
+  const dayNightText = document.getElementById('day-night-text');
+  const weatherIcon = document.getElementById('weather-icon');
+  const temperatureEl = document.getElementById('temperature');
+
+  function getWeatherIcon(code) {
+    if (code >= 200 && code < 300) return 'fas fa-bolt'; // Thunderstorm
+    if (code >= 300 && code < 500) return 'fas fa-cloud-rain'; // Drizzle
+    if (code >= 500 && code < 600) return 'fas fa-cloud-showers-heavy'; // Rain
+    if (code >= 600 && code < 700) return 'fas fa-snowflake'; // Snow
+    if (code >= 700 && code < 800) return 'fas fa-smog'; // Atmosphere
+    if (code === 800) return 'fas fa-sun'; // Clear
+    if (code === 801) return 'fas fa-cloud-sun'; // Few clouds
+    if (code > 801 && code < 805) return 'fas fa-cloud'; // Clouds
+    return 'fas fa-cloud'; // Default
+  }
+
+  function updateDateTime() {
+    const now = new Date();
+    const optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
+    const optionsDay = { weekday: 'long' };
+    const dateStr = now.toLocaleDateString('en-IN', optionsDate);
+    const dayStr = now.toLocaleDateString('en-IN', optionsDay);
+
+    let hours = now.getHours();
+    const minutes = now.getMinutes();
+    const seconds = now.getSeconds();
+    const ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12 || 12;
+
+    const timeStr = `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}:${seconds.toString().padStart(2,'0')} ${ampm}`;
+
+    dateDayEl.textContent = `${dateStr} - ${dayStr}`;
+    timeEl.textContent = timeStr;
+
+    if (now.getHours() >= 6 && now.getHours() < 18) {
+      dayNightIcon.className = 'fas fa-sun';
+      dayNightText.textContent = 'Day';
+    } else {
+      dayNightIcon.className = 'fas fa-moon';
+      dayNightText.textContent = 'Night';
+    }
+  }
+
+  async function fetchWeather() {
+    try {
+      const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&units=metric&appid=${apiKey}`);
+      const data = await response.json();
+      if (data.cod === 200) {
+        const weatherCode = data.weather[0].id;
+        const temp = Math.round(data.main.temp);
+        weatherIcon.className = getWeatherIcon(weatherCode);
+        temperatureEl.textContent = `${temp}°C`;
+      } else {
+        temperatureEl.textContent = 'N/A';
+        weatherIcon.className = 'fas fa-exclamation-triangle';
+      }
+    } catch (error) {
+      temperatureEl.textContent = 'N/A';
+      weatherIcon.className = 'fas fa-exclamation-triangle';
+      console.error('Weather fetch error:', error);
+    }
+  }
+
+  function init() {
+    updateDateTime();
+    fetchWeather();
+    setInterval(updateDateTime, 1000);
+    setInterval(fetchWeather, 10 * 60 * 1000);
+  }
+
+  document.addEventListener('DOMContentLoaded', init);
+
+</script>
+</script>
 
 
 </body>
