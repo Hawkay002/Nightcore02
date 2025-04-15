@@ -726,56 +726,78 @@ cursor: pointer;
 
 /* Style for the datetime and weather container */
 #datetime-weather {
-text-align: center;
-margin-bottom: 20px;
-color: #fff;
+  margin-top: 20px;
+  color: #fff;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Style for the labels container */
-#labels {
-display: flex;
-justify-content: space-between;
-
-/* Distribute labels evenly */
-align-items: center;
-width: 100%;/* Make sure it takes full width */
+/* Location line (1st line) */
+#location {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
 }
 
-/* Style for the values container */
-#values {
-display: flex;
-justify-content: space-between;/* Distribute values evenly */
-align-items: center;
-width: 100%;/* Make sure it takes full width */
+/* Time line (2nd line) */
+#time-line {
+  font-size: 3rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
 }
 
-/* Style for the individual labels */
-#day-label,
-#date-label,
-#time-label {
-font-size: 1rem;
-margin-right: 10px;/* Add margin to create space */
+/* Date and day line (3rd line) */
+#date-day-line {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
 }
 
-/* Style for the day, date, and time */
-#day,
-#date,
-#time {
-font-size: 1rem;
-margin-right: 15px;
-margin-left: 15px;    /* Add margin to create space */
+/* Weather line (4th line) */
+#weather-line {
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 
-/* Style for the weather display */
-#weather {
-font-size: 1rem;
-margin-top: 20px;/* Spacing between time and weather */
+/* Style for weather icons and day/night icon */
+.weather-icon,
+#day-night-icon {
+  font-size: 1.5rem;
+  filter: drop-shadow(0 0 5px currentColor);
+  transition: color 0.3s ease;
 }
 
-/* Style for weather icons */
-.weather-icon {
-margin-right: 7px;
+/* Day icon style */
+.fas.fa-sun {
+  color: #ffd700; /* Gold for day */
 }
+
+/* Night icon style */
+.fas.fa-moon {
+  color: #a0a0ff; /* Soft blue for night */
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  #time-line {
+    font-size: 2.2rem !important;
+  }
+
+  #date-day-line,
+  #weather-line {
+    font-size: 1rem !important;
+  }
+}
+
+
 
 </style>
 </head>
@@ -934,24 +956,29 @@ points="50,50 120.5,8 120.5,35 50,80">
 <p>Howdy silly goose, it's your homeboy Shovith. Multi-talented, goofy, a little off-topic, and a lot of autism. Hope to know each other more!</p>
 
 <!-- Real-Time Clock and Weather Display -->
-<footer>
-<div id="datetime-weather">
-<div id="labels">
-<div id="date-label"></div>
-<div id="day-label"></div>
-<div id="time-label"></div>
-</div>
-<div id="values">
-<div id="date"></div>
-<div id="day"></div>
-<div id="time"></div>
-</div>
-<div id="weather">
-<i id="weather-icon"></i>
-<span id="temperature"></span>
-</div>
-</div>
-</footer>
+
+</section>
+
+  <section id="datetime-weather" style="margin-top: 20px; color: #fff; text-align: center; font-family: Arial, sans-serif; max-width: 400px; margin-left: auto; margin-right: auto;">
+  <!-- 1st line: Location -->
+  <div id="location" style="font-size: 1.2rem; margin-bottom: 8px;">Kolkata - India</div>
+
+  <!-- 2nd line: Time (big) with day/night icon -->
+  <div id="time-line" style="font-size: 3rem; font-weight: bold; display: flex; justify-content: center; align-items: center; gap: 10px; margin-bottom: 8px;">
+    <i id="day-night-icon" class="fas fa-sun" style="color: #ffd700;"></i>
+    <span id="time">--:--:--</span>
+  </div>
+
+  <!-- 3rd line: Date and Day -->
+  <div id="date-day-line" style="font-size: 1.2rem; margin-bottom: 8px;">
+    <span id="date">Loading date...</span> &nbsp;|&nbsp; <span id="day">Loading day...</span>
+  </div>
+
+  <!-- 4th line: Weather icon and temperature -->
+  <div id="weather-line" style="font-size: 1.2rem; display: flex; justify-content: center; align-items: center; gap: 8px;">
+    <i id="weather-icon" class="fas fa-cloud weather-icon" style="font-size: 1.5rem;"></i>
+    <span id="temperature">--°C</span>
+  </div>
 </section>
 
 <!-- Games Section -->
@@ -1422,74 +1449,119 @@ document.body.style.overflow = "auto";
 
 
 document.addEventListener("DOMContentLoaded", function () {
-const apiKey = '8MAsRyTximVzAiORVrjg3EL5sHgCOFP3';
-const latitude = '-22.725062';
-const longitude = '88.339761';
-function updateDateTime() {
-const now = new Date();
-const day = now.toLocaleDateString('en-US', {
-weekday: 'long'
+  const apiKey = '8MAsRyTximVzAiORVrjg3EL5sHgCOFP3';
+  const latitude = '22.5726';  // Kolkata latitude (corrected to positive)
+  const longitude = '88.3639'; // Kolkata longitude (corrected)
+
+  const timeEl = document.getElementById("time");
+  const dateEl = document.getElementById("date");
+  const dayEl = document.getElementById("day");
+  const weatherIconEl = document.getElementById("weather-icon");
+  const temperatureEl = document.getElementById("temperature");
+  const dayNightIconEl = document.getElementById("day-night-icon");
+
+  // Update time, date, day and day/night icon
+  function updateDateTime() {
+    const now = new Date();
+
+    // Format time as HH:MM:SS (24-hour)
+    const timeString = now.toLocaleTimeString('en-US', {
+      hour12: false,
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit'
+    });
+    timeEl.textContent = timeString;
+
+    // Format date as Month Day, Year (e.g. April 15, 2025)
+    const dateString = now.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+    dateEl.textContent = dateString;
+
+    // Format day as full weekday name (e.g. Tuesday)
+    const dayString = now.toLocaleDateString('en-US', { weekday: 'long' });
+    dayEl.textContent = dayString;
+
+    // Determine day or night for icon (simple check: 6am-6pm = day)
+    const hour = now.getHours();
+    if (hour >= 6 && hour < 18) {
+      dayNightIconEl.className = "fas fa-sun";
+      dayNightIconEl.style.color = "#ffd700"; // gold
+    } else {
+      dayNightIconEl.className = "fas fa-moon";
+      dayNightIconEl.style.color = "#a0a0ff"; // soft blue
+    }
+  }
+
+  // Map weather codes to FontAwesome icons
+  function getWeatherIcon(weatherCode) {
+    const weatherIcons = {
+      0: 'fa-sun',         // Clear
+      1000: 'fa-sun',      // Clear
+      1001: 'fa-cloud-sun', // Cloudy
+      1100: 'fa-cloud',      // Partly Cloudy
+      1101: 'fa-cloud-sun', // Partly Cloudy
+      1102: 'fa-cloud',      // Mostly Cloudy
+      4000: 'fa-cloud',      // Drizzle
+      4001: 'fa-cloud-rain',  // Rain
+      4200: 'fa-cloud-rain', // Light Rain
+      4201: 'fa-cloud-showers-heavy', // Heavy Rain
+      6000: 'fa-snowflake', // Freezing Drizzle
+      6001: 'fa-snowflake', // Freezing Rain
+      6200: 'fa-snowflake', // Light Freezing Rain
+      6201: 'fa-snowflake', // Heavy Freezing Rain
+      7000: 'fa-snowflake', // Ice Pellets
+      7101: 'fa-snowflake', // Heavy Ice Pellets
+      7102: 'fa-snowflake', // Light Ice Pellets
+      8000: 'fa-bolt'      // Thunderstorm
+    };
+    return weatherIcons[weatherCode] || 'fa-cloud';  // Default to cloud
+  }
+
+  // Update weather icon and temperature
+  function updateWeather(data) {
+    if (!data || !data.data || !data.data.values) {
+      weatherIconEl.className = 'fas fa-cloud weather-icon';
+      temperatureEl.textContent = '--°C';
+      return;
+    }
+    const weatherCode = data.data.values.weatherCode;
+    const iconClass = getWeatherIcon(weatherCode);
+    const temperature = data.data.values.temperature;
+
+    weatherIconEl.className = 'fas ' + iconClass + ' weather-icon';
+    temperatureEl.textContent = `${temperature.toFixed(1)}°C`;
+  }
+
+  // Fetch weather data from Tomorrow.io API
+  function getWeather() {
+    const apiUrl = `https://api.tomorrow.io/v4/weather/realtime?location=${latitude},${longitude}&apikey=${apiKey}`;
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        updateWeather(data);
+      })
+      .catch(error => {
+        console.error('Error fetching weather data:', error);
+        weatherIconEl.className = 'fas fa-cloud weather-icon';
+        temperatureEl.textContent = 'N/A';
+      });
+  }
+
+  // Initial calls
+  updateDateTime();
+  getWeather();
+
+  // Update time every second
+  setInterval(updateDateTime, 1000);
+
+  // Refresh weather every 10 minutes
+  setInterval(getWeather, 10 * 60 * 1000);
 });
-const date = now.toLocaleDateString('en-US', {
-year: 'numeric',
-month: 'long',
-day: 'numeric'
-});
-const time = now.toLocaleTimeString('en-US', {
-hour: '2-digit',
-minute: '2-digit',
-second: '2-digit'
-});
-document.getElementById("day").textContent = `${day}`;
-document.getElementById("date").textContent = `${date}`;
-document.getElementById("time").textContent = `${time}`;
-}
-function getWeather() {
-const apiUrl = `https://api.tomorrow.io/v4/weather/realtime?location=${latitude},${longitude}&apikey=${apiKey}`;
-fetch(apiUrl)
-.then(response => response.json())
-.then(data => {
-updateWeather(data);
-})
-.catch(error => {
-console.error('Error fetching weather data:', error);
-document.getElementById("weather").textContent = "Weather data not available.";
-});
-}
-function getWeatherIcon(weatherCode) {
-const weatherIcons = {
-0: 'fas fa-sun',         // Clear
-1000: 'fas fa-sun',      // Clear
-1001: 'fas fa-cloud-sun', // Cloudy
-1100: 'fas fa-cloud',      // Partly Cloudy
-1101: 'fas fa-cloud-sun', // Partly Cloudy
-1102: 'fas fa-cloud',      // Mostly Cloudy
-4000: 'fas fa-cloud',      // Drizzle
-4001: 'fas fa-cloud-rain',  // Rain
-4200: 'fas fa-cloud-rain', // Light Rain
-4201: 'fas fa-cloud-showers-heavy', // Heavy Rain
-6000: 'fas fa-snowflake', // Freezing Drizzle
-6001: 'fas fa-snowflake', // Freezing Rain
-6200: 'fas fa-snowflake', // Light Freezing Rain
-6201: 'fas fa-snowflake', // Heavy Freezing Rain
-7000: 'fas fa-snowflake', // Ice Pellets
-7101: 'fas fa-snowflake', // Heavy Ice Pellets
-7102: 'fas fa-snowflake', // Light Ice Pellets
-8000: 'fas fa-bolt'      // Thunderstorm
-};
-return weatherIcons[weatherCode] || 'fas fa-cloud';  // Default to cloud
-}
-function updateWeather(data) {
-const weatherCode = data.data.values.weatherCode;
-const weatherIcon = getWeatherIcon(weatherCode);
-const temperature = data.data.values.temperature;
-document.getElementById("weather-icon").className = 'fas ' + weatherIcon + ' weather-icon';
-document.getElementById("temperature").textContent = `${temperature}°C`;
-}
-updateDateTime();
-getWeather();
-setInterval(updateDateTime, 1000);
-});
+
 </script>
 
 </body>
