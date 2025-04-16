@@ -1613,7 +1613,7 @@ cursor: pointer;
 
 .top-right-wrapper.slideIn {
   animation: slideIn 1s ease forwards;
-  animation-delay: 5s;
+  animation-delay: 3s;
 }
 
 @keyframes slideIn {
@@ -2044,6 +2044,8 @@ points="50,50 120.5,8 120.5,35 50,80">
     </label>
   </div>
 </div>
+
+  <audio id="background-audio" src="your-song-file.mp3" preload="auto"></audio>
   
 <section class="hero">
 
@@ -2631,21 +2633,33 @@ points="50,50 120.5,8 120.5,35 50,80">
 
 <script>
 
-document.addEventListener("DOMContentLoaded", function () {  
-  setTimeout(() => {  
-    const loader = document.querySelector(".loader-container");  
-    const mainContent = document.getElementById("mainContent");  
-    loader.style.display = "none";  
-    mainContent.style.display = "block";  
-    setTimeout(() => {  
+document.addEventListener("DOMContentLoaded", function () {
+  setTimeout(() => {
+    const loader = document.querySelector(".loader-container");
+    const mainContent = document.getElementById("mainContent");
+    loader.style.display = "none";
+    mainContent.style.display = "block";
+    setTimeout(() => {
       mainContent.style.opacity = "1";
-      
-      // Trigger music player animation here
+
+      // Trigger music player appearance
       const musicPlayer = document.querySelector(".top-right-wrapper");
       musicPlayer.classList.add("slideIn");
 
-    }, 50);  
-  }, 6000);  
+      // Play/pause functionality
+      const audio = document.getElementById("background-audio");
+      const playBtn = document.querySelector(".play-btn");
+
+      playBtn.addEventListener("change", function () {
+        if (this.checked) {
+          audio.play();
+        } else {
+          audio.pause();
+        }
+      });
+
+    }, 50);
+  }, 4000);
 });
 
 
