@@ -1602,6 +1602,24 @@ cursor: pointer;
 }
 
 
+  .top-right-wrapper {
+  position: fixed;
+  top: 20px;
+  right: -150px;
+  z-index: 1000;
+  opacity: 0;
+}
+
+.top-right-wrapper.slideIn {
+  animation: slideIn 1s ease forwards;
+}
+
+@keyframes slideIn {
+  to {
+    right: 20px;
+    opacity: 1;
+  }
+}
 
 
 </style>
@@ -1898,7 +1916,16 @@ points="50,50 120.5,8 120.5,35 50,80">
 
 <div id="mainContent">
 
-
+<div class="top-right-wrapper">
+  <div class="container">
+    <label>
+      <input class="play-btn" type="checkbox">
+      <div class="play-icon"></div>
+      <div class="pause-icon"></div>
+    </label>
+  </div>
+</div>
+  
 <section class="hero">
 
 <div class="share-button">
@@ -2486,17 +2513,18 @@ points="50,50 120.5,8 120.5,35 50,80">
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {  
-  // Wait for the loader animation to finish (10 seconds)  
   setTimeout(() => {  
     const loader = document.querySelector(".loader-container");  
     const mainContent = document.getElementById("mainContent");  
-    // Hide loader  
     loader.style.display = "none";  
-    // Show main content and trigger fade-in  
     mainContent.style.display = "block";  
-    // Use a small delay to ensure display:block is applied before opacity change  
     setTimeout(() => {  
-      mainContent.style.opacity = "1";  
+      mainContent.style.opacity = "1";
+      
+      // Trigger music player animation here
+      const musicPlayer = document.querySelector(".top-right-wrapper");
+      musicPlayer.classList.add("slideIn");
+
     }, 50);  
   }, 6000);  
 });
