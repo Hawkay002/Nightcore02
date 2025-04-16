@@ -1602,16 +1602,18 @@ cursor: pointer;
 }
 
 
-  .top-right-wrapper {
+/* Top-right position and delayed animation container */
+.top-right-wrapper {
   position: fixed;
   top: 20px;
-  right: -150px;
+  right: -100px;
   z-index: 1000;
   opacity: 0;
 }
 
 .top-right-wrapper.slideIn {
   animation: slideIn 1s ease forwards;
+  animation-delay: 5s;
 }
 
 @keyframes slideIn {
@@ -1621,14 +1623,15 @@ cursor: pointer;
   }
 }
 
-  /* From Uiverse.io by csemszepp */ 
+/* Play button container */
 .container {
-  width: 120px;
-  height: 120px;
+  width: 40px;
+  height: 40px;
   position: relative;
   border-radius: 50%;
 }
 
+/* Play button itself */
 .play-btn {
   position: absolute;
   appearance: none;
@@ -1662,21 +1665,20 @@ cursor: pointer;
     transform: rotate(0);
     background: conic-gradient(#ff6347, transparent 20%);
   }
-
   80% {
     background: conic-gradient(#ff6347, transparent 90%);
   }
-
   100% {
     transform: rotate(360deg);
     background: conic-gradient(#ff6347, #ff6347);
   }
 }
 
+/* Play icon triangle */
 .play-icon {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 12px;
+  height: 12px;
   left: 60%;
   top: 50%;
   background-color: #ff6347;
@@ -1690,31 +1692,32 @@ cursor: pointer;
   clip-path: polygon(0 100%, 0% 100%, 100% 100%);
 }
 
+/* Pause icon container */
 .pause-icon {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 12px;
+  height: 12px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   cursor: pointer;
 }
 
-.pause-icon::before {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 100%;
-  background-color: #ff6347;
-  left: 0;
-}
-
+/* Pause icon bars */
+.pause-icon::before,
 .pause-icon::after {
   content: "";
   position: absolute;
   width: 0;
   height: 100%;
   background-color: #ff6347;
+}
+
+.pause-icon::before {
+  left: 0;
+}
+
+.pause-icon::after {
   right: 0;
 }
 
@@ -1732,11 +1735,11 @@ cursor: pointer;
   0% {
     width: 0;
   }
-
   100% {
     width: 35%;
   }
 }
+  
 
 </style>
 
