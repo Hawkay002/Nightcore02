@@ -1614,6 +1614,28 @@ cursor: pointer;
 .music-player-container.active {
   transform: translateX(0) translateY(-50%);
 }
+  #musicPlayer {
+  position: fixed;
+  right: -280px; /* offscreen initially */
+  bottom: 20px;
+  width: 260px;
+  transition: right 0.7s ease-in-out;
+  z-index: 1000;
+}
+
+/* Optionally: reduce child sizes if needed */
+#musicPlayer svg {
+  width: 80px;
+  height: 80px;
+}
+
+#musicPlayer .w-40 {
+  width: 200px;
+}
+
+#musicPlayer .h-20 {
+  height: 60px;
+}
 
 
 
@@ -2544,27 +2566,31 @@ points="50,50 120.5,8 120.5,35 50,80">
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Wait for the loader animation to finish (6 seconds)
+  const loader = document.querySelector(".loader-container");
+  const mainContent = document.getElementById("mainContent");
+  const musicPlayer = document.getElementById("musicPlayer");
+
+  // Hide loader after 1s
   setTimeout(() => {
-    const loader = document.querySelector(".loader-container");
-    const mainContent = document.getElementById("mainContent");
-    const musicPlayer = document.getElementById("musicPlayer");
+    loader.style.opacity = "0";
 
-    // Hide loader
-    loader.style.display = "none";
-
-    // Show main content and trigger fade-in
-    mainContent.style.display = "block";
     setTimeout(() => {
-      mainContent.style.opacity = "1";
-    }, 50);
+      loader.style.display = "none";
+      mainContent.style.display = "block";
 
-    // Slide in the music player after a short delay
-    setTimeout(() => {
-      musicPlayer.style.right = "20px";
-    }, 400); // small delay after content fade
+      // Fade in main content
+      setTimeout(() => {
+        mainContent.style.opacity = "1";
 
-  }, 6000);
+        // Slide in music player
+        setTimeout(() => {
+          musicPlayer.style.right = "20px";
+        }, 300);
+
+      }, 100);
+
+    }, 500);
+  }, 3000);
 });
 
 
