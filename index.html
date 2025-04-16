@@ -2543,10 +2543,29 @@ points="50,50 120.5,8 120.5,35 50,80">
 
 <script>
 
-const musicPlayer = document.getElementById("musicPlayer");
-setTimeout(() => {
-  musicPlayer.style.right = "20px";
-}, 300); // small delay to feel natural
+document.addEventListener("DOMContentLoaded", function () {
+  // Wait for the loader animation to finish (6 seconds)
+  setTimeout(() => {
+    const loader = document.querySelector(".loader-container");
+    const mainContent = document.getElementById("mainContent");
+    const musicPlayer = document.getElementById("musicPlayer");
+
+    // Hide loader
+    loader.style.display = "none";
+
+    // Show main content and trigger fade-in
+    mainContent.style.display = "block";
+    setTimeout(() => {
+      mainContent.style.opacity = "1";
+    }, 50);
+
+    // Slide in the music player after a short delay
+    setTimeout(() => {
+      musicPlayer.style.right = "20px";
+    }, 400); // small delay after content fade
+
+  }, 6000);
+});
 
 
 
