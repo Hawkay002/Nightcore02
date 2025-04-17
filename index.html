@@ -1741,7 +1741,31 @@ cursor: pointer;
     width: 35%;
   }
 }
-  
+
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 2px;
+  width: 100%;
+  height: 100vh;
+  padding: 10px;
+  background-color: #000; /* Optional: dark background for contrast */
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: transparent;
+  border: 1px solid #999;
+  border-radius: 12px;
+  font-weight: bold;
+  color: #fff; /* White text for visibility */
+  font-size: 1.2rem;
+}
 
 </style>
 
@@ -2127,6 +2151,35 @@ points="50,50 120.5,8 120.5,35 50,80">
 
 </footer>
 
+<footer>
+  <div class="parent">
+  <div class="cell">Days</div>
+  <div class="cell">Sunday</div>
+  <div class="cell">Monday</div>
+  <div class="cell">Tuesday</div>
+  <div class="cell">Wednesday</div>
+  <div class="cell">Thursday</div>
+  <div class="cell">Friday</div>
+  <div class="cell">Saturday</div>
+  <div class="cell">Morning<br>Time</div>
+  <div class="cell">10</div>
+  <div class="cell">11</div>
+  <div class="cell">12</div>
+  <div class="cell">13</div>
+  <div class="cell">14</div>
+  <div class="cell">15</div>
+  <div class="cell">16</div>
+  <div class="cell">Evening<br>Time</div>
+  <div class="cell">18</div>
+  <div class="cell">19</div>
+  <div class="cell">20</div>
+  <div class="cell">21</div>
+  <div class="cell">22</div>
+  <div class="cell">23</div>
+  <div class="cell">24</div>
+  </div>
+</footer>
+  
 </section>
 
 
