@@ -1743,6 +1743,12 @@ cursor: pointer;
 }
 
 
+.wrapper {
+  position: relative;
+  width: 100%;
+  /* Optional: set max-width or height if needed */
+}
+
 .parent {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1751,6 +1757,8 @@ cursor: pointer;
   width: 100%;
   padding: 5px;
   background-color: transparent;
+  z-index: 1; /* make sure grid is below overlay */
+  position: relative;
 }
 
 .cell {
@@ -1763,10 +1771,26 @@ cursor: pointer;
   backdrop-filter: blur(10px);
   border-radius: 12px;
   color: #fff;
-  font-size: 0.75rem;     /* Smaller font */
-  min-width: 104px;       /* Slightly wider cells */
+  font-size: 0.75rem;
+  min-width: 104px;
   height: 35px;
-  }
+  z-index: 1;
+}
+
+/* New overlay styles */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.15); /* semi-transparent white */
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+  z-index: 10; /* on top */
+  pointer-events: none; /* so clicks pass through if needed */
+}
+
 
   .headline {
   color: #fff;
@@ -1784,16 +1808,7 @@ cursor: pointer;
   margin-bottom: 10px;
   }
 
-  .frosted-glass {
-  position: relative; 
-  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 16px;
-  padding: 12px;
-  margin: 0 auto;
-  width: fit-content;
-  }
+
   
 </style>
 
@@ -2182,34 +2197,36 @@ points="50,50 120.5,8 120.5,35 50,80">
 <footer>
   <h2 class="headline">Availability</h2>
   <p class="subtext" style="color: rgba(255, 255, 255, 0.5);">(Keep 'My Local Date-Time' in mind)</p>
-  <div class="parent">
-  <div class="frosted-glass">
-  <div class="cell" style="font-weight: bold;">Days</div>
-  <div class="cell" style="font-weight: bold;">Morning<br>Time</div>
-  <div class="cell" style="font-weight: bold;">Evening<br>Time</div>
-  <div class="cell">Monday</div>
-  <div class="cell">09-11 A.M.</div>
-  <div class="cell">After 7 P.M.</div>
-  <div class="cell">Tuesday</div>
-  <div class="cell">09-11 A.M.</div>
-  <div class="cell">After 7 P.M.</div>
-  <div class="cell">Wednesday</div>
-  <div class="cell">09-11 A.M.</div>
-  <div class="cell">After 7 P.M.</div>
-  <div class="cell">Thursday</div>
-  <div class="cell">09-11 A.M.</div>
-  <div class="cell">After 7 P.M.</div>
-  <div class="cell">Friday</div>
-  <div class="cell">09-11 A.M.</div>
-  <div class="cell">After 7 P.M.</div>
-  <div class="cell">Saturday</div>
-  <div class="cell">Anytime<br>after 11 A.M.</div>
-  <div class="cell">Anytime<br>after 5 P.M.</div>
-  <div class="cell">Sunday</div>
-  <div class="cell">Anytime<br>after 1 P.M</div>
-  <div class="cell">Anytime</div>
-  </div>
-  </div>
+<div class="wrapper">
+  <div class="parent">  
+    <div class="cell" style="font-weight: bold;">Days</div>  
+    <div class="cell" style="font-weight: bold;">Morning<br>Time</div>  
+    <div class="cell" style="font-weight: bold;">Evening<br>Time</div>  
+    <div class="cell">Monday</div>  
+    <div class="cell">09-11 A.M.</div>  
+    <div class="cell">After 7 P.M.</div>  
+    <div class="cell">Tuesday</div>  
+    <div class="cell">09-11 A.M.</div>  
+    <div class="cell">After 7 P.M.</div>  
+    <div class="cell">Wednesday</div>  
+    <div class="cell">09-11 A.M.</div>  
+    <div class="cell">After 7 P.M.</div>  
+    <div class="cell">Thursday</div>  
+    <div class="cell">09-11 A.M.</div>  
+    <div class="cell">After 7 P.M.</div>  
+    <div class="cell">Friday</div>  
+    <div class="cell">09-11 A.M.</div>  
+    <div class="cell">After 7 P.M.</div>  
+    <div class="cell">Saturday</div>  
+    <div class="cell">Anytime<br>after 11 A.M.</div>  
+    <div class="cell">Anytime<br>after 5 P.M.</div>  
+    <div class="cell">Sunday</div>  
+    <div class="cell">Anytime<br>after 1 P.M</div>  
+    <div class="cell">Anytime</div>  
+  </div>  
+  <div class="overlay"></div>
+</div>
+
   <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.55rem !important;">**Note :- I'm always available to play during official holidays or any other Indian festivals.</p>
 </footer>
   
