@@ -1537,7 +1537,7 @@ cursor: pointer;
 
   gap: 8px;
 
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 
 }
 
@@ -1761,12 +1761,28 @@ cursor: pointer;
   background-color: transparent;
   border: 1px solid #999;
   border-radius: 12px;
-  font-weight: bold;
   color: #fff;
   font-size: 0.75rem;     /* Smaller font */
   min-width: 100px;       /* Slightly wider cells */
   height: 40px;
   }
+
+  .headline {
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 4px;
+}
+
+.subtext {
+  color: #bbb;
+  font-size: 0.85rem;
+  text-align: center;
+  margin-bottom: 10px;
+  }
+  
   
 </style>
 
@@ -2153,10 +2169,12 @@ points="50,50 120.5,8 120.5,35 50,80">
 </footer>
 
 <footer>
+  <h2 class="headline">Availability</h2>
+  <p class="subtext" style="color: rgba(255, 255, 255, 0.5);">Keep my current time in mind</p>
   <div class="parent">
-  <div class="cell">Days</div>
-  <div class="cell">Morning<br>Time</div>
-  <div class="cell">Evening<br>Time</div>
+  <div class="cell" style="font-weight: bold;">Days</div>
+  <div class="cell" style="font-weight: bold;">Morning<br>Time</div>
+  <div class="cell" style="font-weight: bold;">Evening<br>Time</div>
   <div class="cell">Monday</div>
   <div class="cell">5</div>
   <div class="cell">6</div>
