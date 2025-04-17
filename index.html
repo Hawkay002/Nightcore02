@@ -1784,7 +1784,16 @@ cursor: pointer;
   text-align: center;
   margin-bottom: 10px;
   }
-  
+
+  .frosted-glass {
+  background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 10px;
+  margin: 0 auto;
+  width: fit-content;
+  }
   
 </style>
 
@@ -2173,6 +2182,7 @@ points="50,50 120.5,8 120.5,35 50,80">
 <footer>
   <h2 class="headline">Availability</h2>
   <p class="subtext" style="color: rgba(255, 255, 255, 0.5);">(Keep 'My Local Date-Time' in mind)</p>
+  <div class="frosted-glass">
   <div class="parent">
   <div class="cell" style="font-weight: bold;">Days</div>
   <div class="cell" style="font-weight: bold;">Morning<br>Time</div>
@@ -2200,6 +2210,7 @@ points="50,50 120.5,8 120.5,35 50,80">
   <div class="cell">Anytime</div>
   </div>
   <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.55rem !important;">**Note :- I'm always available to play during official holidays or any other Indian festivals.</p>
+  </div>
 </footer>
   
 </section>
