@@ -1809,10 +1809,35 @@ cursor: pointer;
   font-size: 1.2rem;
   margin: 0.2em 0;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+  z-index: 11;
 }
 
 .overlay-text p strong {
   text-decoration: underline;
+}
+
+  .overlay-gif {
+  position: absolute;
+  width: 120px; /* or set it as needed */
+  bottom: -150px;
+  left: -150px;
+  z-index: 9; /* Behind the text, but on top of the grid */
+  animation: fly-diagonal 5s ease-out forwards;
+  pointer-events: none; /* prevents blocking interaction */
+}
+
+@keyframes fly-diagonal {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(100vw + 150px), calc(-100vh - 150px));
+    opacity: 0;
+  }
 }
   
   .headline {
@@ -2223,7 +2248,7 @@ points="50,50 120.5,8 120.5,35 50,80">
 <footer>
   <h2 class="headline">Availability</h2>
   <p class="subtext" style="color: rgba(255, 255, 255, 0.5);">(Keep 'My Local Date-Time' in mind)</p>
-<!--<div class="wrapper--><!--remove this one too-->
+<div class="wrapper">
   <div class="parent">  
     <div class="cell" style="font-weight: bold;">Days</div>  
     <div class="cell" style="font-weight: bold;">Morning<br>Time</div>  
@@ -2250,11 +2275,12 @@ points="50,50 120.5,8 120.5,35 50,80">
     <div class="cell">Anytime<br>after 1 P.M.</div>  
     <div class="cell">Anytime</div>  
   </div>  
-  <!--<div class="overlay">
-    <div class="overlay-text">
-      <p>Sorry, can't play 🥹<br>I'm on vacation ✨️✨️</p>
-      <p>from <major><strong>April 20</strong></major> to <major><strong>April 30</strong></major></p>
-    </div>
+  <div class="overlay">
+  <img src="lv-0-20250418083656-unscreen.gif" alt="Animated Character" class="overlay-gif" />
+  <div class="overlay-text">
+    <p>Sorry, can't play 🥹<br>I'm on vacation ✨️✨️</p>
+    <p>from <major><strong>April 20</strong></major> to <major><strong>April 30</strong></major></p>
+  </div>
   </div>
 </div>--> <!--when on vacation remove the tags-->
   <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.55rem !important;">**Note :- I'm always available to play during official holidays or any other Indian festivals.</p>
