@@ -1780,7 +1780,7 @@ cursor: pointer;
   z-index: 1;
 }
 
-    .animation-box {
+.animation-box {
     position: relative;
     top: 0;
     left: 0;
@@ -1793,33 +1793,33 @@ cursor: pointer;
     text-align: center;
     padding: 0;
     overflow: hidden;
-    }
+}
 
 .moving-gif {
-  position: absolute;
-  width: 100px;
-  height: 75px; /* keep original aspect ratio 480x360 = 4:3, so 100x75 */
-  bottom: 0;
-  left: 0;
-  animation: move-diagonal 3s linear infinite;
-  z-index: 20;
-  border-radius: 0 !important;
-  clip-path: none !important;
-  mask: none !important;
-  shape-outside: none !important;
-  overflow: visible !important;
-  box-shadow: none !important;
-  background: none !important;
-  outline: none !important;
-      }
+    position: absolute;
+    width: 100px;
+    height: 75px; /* Keep the original aspect ratio (480x360 = 4:3, so 100x75) */
+    bottom: 0;
+    left: 0;
+    animation: move-diagonal 12s linear infinite; /* Slower movement */
+    z-index: 20;
+    border-radius: 0 !important;
+    clip-path: none !important;
+    mask: none !important;
+    shape-outside: none !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+    background: none !important;
+    outline: none !important;
+}
 
 @keyframes move-diagonal {
-  0% {
-    transform: translate(0, 0);
-  }
-  100% {
-    transform: translate(calc(200vw - 100px), calc(-100vh + 100px));
-  }
+    0% {
+        transform: translate(-30px, 0); /* Start slightly off-screen on the left */
+    }
+    100% {
+        transform: translate(30vw, -30vh); /* Move to a position that's 30% of the viewport width and height */
+    }
 }
 
 .overlay {
