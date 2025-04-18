@@ -1773,7 +1773,6 @@ cursor: pointer;
   background: #141414;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
-  border-radius: 12px;
   color: #fff;
   font-size: 0.75rem;
   min-width: 104px;
@@ -1807,7 +1806,7 @@ cursor: pointer;
 
 .gif-overlay {
   position: absolute;
-  width: 120px; /* adjust size as needed */
+  width: 220px; /* adjust size as needed */
   height: auto;
   bottom: -120px; /* start fully off-screen bottom */
   left: -120px;   /* start fully off-screen left */
@@ -2264,30 +2263,30 @@ points="50,50 120.5,8 120.5,35 50,80">
 <div class="wrapper">
   <div class="parent">  
     <!-- Your existing grid content here -->
-    <div class="cell" style="font-weight: bold;">Days</div>  
-    <div class="cell" style="font-weight: bold;">Morning<br>Time</div>  
-    <div class="cell" style="font-weight: bold;">Evening<br>Time</div>  
-    <div class="cell">Monday</div>  
-    <div class="cell">09-11 A.M.</div>  
-    <div class="cell">After 7 P.M.</div>  
-    <div class="cell">Tuesday</div>  
-    <div class="cell">09-11 A.M.</div>  
-    <div class="cell">After 7 P.M.</div>  
-    <div class="cell">Wednesday</div>  
-    <div class="cell">09-11 A.M.</div>  
-    <div class="cell">After 7 P.M.</div>  
-    <div class="cell">Thursday</div>  
-    <div class="cell">09-11 A.M.</div>  
-    <div class="cell">After 7 P.M.</div>  
-    <div class="cell">Friday</div>  
-    <div class="cell">09-11 A.M.</div>  
-    <div class="cell">After 7 P.M.</div>  
-    <div class="cell">Saturday</div>  
-    <div class="cell">Anytime<br>after 11 A.M.</div>  
-    <div class="cell">Anytime<br>after 5 P.M.</div>  
-    <div class="cell">Sunday</div>  
-    <div class="cell">Anytime<br>after 1 P.M.</div>  
-    <div class="cell">Anytime</div>  
+    <div class="cell" style="font-weight: bold;border-radius: 12px;">Days</div>  
+    <div class="cell" style="font-weight: bold;border-radius: 12px;">Morning<br>Time</div>  
+    <div class="cell" style="font-weight: bold;border-radius: 12px;">Evening<br>Time</div>  
+    <div class="cell" style="border-radius: 12px;">Monday</div>  
+    <div class="cell" style="border-radius: 12px;">09-11 A.M.</div>  
+    <div class="cell" style="border-radius: 12px;">After 7 P.M.</div>  
+    <div class="cell" style="border-radius: 12px;">Tuesday</div>  
+    <div class="cell" style="border-radius: 12px;">09-11 A.M.</div>  
+    <div class="cell" style="border-radius: 12px;">After 7 P.M.</div>  
+    <div class="cell" style="border-radius: 12px;">Wednesday</div>  
+    <div class="cell" style="border-radius: 12px;">09-11 A.M.</div>  
+    <div class="cell" style="border-radius: 12px;">After 7 P.M.</div>  
+    <div class="cell" style="border-radius: 12px;">Thursday</div>  
+    <div class="cell" style="border-radius: 12px;">09-11 A.M.</div>  
+    <div class="cell" style="border-radius: 12px;">After 7 P.M.</div>  
+    <div class="cell" style="border-radius: 12px;">Friday</div>  
+    <div class="cell" style="border-radius: 12px;">09-11 A.M.</div>  
+    <div class="cell" style="border-radius: 12px;">After 7 P.M.</div>  
+    <div class="cell" style="border-radius: 12px;">Saturday</div>  
+    <div class="cell" style="border-radius: 12px;">Anytime<br>after 11 A.M.</div>  
+    <div class="cell" style="border-radius: 12px;">Anytime<br>after 5 P.M.</div>  
+    <div class="cell" style="border-radius: 12px;">Sunday</div>  
+    <div class="cell" style="border-radius: 12px;">Anytime<br>after 1 P.M.</div>  
+    <div class="cell" style="border-radius: 12px;">Anytime</div>  
   </div>  
   <div class="overlay">
     <img class="gif-overlay" src="lv-0-20250418083656-unscreen.gif" alt="Animated GIF">
@@ -2890,12 +2889,12 @@ document.addEventListener("DOMContentLoaded", function () {
     gif.style.animation = 'none';
     // Trigger reflow to restart animation
     void gif.offsetWidth;
-    gif.style.animation = 'moveGif 5s linear forwards';
+    gif.style.animation = 'moveGif 8s linear forwards';
   }
 
   gif.addEventListener('animationend', () => {
     // Wait 1 second before restarting animation
-    setTimeout(startAnimation, 1000);
+    setTimeout(startAnimation, 2000);
   });
 
   // Start the first animation cycle
