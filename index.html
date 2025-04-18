@@ -1804,20 +1804,6 @@ cursor: pointer;
   overflow: hidden;
 }
 
-.gif-overlay {
-  position: relative;
-  max-width: 100% !important; /* adjust size as needed */
-  max-height: 100% !important;
-  bottom: -120px; /* start fully off-screen bottom */
-  left: -120px;   /* start fully off-screen left */
-  z-index: 5;     /* behind overlay text */
-  pointer-events: none;
-  opacity: 0;     /* start invisible */
-  box-shadow: none !important; 
-  border: none !important; 
-  padding: 0 !important; 
-  animation: moveGif 10s linear forwards;
-}
 
 .overlay-text {
   position: relative;
@@ -1836,26 +1822,6 @@ cursor: pointer;
   text-decoration: underline;
 }
 
-/* Keyframes for GIF movement */
-@keyframes moveGif {
-  0% {
-    transform: translate(0, 0);
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  95% {
-    transform: translate(calc(220vw + 120px), calc(-100vh - 120px));
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-  
-  
   .headline {
   color: #fff;
   font-size: 1.5rem;
