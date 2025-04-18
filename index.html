@@ -1797,6 +1797,24 @@ cursor: pointer;
     padding: 0;
     }
 
+  .moving-gif {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  bottom: 0;
+  left: 0;
+  animation: move-diagonal 6s linear infinite;
+}
+
+@keyframes move-diagonal {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(calc(100vw - 100px), calc(-100vh + 100px));
+  }
+}
+
 .overlay {
   position: absolute;
   top: 0;
@@ -2248,6 +2266,7 @@ points="50,50 120.5,8 120.5,35 50,80">
   <h2 class="headline">Availability</h2>
   <p class="subtext" style="color: rgba(255, 255, 255, 0.5);">(Keep 'My Local Date-Time' in mind)</p>
   <div class="animation-box">
+  <img src="lv-0-20250418083656-unscreen.gif" alt="Animated GIF" class="moving-gif">
    <div class="wrapper">
     <div class="parent">  
     <!-- Your existing grid content here -->
