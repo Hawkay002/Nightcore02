@@ -1816,6 +1816,7 @@ cursor: pointer;
   box-shadow: none !important; 
   border: none !important; 
   padding: 0 !important; 
+  animation: moveGif 10s linear forwards;
 }
 
 .overlay-text {
@@ -2885,24 +2886,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-document.addEventListener("DOMContentLoaded", function () {
-  const gif = document.querySelector('.gif-overlay');
 
-  function startAnimation() {
-    gif.style.animation = 'none';
-    // Trigger reflow to restart animation
-    void gif.offsetWidth;
-    gif.style.animation = 'moveGif 10s linear forwards';
-  }
-
-  gif.addEventListener('animationend', () => {
-    // Wait 1 second before restarting animation
-    setTimeout(startAnimation, 2000);
-  });
-
-  // Start the first animation cycle
-  startAnimation();
-});
 
 
 
