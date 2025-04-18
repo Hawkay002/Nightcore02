@@ -1797,8 +1797,8 @@ cursor: pointer;
 
 .moving-gif {
     position: absolute;
-    width: 200px;
-    height: 150px; /* Keep the original aspect ratio (480x360 = 4:3, so 100x75) */
+    width: 300px;
+    height: 250px; /* Keep the original aspect ratio (480x360 = 4:3, so 100x75) */
     bottom: 0;
     left: 0;
     animation: move-diagonal 12s linear infinite; /* Slower movement */
@@ -1815,7 +1815,7 @@ cursor: pointer;
 
 @keyframes move-diagonal {
     0% {
-        transform: translate(-150px, 150); /* Start slightly off-screen on the left */
+        transform: translate(-200px, 170); /* Start slightly off-screen on the left */
     }
     100% {
         transform: translate(100vw, -50vh); /* Move to a position that's 30% of the viewport width and height */
