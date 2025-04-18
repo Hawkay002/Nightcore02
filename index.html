@@ -1773,7 +1773,7 @@ cursor: pointer;
   background: #141414;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
-  border-radius: 10px;
+  border-radius: 12px;
   color: #fff;
   font-size: 0.75rem;
   min-width: 104px;
@@ -1802,17 +1802,53 @@ cursor: pointer;
   text-align: center;
   padding: 10px;
   box-sizing: border-box;
+  overflow: hidden; /* hide GIF overflow */
+}
+
+.gif-overlay {
+  position: absolute;
+  width: 120px; /* adjust size as needed */
+  height: auto;
+  bottom: -120px; /* start fully off-screen bottom */
+  left: -120px;   /* start fully off-screen left */
+  z-index: 5;     /* behind overlay text */
+  pointer-events: none;
+  opacity: 0;     /* start invisible */
+}
+
+.overlay-text {
+  position: relative;
+  z-index: 10; /* on top of GIF */
+  color: #fff;
+  font-size: 1.2rem;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+  margin: 0;
 }
 
 .overlay-text p {
-  color: #fff;
-  font-size: 1.2rem;
   margin: 0.2em 0;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
 }
 
 .overlay-text p strong {
   text-decoration: underline;
+}
+
+/* Keyframes for GIF movement */
+@keyframes moveGif {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  95% {
+    transform: translate(calc(100vw + 120px), calc(-100vh - 120px));
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
   
@@ -2227,6 +2263,7 @@ points="50,50 120.5,8 120.5,35 50,80">
   <p class="subtext" style="color: rgba(255, 255, 255, 0.5);">(Keep 'My Local Date-Time' in mind)</p>
 <div class="wrapper">
   <div class="parent">  
+    <!-- Your existing grid content here -->
     <div class="cell" style="font-weight: bold;">Days</div>  
     <div class="cell" style="font-weight: bold;">Morning<br>Time</div>  
     <div class="cell" style="font-weight: bold;">Evening<br>Time</div>  
@@ -2253,13 +2290,15 @@ points="50,50 120.5,8 120.5,35 50,80">
     <div class="cell">Anytime</div>  
   </div>  
   <div class="overlay">
-  <div class="overlay-text">
-    <p>Under development<br>check back later</p>
-    <!--<p>Sorry, can't play 🥹<br>I'm on vacation ✨️✨️</p>
+    <img class="gif-overlay" src="your-gif.gif" alt="Animated GIF">
+    <div class="overlay-text">
+      <p>Under development<br>check back later</p>
+      <!--<p>Sorry, can't play 🥹<br>I'm on vacation ✨️✨️</p>
     <p>from <major><strong>April 20</strong></major> to <major><strong>April 30</strong></major></p>-->
-  </div>
+    </div>
   </div>
 </div>
+
   <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.55rem !important;">**Note :- I'm always available to play during official holidays or any other Indian festivals.</p>
 </footer>
   
@@ -2844,6 +2883,24 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  const gif = document.querySelector('.gif-overlay');
+
+  function startAnimation() {
+    gif.style.animation = 'none';
+    // Trigger reflow to restart animation
+    void gif.offsetWidth;
+    gif.style.animation = 'moveGif 5s linear forwards';
+  }
+
+  gif.addEventListener('animationend', () => {
+    // Wait 1 second before restarting animation
+    setTimeout(startAnimation, 1000);
+  });
+
+  // Start the first animation cycle
+  startAnimation();
+});
 
 
 
