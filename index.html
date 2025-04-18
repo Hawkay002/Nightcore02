@@ -1805,9 +1805,9 @@ cursor: pointer;
 }
 
 .gif-overlay {
-  position: absolute;
-  width: auto; /* adjust size as needed */
-  height: auto;
+  position: relative;
+  width: 100vw; /* adjust size as needed */
+  height: 100vh;
   bottom: -120px; /* start fully off-screen bottom */
   left: -120px;   /* start fully off-screen left */
   z-index: 5;     /* behind overlay text */
@@ -1845,7 +1845,7 @@ cursor: pointer;
     opacity: 1;
   }
   95% {
-    transform: translate(calc(150vw + 120px), calc(-100vh - 120px));
+    transform: translate(calc(220vw + 120px), calc(-100vh - 120px));
     opacity: 1;
   }
   100% {
@@ -2892,7 +2892,7 @@ document.addEventListener("DOMContentLoaded", function () {
     gif.style.animation = 'none';
     // Trigger reflow to restart animation
     void gif.offsetWidth;
-    gif.style.animation = 'moveGif 8s linear forwards';
+    gif.style.animation = 'moveGif 20s linear forwards';
   }
 
   gif.addEventListener('animationend', () => {
