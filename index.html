@@ -1822,6 +1822,21 @@ cursor: pointer;
     }
       }
 
+  .animated-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 30;
+    color: #00ff00; /* neon green */
+    font-size: 24px;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 10px #00ff00;
+    font-weight: bold;
+    text-align: center;
+    pointer-events: none; /* so clicks pass through */
+  }
+
 .overlay {
   position: absolute;
   top: 0;
@@ -2256,7 +2271,8 @@ points="50,50 120.5,8 120.5,35 50,80">
   <p class="subtext" style="color: rgba(255, 255, 255, 0.5);">(Keep 'My Local Date-Time' in mind)</p>
   <div class="animation-box">
   <img src="lv-0-20250418083656-unscreen.gif" alt="Animated GIF" class="moving-gif">
-    <div class="overlay-text" style="justify-content: center; align-items: center; z-index: 30;">
+      <!-- Your overlay text -->
+  <div class="animated-text">
       <p>Sorry, can't play 🥹<br>I'm on vacation ✨️✨️</p>
     <p>from <major><strong>April 20</strong></major> to <major><strong>April 30</strong></major></p>
   </div>
