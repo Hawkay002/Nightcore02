@@ -1806,8 +1806,8 @@ cursor: pointer;
 
 .gif-overlay {
   position: relative;
-  width: 100vw; /* adjust size as needed */
-  height: 100vh;
+  max-width: 100% !important; /* adjust size as needed */
+  max-height: 100% !important;
   bottom: -120px; /* start fully off-screen bottom */
   left: -120px;   /* start fully off-screen left */
   z-index: 5;     /* behind overlay text */
@@ -2892,7 +2892,7 @@ document.addEventListener("DOMContentLoaded", function () {
     gif.style.animation = 'none';
     // Trigger reflow to restart animation
     void gif.offsetWidth;
-    gif.style.animation = 'moveGif 20s linear forwards';
+    gif.style.animation = 'moveGif 10s linear forwards';
   }
 
   gif.addEventListener('animationend', () => {
