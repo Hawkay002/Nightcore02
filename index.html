@@ -1798,10 +1798,10 @@ cursor: pointer;
 .moving-gif {
     position: absolute;
     width: 300px;
-    height: 250px; /* Keep the original aspect ratio (480x360 = 4:3, so 100x75) */
+    height: 225px; /* Correct 4:3 aspect ratio (300x225) */
     bottom: 0;
     left: 0;
-    animation: move-diagonal 12s linear infinite; /* Slower movement */
+    animation: move-diagonal 20s linear infinite; /* Slower movement */
     z-index: 20;
     border-radius: 0 !important;
     clip-path: none !important;
@@ -1818,9 +1818,9 @@ cursor: pointer;
         transform: translate(-400px, 50vh); /* Start slightly off-screen on the left */
     }
     100% {
-        transform: translate(100vw, -50vh); /* Move to a position that's 30% of the viewport width and height */
+        transform: translate(100vw, -50vh); /* Move to off-screen top-right */
     }
-}
+      }
 
 .overlay {
   position: absolute;
