@@ -1754,9 +1754,8 @@ cursor: pointer;
 }
 
 .parent {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(8, auto);
+  display: flex;
+  flex-direction: column;
   gap: 6px;
   width: 100%;
   padding: 5px;
@@ -1768,17 +1767,44 @@ cursor: pointer;
 .cell {
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
+  justify-content: space-between;
   background: #141414;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
   color: #fff;
   font-size: 0.75rem;
-  min-width: 104px;
-  height: 35px;
+  border-radius: 12px;
+  min-height: 35px;
+  text-align: center;
   z-index: 1;
 }
+
+.cell span.1 {
+  flex: 1;
+  text-align: left;
+  padding-left: 10px;
+  padding-right: 5px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.cell span.2 {
+  flex: 1;
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.cell span.3 {
+  flex: 1;
+  text-align: right;
+  padding-right: 10px;
+  padding-left: 5px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  }
 
 .animation-box {
     position: relative;
@@ -2265,7 +2291,7 @@ points="50,50 120.5,8 120.5,35 50,80">
 <footer>
   <h2 class="headline">Availability</h2>
   <p class="subtext" style="color: rgba(255, 255, 255, 0.5);">(Keep 'My Local Date-Time' in mind)</p>
-  <div class="animation-box">
+  <!--<div class="animation-box">-->
   <img src="lv-0-20250418083656-unscreen.gif" alt="Animated GIF" class="moving-gif">
       <!-- Your overlay text -->
   <div class="animated-text">
@@ -2273,37 +2299,59 @@ points="50,50 120.5,8 120.5,35 50,80">
     <p>from <strong style="font-weight: bold; text-decoration: underline;">April 20</strong> to <strong style="font-weight: bold; text-decoration: underline;">April 30</strong></p>
   </div>
    <div class="wrapper">
-    <div class="parent">  
-    <!-- Your existing grid content here -->
-    <div class="cell" style="font-weight: bold;border-radius: 12px;">Days</div>  
-    <div class="cell" style="font-weight: bold;border-radius: 12px;">Morning<br>Time</div>  
-    <div class="cell" style="font-weight: bold;border-radius: 12px;">Evening<br>Time</div>  
-    <div class="cell" style="border-radius: 12px;">Monday</div>  
-    <div class="cell" style="border-radius: 12px;">09-11 A.M.</div>  
-    <div class="cell" style="border-radius: 12px;">After 7 P.M.</div>  
-    <div class="cell" style="border-radius: 12px;">Tuesday</div>  
-    <div class="cell" style="border-radius: 12px;">09-11 A.M.</div>  
-    <div class="cell" style="border-radius: 12px;">After 7 P.M.</div>  
-    <div class="cell" style="border-radius: 12px;">Wednesday</div>  
-    <div class="cell" style="border-radius: 12px;">09-11 A.M.</div>  
-    <div class="cell" style="border-radius: 12px;">After 7 P.M.</div>  
-    <div class="cell" style="border-radius: 12px;">Thursday</div>  
-    <div class="cell" style="border-radius: 12px;">09-11 A.M.</div>  
-    <div class="cell" style="border-radius: 12px;">After 7 P.M.</div>  
-    <div class="cell" style="border-radius: 12px;">Friday</div>  
-    <div class="cell" style="border-radius: 12px;">09-11 A.M.</div>  
-    <div class="cell" style="border-radius: 12px;">After 7 P.M.</div>  
-    <div class="cell" style="border-radius: 12px;">Saturday</div>  
-    <div class="cell" style="border-radius: 12px;">Anytime<br>after 11 A.M.</div>  
-    <div class="cell" style="border-radius: 12px;">Anytime<br>after 5 P.M.</div>  
-    <div class="cell" style="border-radius: 12px;">Sunday</div>  
-    <div class="cell" style="border-radius: 12px;">Anytime<br>after 1 P.M.</div>  
-    <div class="cell" style="border-radius: 12px;">Anytime</div>  
-  </div>  
-  <div class="overlay">
+    <div class="parent">
+  <div class="cell" style="font-weight: bold; border-radius: 12px;">
+    <span class="1">Days</span> | 
+    <span class="2">Morning<br>Time</span> | 
+    <span class="3">Evening<br>Time</span>
   </div>
+
+  <div class="cell" style="border-radius: 12px;">
+    <span class="1">Monday</span> | 
+    <span class="2">09-11 A.M.</span> | 
+    <span class="3">After 7 P.M.</span>
+  </div>
+
+  <div class="cell" style="border-radius: 12px;">
+    <span class="1">Tuesday</span> | 
+    <span class="2">09-11 A.M.</span> | 
+    <span class="3">After 7 P.M.</span>
+  </div>
+
+  <div class="cell" style="border-radius: 12px;">
+    <span class="1">Wednesday</span> | 
+    <span class="2">09-11 A.M.</span> | 
+    <span class="3">After 7 P.M.</span>
+  </div>
+
+  <div class="cell" style="border-radius: 12px;">
+    <span class="1">Thursday</span> | 
+    <span class="2">09-11 A.M.</span> | 
+    <span class="3">After 7 P.M.</span>
+  </div>
+
+  <div class="cell" style="border-radius: 12px;">
+    <span class="1">Friday</span> | 
+    <span class="2">09-11 A.M.</span> | 
+    <span class="3">After 7 P.M.</span>
+  </div>
+
+  <div class="cell" style="border-radius: 12px;">
+    <span class="1">Saturday</span> | 
+    <span class="2">Anytime<br>after 11 A.M.</span> | 
+    <span class="3">Anytime<br>after 5 P.M.</span>
+  </div>
+
+  <div class="cell" style="border-radius: 12px;">
+    <span class="1">Sunday</span> | 
+    <span class="2">Anytime<br>after 1 P.M.</span> | 
+    <span class="3">Anytime</span>
+  </div>
+    </div>
+  <!--<div class="overlay">
+  </div>-->
  </div>
-</div>
+<!--</div>-->
 
   <p style="color: rgba(255, 255, 255, 0.5); font-size: 0.55rem !important;">**Note :- I'm always available to play during official holidays or any other Indian festivals.</p>
 </footer>
