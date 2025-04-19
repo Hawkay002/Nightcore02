@@ -24,5 +24,12 @@ YES! That red glow you’re seeing? It’s just a fancy box-shadow doing its thi
 Oh — and see that tiny play button sneaking in from the side? Yup, that’s the background music control. Give it a tap if you dare — it’s totally worth it ’cause the track’s by none other than Charli XCX. I’d definitely press it if I were you.
 
 ![screenshot](readme/20250419_181413.jpg)
+
+Next up — there’s a local clock showing my current time, date, day, and even a cute little day/night icon, plus the weather and temperature.
+
+I grabbed the weather info using a free API key from Tomorrow.io (because we love free stuff, right?). And for the location part, I used the latitude and longitude of my area, so it’s super accurate — like, creepily accurate.
+
+Pretty cool, huh?
+![screenshot](readme/Screenshot_20250419_175512_Chrome.jpg)
 Check live website here :-
 https://hawkay002.github.io/Link/
