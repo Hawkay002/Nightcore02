@@ -722,11 +722,18 @@ max-width: 100%;
 
 .game-box i {
 
-color: #fff;
 
+background: linear-gradient (270deg, #012E40, #023859, #592851, #F23D91, #A62461);
+background-size: 300% 300%;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+animation: moveGradient 5s linear infinite; 
 }
 
-
+@@keyframes moveGradient {
+  0% {background-position: 0% 50%;}
+  100% {background-position: 100% 50%;}
+}
 
 .game-box h2 {
 
