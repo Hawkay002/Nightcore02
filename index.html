@@ -825,7 +825,7 @@ display: block;
 
 
 /* Vault Section */
-.vault-section {
+  .vault-section {
   text-align: center;
   margin-top: 40px;
 }
@@ -2295,7 +2295,7 @@ cursor: pointer;
     <i class="fas fa-lock" style="font-size: 40px;"></i>
     <i class="fas fa-times close-btn hidden" id="close-vault-btn"></i>
 
-    <div id="vaultContent">
+    <div id="vaultContent" class="hidden">
       <input type="password" id="vault-password" placeholder="Enter Password">
       <button id="submit">Submit</button>
 
@@ -2581,17 +2581,19 @@ gameDesc.style.display = 'none';
 
 const vaultBox = document.getElementById('vault-box');
 const closeBtn = document.getElementById('close-vault-btn');
+const vaultContent = document.getElementById('vaultContent');
 const submitButton = document.getElementById('submit');
 const passwordInput = document.getElementById('vault-password');
-const content = document.getElementById('vault-content');
+const vaultInnerContent = document.getElementById('vault-content');
 const errorMessage = document.getElementById('error');
 
 const correctPassword = "12345";
 
-// Open vault
+// Open vault (show password input)
 vaultBox.addEventListener('click', function () {
   if (!vaultBox.classList.contains('active')) {
     vaultBox.classList.add('active');
+    vaultContent.classList.remove('hidden');
     closeBtn.classList.remove('hidden');
   }
 });
@@ -2600,12 +2602,12 @@ vaultBox.addEventListener('click', function () {
 submitButton.addEventListener('click', function (event) {
   event.stopPropagation();
   if (passwordInput.value === correctPassword) {
-    content.classList.remove('hidden');
+    vaultInnerContent.classList.remove('hidden');
     errorMessage.classList.add('hidden');
   } else {
     errorMessage.textContent = "Incorrect password. Please try again.";
     errorMessage.classList.remove('hidden');
-    content.classList.add('hidden');
+    vaultInnerContent.classList.add('hidden');
   }
   passwordInput.value = '';
 });
@@ -2615,7 +2617,8 @@ closeBtn.addEventListener('click', function (event) {
   event.stopPropagation();
   vaultBox.classList.remove('active');
   closeBtn.classList.add('hidden');
-  content.classList.add('hidden');
+  vaultContent.classList.add('hidden');
+  vaultInnerContent.classList.add('hidden');
   errorMessage.classList.add('hidden');
   passwordInput.value = '';
 });
