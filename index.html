@@ -827,47 +827,37 @@ display: block;
 /* Vault Section *//* Vault Section */
 /* Vault Section */
 
-.vault-section h2 {
-  font-size: 20px;
-  margin-bottom: 20px;
-  margin-top: 40px;
+.vault-section {
   text-align: center;
+  margin-top: 40px;
 }
 
 .vault-box {
   background-color: #141414;
   border-radius: 20px;
   padding: 20px;
-  text-align: center;
-  cursor: pointer;
-  position: relative;
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  max-width: 600px;
+  margin: 0 auto;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  max-width: 100%;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .vault-box i {
   color: #fff;
-  font-size: 40px;
 }
 
 .vault-box h2 {
-  margin-top: 10px;
   color: #fff;
-  font-size: 20px;
-  display: none;
+  margin: 20px 0;
 }
 
 .vault-box img {
-  display: none;
   margin-top: 15px;
   max-width: 100%;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
-
-.vault-box.active img {
-  display: block;
 }
 
 .close-btn {
@@ -875,128 +865,61 @@ display: block;
   position: absolute;
   top: 15px;
   right: 15px;
+  font-size: 30px;
   color: #fff;
   cursor: pointer;
-  background: none;
-  border-radius: 50%;
-  font-size: 30px;
-  padding: 5px 10px;
 }
 
 .vault-box.active .close-btn {
   display: block;
 }
 
-/* Password Input */
-
-#vaultContent {
-  margin-top: 20px;
-}
-
 #vault-password {
   padding: 10px;
+  width: 80%;
   border: 1px solid #ccc;
   border-radius: 5px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
+  margin-top: 15px;
   font-size: 18px;
-  width: 100%;
   background-color: #222;
   color: #fff;
-  text-align: center;
 }
 
 #submit {
-  padding: 10px;
+  padding: 10px 20px;
+  border: none;
+  margin-top: 15px;
   background-color: #1a1a1a;
   color: #fff;
-  border: none;
-  border-radius: 20px;
-  font-size: 16px;
-  font-weight: bold;
-  width: 100%;
+  border-radius: 5px;
   cursor: pointer;
-  transition: 0.3s;
+  font-weight: bold;
 }
 
 #submit:hover {
-  background-color: #ff073a80;
-  box-shadow: 0 0 20px #ff073a80;
-  color: #fff;
+  background-color: #333;
 }
 
-/* Hidden content inside vault */
-
-#content {
-  display: none;
-  margin-top: 20px;
-}
-
-#content h2 {
-  margin-bottom: 20px;
-  color: #fff;
-  text-align: center;
-}
-
-#content img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  margin-bottom: 20px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
-
-/* Error message */
-
-#error {
+.error-message {
   color: red;
   margin-top: 10px;
+}
+
+.hidden {
   display: none;
 }
 
-/* Modal Styles */
-
-.modal {
-  position: fixed;
-  z-index: 1000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.8);
+.image-container {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
-
-.modal-content {
-  max-width: 90%;
-  max-height: 90%;
-}
-
-.close-modal {
-  position: absolute;
-  top: 20px;
-  right: 40px;
-  color: #fff;
-  font-size: 30px;
-  cursor: pointer;
-}
-
-/* Mobile adjustments */
 
 @media (max-width: 768px) {
   .vault-box {
-    padding: 15px;
-  }
-  .vault-box i {
-    font-size: 35px;
-  }
-  #vault-password {
-    font-size: 16px;
-  }
-  #submit {
-    font-size: 14px;
+    max-width: 90%;
   }
   }
 
