@@ -890,22 +890,26 @@ display: block;
 
 /* Password Input */
 #password {
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #222;
-  color: #fff;
-  font-size: 16px;
+  padding: 10px !important;
+  border-radius: 5px !important;
+  background-color: #222 !important;
+  color: #000000 !important;
+  font-size: 15px !important;
   border: none;
   transition: border-color 0.3s, box-shadow 0.3s;
-  width: 100%;
+  width: 100% !important;
   margin-top: 10px;
   text-align: center;
-  font-size: 15px !important; 
+  font-size: 15px !important;
+  cursor: pointer; 
+  border-color: #ff073a80; /* Neon red button color */
+  height: 40px;
 }
 
 #password:hover {
-  border-color: #ff073a80;
-  box-shadow: 0 0 5px #ff073a80;
+  background-color: #ff073a80; /* Darker shade on hover */
+  box-shadow:  0 0 10px #ff073a80;
+  color: #fff;
 }
 
 #password:focus {
@@ -932,7 +936,6 @@ display: block;
   height: 40px;
   width: 100%;
   font-size: 15px;
-  font-color:#000;
   background-color: #141414;
   border-radius: 20px;
   margin-top: 15px;
@@ -2361,7 +2364,7 @@ cursor: pointer;
 
 <section class="vault-section">
   <div class="vault-box" id="vault-box">
-    <i class="fas fa-lock" style="font-size: 40px;"></i>
+    <i class="fas fa-lock" style="font-size: 15px;"></i>
     <i class="fas fa-times close-btn hidden" id="close-vault-btn"></i>
 
     <div id="vaultContent" class="hidden">
