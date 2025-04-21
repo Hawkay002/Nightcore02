@@ -2395,34 +2395,6 @@ cursor: pointer;
 
 <script>
 
-document.addEventListener("DOMContentLoaded", function () {
-  setTimeout(() => {
-    const loader = document.querySelector(".loader-container");
-    const mainContent = document.getElementById("mainContent");
-    loader.style.display = "none";
-    mainContent.style.display = "block";
-    setTimeout(() => {
-      mainContent.style.opacity = "1";
-
-      // Trigger music player appearance
-      const musicPlayer = document.querySelector(".top-right-wrapper");
-      musicPlayer.classList.add("slideIn");
-
-      // Play/pause functionality
-      const audio = document.getElementById("background-audio");
-      const playBtn = document.querySelector(".play-btn");
-
-      playBtn.addEventListener("change", function () {
-        if (this.checked) {
-          audio.play();
-        } else {
-          audio.pause();
-        }
-      });
-
-    }, 50);
-  }, 5000);
-});
 
 
 
@@ -2588,6 +2560,55 @@ gameDesc.style.display = 'none';
 
 });
 
+const modal = document.getElementById('modal');
+
+const modalImg = document.getElementById('modal-img');
+
+const closeModal = document.getElementById('close-modal');
+
+
+
+
+
+// Add event listeners to preview images
+
+const previewImages = document.querySelectorAll('.preview-img');
+
+previewImages.forEach(img => {
+
+img.addEventListener('click', function() {
+
+modal.style.display = 'flex'; // Show the modal
+
+modalImg.src = this.src; // Set the modal image source to clicked image
+
+});
+
+});
+
+
+
+// Close modal when the close button is clicked
+
+closeModal.addEventListener('click', function() {
+
+modal.style.display = 'none'; // Hide the modal
+
+});
+
+
+
+// Close modal when clicking outside the image
+
+modal.addEventListener('click', function(event) {
+
+if (event.target === modal) {
+
+modal.style.display = 'none'; // Hide the modal
+
+}
+
+});
 
 
 
@@ -2725,55 +2746,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-const modal = document.getElementById('modal');
-
-const modalImg = document.getElementById('modal-img');
-
-const closeModal = document.getElementById('close-modal');
-
-
-
-
-
-// Add event listeners to preview images
-
-const previewImages = document.querySelectorAll('.preview-img');
-
-previewImages.forEach(img => {
-
-img.addEventListener('click', function() {
-
-modal.style.display = 'flex'; // Show the modal
-
-modalImg.src = this.src; // Set the modal image source to clicked image
-
-});
-
-});
-
-
-
-// Close modal when the close button is clicked
-
-closeModal.addEventListener('click', function() {
-
-modal.style.display = 'none'; // Hide the modal
-
-});
-
-
-
-// Close modal when clicking outside the image
-
-modal.addEventListener('click', function(event) {
-
-if (event.target === modal) {
-
-modal.style.display = 'none'; // Hide the modal
-
-}
-
-});
 
 
 
