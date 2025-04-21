@@ -886,13 +886,13 @@ display: block;
   color: #fff;
 }
 
-#vault-password focus:{
+#vault-password:focus {
   border-color: #ff073a80; /* Lighter neon red on focus */
-outline: none; /* Remove default outline */
-box-shadow: 0 0 5px #ff073a80; /* Subtle glow effect */
-background-color: #222;
-color: #fff;
-}
+  outline: none; /* Remove default outline */
+  box-shadow: 0 0 5px #ff073a80; /* Subtle glow effect */
+  background-color: #222;
+  color: #fff;
+  }
   
 #submit {
   padding: 10px 20px;
@@ -2309,7 +2309,7 @@ cursor: pointer;
 
 <section class="vault-section">
   <div class="vault-box" id="vault-box">
-    <i class="fas fa-lock" style="font-size: 40px;"></i>
+    <i class="fas fa-lock" style="font-size: 40px; filter: drop-shadow(0 0 20px currentcolor) drop-shadow(0 0 17px currentcolor) !important"></i>
     <i class="fas fa-times close-btn hidden" id="close-vault-btn"></i>
 
     <div id="vaultContent" class="hidden">
