@@ -825,15 +825,15 @@ display: block;
 
 
 /* Vault Section *//* Vault Section */
+/* Vault Section */
+
 .vault-section h2 {
   font-size: 20px;
   margin-bottom: 20px;
   margin-top: 40px;
   text-align: center;
-  color: #ff073a80;
 }
 
-/* Vault Box */
 .vault-box {
   background-color: #141414;
   border-radius: 20px;
@@ -858,7 +858,6 @@ display: block;
   display: none;
 }
 
-/* Vault Image */
 .vault-box img {
   display: none;
   margin-top: 15px;
@@ -871,7 +870,6 @@ display: block;
   display: block;
 }
 
-/* Close Button */
 .close-btn {
   display: none;
   position: absolute;
@@ -880,8 +878,9 @@ display: block;
   color: #fff;
   cursor: pointer;
   background: none;
-  border-radius: 20px;
+  border-radius: 50%;
   font-size: 30px;
+  padding: 5px 10px;
 }
 
 .vault-box.active .close-btn {
@@ -889,105 +888,115 @@ display: block;
 }
 
 /* Password Input */
-#password {
-  padding: 10px !important;
-  border-radius: 5px !important;
-  background-color: #222 !important;
-  color: #000000 !important;
-  font-size: 15px !important;
-  border: none;
-  transition: border-color 0.3s, box-shadow 0.3s;
-  width: 100% !important;
-  margin-top: 10px;
-  text-align: center;
-  font-size: 15px !important;
-  cursor: pointer; 
-  border-color: #ff073a80; /* Neon red button color */
-  height: 40px;
+
+#vaultContent {
+  margin-top: 20px;
 }
 
-#password:hover {
-  background-color: #ff073a80; /* Darker shade on hover */
-  box-shadow:  0 0 10px #ff073a80;
-  color: #fff;
-}
-
-#password:focus {
-  border-color: #ff073a80;
-  outline: none;
-  box-shadow: 0 0 8px #ff073a80;
+#vault-password {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  width: 100%;
   background-color: #222;
   color: #fff;
+  text-align: center;
 }
 
-#password::placeholder {
-  color: #fff;
-}
-
-/* Submit Button */
 #submit {
   padding: 10px;
-  border-color: #ff073a80;
+  background-color: #1a1a1a;
   color: #fff;
-  font-weight: bolder;
   border: none;
-  cursor: pointer;
-  transition: background-color 0.3s, box-shadow 0.3s;
-  height: 40px;
-  width: 100%;
-  font-size: 15px;
-  background-color: #141414;
   border-radius: 20px;
-  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 #submit:hover {
   background-color: #ff073a80;
-  box-shadow: 0 0 10px #ff073a80;
+  box-shadow: 0 0 20px #ff073a80;
   color: #fff;
 }
 
-/* Error Message */
+/* Hidden content inside vault */
+
+#content {
+  display: none;
+  margin-top: 20px;
+}
+
+#content h2 {
+  margin-bottom: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+#content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Error message */
+
 #error {
   color: red;
-  display: none;
   margin-top: 10px;
-}
-
-/* Vault Content Text */
-#content h2 {
-  margin-top: 20px;
-  color: #fff;
-  font-size: 20px;
-}
-
-/* Utility Hidden Class */
-.hidden {
   display: none;
 }
 
-/* Overlay */
-#content .overlay {
-  position: absolute;
-  top: 0;
+/* Modal Styles */
+
+.modal {
+  position: fixed;
+  z-index: 1000;
   left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  background: #00000000;
-  pointer-events: all;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Image Container */
-.img-container {
-  max-width: auto;
-  height: auto;
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
 }
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* Mobile adjustments */
 
 @media (max-width: 768px) {
-  .img-container img {
-    max-width: calc(120%);
-    height: auto;
-    border-radius: 5px;
+  .vault-box {
+    padding: 15px;
+  }
+  .vault-box i {
+    font-size: 35px;
+  }
+  #vault-password {
+    font-size: 16px;
+  }
+  #submit {
+    font-size: 14px;
   }
   }
 
