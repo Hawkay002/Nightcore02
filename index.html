@@ -825,380 +825,99 @@ display: block;
 
 
 /* Vault Section */
-
-.vault-section h2 {
-
-font-size: 20px;
-
-margin-bottom: 20px;
-
-margin-top: 40px;
-
-text-align: center;
-
+.vault-section {
+  text-align: center;
+  margin-top: 40px;
 }
-
-
 
 .vault-box {
-
-background-color: #141414;
-
-border-radius: 20px;
-
-padding: 20px;
-
-text-align: center;
-
-cursor: pointer;
-
-position: relative;
-
-transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-
-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
-
-max-width: 100%;
-
+  background-color: #141414;
+  border-radius: 20px;
+  padding: 20px;
+  max-width: 400px;
+  margin: 0 auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-
 
 .vault-box i {
-
-color: #fff;
-
+  color: #fff;
 }
-
-
 
 .vault-box h2 {
-
-margin-top: 10px;
-
-color: #fff;
-
-font-size: 20px;
-
-display: none;
-
+  color: #fff;
+  margin: 20px 0;
 }
-
-
-
-.vault-box h2 p {
-
-margin-top: 10px;
-
-}
-
-
 
 .vault-box img {
-
-display: none;
-
-margin-top: 15px;
-
-max-width: 100%;
-
-border-radius: 10px;
-
-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
-
+  margin-top: 15px;
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
-
-
-
-.vault-box.active img {
-
-display: block;
-
-}
-
-
 
 .close-btn {
-
-display: none;
-
-position: absolute;
-
-top: 15px;
-
-right: 15px;
-
-margin-top: 10px;
-
-color: #fff;
-
-cursor: pointer;
-
-background: none;
-
-border-radius: 20px;
-
-font-size: 30px;
-
-padding-right: 15px;
-
+  display: none;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 30px;
+  color: #fff;
+  cursor: pointer;
 }
-
-
 
 .vault-box.active .close-btn {
-
-isplay: block;
-
+  display: block;
 }
-
-
-
-/*control button*/
-
-.custom-controls {
-
-display: flex;
-
-height: 70px;
-
-width: 100% ;
-
-background-color: #141414;
-
-font-size: 20px;
-
-font-weight: bold;
-
-border-radius: 20px;
-
-border: none;
-
-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
-
-margin-top: 20px;
-
-align-items: center;
-
-justify-content: center;
-
-gap: 20px;
-
-}
-
-
-
-.custom-controls .button {
-
-background-color: #fff;
-
-font-size: 20px;
-
-border-radius: 10px;
-
-border: none;
-
-height: fit-content;
-
-width: fit-content;
-
-align-items: center;
-
-justify-content: center;
-
-padding: 10px;
-
-margin-top: 13px;
-
-margin-bottom: 10px;
-
-gap: 50px;
-
-}
-
-
-
-/* Password Input */
-
-#password-container {
-
-display: flex;
-
-justify-content: center;
-
-margin-top: 20px;
-
-}
-
-
 
 #vault-password {
-
-padding: 10px;
-
-border: 1px solid #ccc;
-
-border-radius: 5px;
-
-margin-right: 10px;
-
+  padding: 10px;
+  width: 80%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  background-color: #222;
+  color: #fff;
 }
 
-
-
-#submit-password {
-
-padding: 10px;
-
-background-color: #1a1a1a;
-
-color: #fff;
-
-border: none;
-
-border-radius: 5px;
-
-cursor: pointer;
-
+#submit {
+  padding: 10px 20px;
+  border: none;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
 }
-
-
-
-#submit-password:hover {
-
-background-color: #333;
-
-}
-
-
-
-/* Utility Class for Hidden Elements */
-
-.hidden {
-
-display: none;
-
-}
-
-
 
 #submit:hover {
-
-background-color: #ff073a80; /* Darker shade on hover */
-
-box-shadow:  0 0 20px #ff073a80;
-
-color: #fff;
-
+  background-color: #333;
 }
 
-
-
-#content .overlay {
-
-position: absolute;
-
-top: 0;
-
-left: 0;
-
-width: 100%;
-
-height: 100%;
-
-background: #00000000;
-
-pointer-events: all;
-
+.error-message {
+  color: red;
+  margin-top: 10px;
 }
 
-
-
-/*modal for p previews*/
-
-/* Modal Styles */
-
-.img-container {
-
-max-width: auto;
-
-height: auto;
-
+.hidden {
+  display: none;
 }
 
-
-
-@media (max-width: 768px)
-
-{
-
-.img-container img{
-
-max-width:calc(120%);
-
-height: auto;
-
-border-radius: 5px;
-
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
 
-}
-
-
-
-.modal {
-
-position: fixed;
-
-z-index: 1000;
-
-left: 0;
-
-top: 0;
-
-width: 100%;
-
-height: 100%;
-
-overflow: auto;
-
-background-color: rgba(0, 0, 0, 0.8);
-
-display: flex;
-
-justify-content: center;
-
-align-items: center;
-
-}
-
-
-
-.modal-content {
-
-max-width: 90%;
-
-max-height: 90%;
-
-}
-
-
-
-.close-modal {
-
-position: absolute;
-
-top: 20px;
-
-right: 40px;
-
-color: #fff;
-
-font-size: 30px;
-
-cursor: pointer;
-
-}
+@media (max-width: 768px) {
+  .vault-box {
+    max-width: 90%;
+  }
+  }
 
 
 
@@ -2572,49 +2291,25 @@ cursor: pointer;
 </header>
 
 <section class="vault-section">
+  <div class="vault-box" id="vault-box">
+    <i class="fas fa-lock" style="font-size: 40px;"></i>
+    <i class="fas fa-times close-btn hidden" id="close-vault-btn"></i>
 
-<div class="vault-box" id="vault-box">
+    <div id="vaultContent">
+      <input type="password" id="vault-password" placeholder="Enter Password">
+      <button id="submit">Submit</button>
 
-<i class="fas fa-lock" style="font-size: 40px;"></i>
+      <div id="vault-content" class="hidden">
+        <h2>Good Job, Now Close It</h2>
+        <div class="image-container">
+          <img src="line.gif" alt="Line GIF">
+        </div>
+      </div>
 
-<i class="fas fa-times close-btn hidden" id="close-vault-btn"></i>
-
-<!-- Password Input -->
-
-<div id="vaultContent" style="margin-top: 20px;">
-
-<input type="password" id="password" placeholder="Enter Password" style="height: 50px; width: 100%; border-radius: 5px; margin-bottom: 10px; font-size: 20px; text-align: center; background-color: #222;">
-
-<button id="submit" style="height: 40px; width: 100%; border-radius: 20px; margin-bottom: 10px; border: none; font-size: 15px; font-weight: bold;">Submit</button>
-
-<div id="content" style="display: none;">
-
-<!-- Hidden content goes here -->
-
-<h2 id="vault-desc">Good Job, Now Close It</h2>
-
-<div id="vault-desc" style="margin-bottom: 20px; display: flex; justify-content: center; align-items: center;">
-
-<img id="vault-desc" src="line.gif" alt="Line GIF" style="max-width: 100%; height: auto; ">
-
-</div>
-
-<!--<div class="custom-controls">
-
-<button onclick="playPause()" class="button">Play/Pause</button>
-
-<button onclick="muteUnmute()" class="button">Mute/Unmute</button>
-
-</div>-->
-
-</div>
-
-<div id="error" style="color: red; display: none;"></div>
-
-</div>        
-
+      <div id="error" class="error-message hidden"></div>
+    </div>
+  </div>
 </section>
-
 </footer>
 
 
@@ -2885,89 +2580,44 @@ gameDesc.style.display = 'none';
 // JavaScript to handle the expand/collapse feature
 
 const vaultBox = document.getElementById('vault-box');
-
-const closeVaultBtn = document.getElementById('close-vault-btn');
-
-const vaultDesc = document.getElementById('vault-desc');
-
-vaultBox.addEventListener('click', function () {
-
-if (!vaultBox.classList.contains('active')) {
-
-vaultBox.classList.add('active');
-
-vaultDesc.style.display = 'block';
-
-}
-
-});
-
-closeVaultBtn.addEventListener('click', function (event) {
-
-event.stopPropagation(); // Prevent the event from triggering the game box click
-
-vaultBox.classList.remove('active');
-
-vaultDesc.style.display = 'none';
-
-});
-
-closeVaultBtn.addEventListener('click', function (event) {
-
-video.pause();
-
-})
-
-closeVaultBtn.addEventListener('click', function (event) {
-
-event.stopPropagation();
-
-vaultBox.classList.remove('active');
-
-vaultDesc.style.display = 'none';
-
-document.getElementById('password-container').classList.add('hidden'); // Hide password input
-
-vaultPasswordInput.value = ''; // Clear the input
-
-});
-
-closeVaultBtn.addEventListener('click', function (event) {
-
-video.pause();
-
-})
-
-const correctPassword = "12345"; // Replace with your actual password
-
+const closeBtn = document.getElementById('close-vault-btn');
 const submitButton = document.getElementById('submit');
+const passwordInput = document.getElementById('vault-password');
+const content = document.getElementById('vault-content');
+const errorMessage = document.getElementById('error');
 
-const passwordInput = document.getElementById('password');
+const correctPassword = "12345";
 
-const content = document.getElementById('content');
+// Open vault
+vaultBox.addEventListener('click', function () {
+  if (!vaultBox.classList.contains('active')) {
+    vaultBox.classList.add('active');
+    closeBtn.classList.remove('hidden');
+  }
+});
 
-const error = document.getElementById('error');
+// Submit password
+submitButton.addEventListener('click', function (event) {
+  event.stopPropagation();
+  if (passwordInput.value === correctPassword) {
+    content.classList.remove('hidden');
+    errorMessage.classList.add('hidden');
+  } else {
+    errorMessage.textContent = "Incorrect password. Please try again.";
+    errorMessage.classList.remove('hidden');
+    content.classList.add('hidden');
+  }
+  passwordInput.value = '';
+});
 
-submitButton.addEventListener('click', () => {
-
-if (passwordInput.value === correctPassword) {
-
-content.style.display = 'block';
-
-error.style.display = 'none';
-
-} else {
-
-error.textContent = 'Incorrect password. Please try again.';
-
-error.style.display = 'block';
-
-content.style.display = 'none';
-
-}
-
-passwordInput.value = ''; // Clear the input field
-
+// Close vault
+closeBtn.addEventListener('click', function (event) {
+  event.stopPropagation();
+  vaultBox.classList.remove('active');
+  closeBtn.classList.add('hidden');
+  content.classList.add('hidden');
+  errorMessage.classList.add('hidden');
+  passwordInput.value = '';
 });
 
 
