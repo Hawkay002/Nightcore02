@@ -722,12 +722,14 @@ max-width: 100%;
 
 .game-box i {
 display: inline-block; 
-
+font-size: 40px;
 background: linear-gradient (270deg, #012E40, #023859, #592851, #F23D91, #A62461);
 background-size: 300% 300%;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
 animation: moveGradient 5s linear infinite; 
+
+filter: drop-shadow(0 0 20px #F23D91) drop-shadow(0 0 20px #F23D91);
 }
 
 @@keyframes moveGradient {
@@ -2168,7 +2170,7 @@ cursor: pointer;
 
 <div class="game-box" id="game-box">
 
-<i class="fas fa-gamepad" style="font-size: 40px; filter: drop-shadow(0 0 20px currentcolor) drop-shadow(0 0 17px currentcolor) !important;"></i>
+<i class="fas fa-gamepad"></i>
 
 <!-- Hidden content -->
 
