@@ -824,13 +824,13 @@ display: block;
 
 
 
-/* Vault Section */
-/* Vault Section Container */
+/* Vault Section *//* Vault Section */
 .vault-section h2 {
   font-size: 20px;
   margin-bottom: 20px;
   margin-top: 40px;
   text-align: center;
+  color: #ff073a80;
 }
 
 /* Vault Box */
@@ -891,14 +891,13 @@ display: block;
 /* Password Input */
 #password {
   padding: 12px;
-  height: 50px;
-  width: 100%;
   border-radius: 5px;
   background-color: #222;
   color: #fff;
   font-size: 16px;
-  border: 1px solid #333;
+  border: none;
   transition: border-color 0.3s, box-shadow 0.3s;
+  width: 100%;
   margin-top: 10px;
   text-align: center;
 }
@@ -908,8 +907,7 @@ display: block;
   box-shadow: 0 0 5px #ff073a80;
 }
 
-#password:focus, 
-#password:active {
+#password:focus {
   border-color: #ff073a80;
   outline: none;
   box-shadow: 0 0 8px #ff073a80;
@@ -924,16 +922,17 @@ display: block;
 /* Submit Button */
 #submit {
   padding: 10px;
-  height: 40px;
-  width: 100%;
-  border: none;
-  background-color: #141414;
-  border-radius: 20px;
+  border-color: #ff073a80;
   color: #000;
   font-weight: bolder;
+  border: none;
   cursor: pointer;
   transition: background-color 0.3s, box-shadow 0.3s;
+  height: 40px;
+  width: 100%;
   font-size: 15px;
+  background-color: #141414;
+  border-radius: 20px;
   margin-top: 15px;
 }
 
@@ -962,7 +961,7 @@ display: block;
   display: none;
 }
 
-/* Overlay (if used) */
+/* Overlay */
 #content .overlay {
   position: absolute;
   top: 0;
@@ -973,7 +972,7 @@ display: block;
   pointer-events: all;
 }
 
-/* Responsive Image Container */
+/* Image Container */
 .img-container {
   max-width: auto;
   height: auto;
@@ -985,7 +984,7 @@ display: block;
     height: auto;
     border-radius: 5px;
   }
-}
+  }
 
 
 
