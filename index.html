@@ -2444,6 +2444,13 @@ cursor: pointer;
 
 </footer>
 
+  <form id="contactForm">
+  <input type="text" id="name" placeholder="Your Name" required />
+  <input type="email" id="email" placeholder="Your Email" required />
+  <textarea id="message" placeholder="Your Message" required></textarea>
+  <button type="submit">Send</button>
+  </form>
+
 <footer>
 
 <p>&copy; 2024 Chat Networks, made by <a href="https://wa.me/+918777845713">Shovith</a>. All rights reserved. | <a href="#">Privacy Policy</a></p>
@@ -2455,10 +2462,32 @@ cursor: pointer;
 </div>
 
 
-
 <script>
 
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
 
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    const telegramBotToken = '7622303352:AAHOPeI1Td8mTiIhkTecDonncikqE7HM-4I';
+    const chatId = '7377338040';
+    const text = `New message from your website:
+Name: ${name}
+Email: ${email}
+Message: ${message}`;
+
+    fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`)
+      .then(response => response.json())
+      .then(data => {
+        if (data.ok) {
+          alert("Message sent to Telegram!");
+        } else {
+          alert("Failed to send message.");
+        }
+      });
+  });
 
 
 
