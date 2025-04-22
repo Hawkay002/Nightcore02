@@ -2584,7 +2584,7 @@ Message: ${message}`;
       .then(data => {
         const responseMessage = document.getElementById('response-message-second');
         if (data.ok) {
-          responseMessage.textContent = 'Message sent to Telegram!';
+          responseMessage.textContent = 'Message sent successfully!';
           form.reset(); // Reset the form fields after a successful submission
         } else {
           responseMessage.textContent = 'Failed to send message.';
