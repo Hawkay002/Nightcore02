@@ -1636,7 +1636,7 @@ cursor: pointer;
 
 
 /*telegram contact form*/
-    .contact {
+  .contact {
     margin-top: 20px;
     background-color: #141414;
     border-radius: 20px;
@@ -1711,11 +1711,11 @@ cursor: pointer;
     color: #fff;
   }
 
-  #response-message {
+  #response-message-second {
     text-align: center;
     color: #fff;
     margin-top: 15px;
-  }
+      }
 
   
 </style>
@@ -2529,7 +2529,7 @@ cursor: pointer;
 </footer>
 
 
-
+<footer>
 <section class="contact">
   <h2>Contact Me</h2>
   <form id="contactForm">
@@ -2547,9 +2547,9 @@ cursor: pointer;
     </div>
     <button type="submit">Send Message</button>
   </form>
-  <div id="response-message"></div>
-  </section>
-
+  <div id="response-message-second"></div> <!-- Unique response message ID -->
+</section>
+</footer>
 
   
 <footer>
@@ -2583,15 +2583,18 @@ Message: ${message}`;
     fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`)
       .then(response => response.json())
       .then(data => {
+        const responseMessage = document.getElementById('response-message-second');
         if (data.ok) {
-          document.getElementById('response-message').textContent = 'Message sent to Telegram!';
+          responseMessage.textContent = 'Message sent to Telegram!';
+          form.reset(); // Reset the form fields after a successful submission
         } else {
-          document.getElementById('response-message').textContent = 'Failed to send message.';
+          responseMessage.textContent = 'Failed to send message.';
         }
       })
       .catch(error => {
         console.error('Error:', error);
-        document.getElementById('response-message').textContent = 'Error sending message. Please try again.';
+        const responseMessage = document.getElementById('response-message-second');
+        responseMessage.textContent = 'Error sending message. Please try again.';
       });
   });
 
