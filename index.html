@@ -2467,9 +2467,10 @@ cursor: pointer;
 document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const message = document.getElementById("message").value;
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const message = form.message.value;
 
     const telegramBotToken = '7622303352:AAHOPeI1Td8mTiIhkTecDonncikqE7HM-4I';
     const chatId = '7377338040';
