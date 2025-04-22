@@ -1715,7 +1715,7 @@ cursor: pointer;
     text-align: center;
     color: #fff;
     margin-top: 15px;
-      }
+    }
 
   
 </style>
@@ -2488,7 +2488,7 @@ cursor: pointer;
 
 <section class="contact">
 
-<h2>Contact Me<br>via Mail</h2>
+<h2>Contact Me - Email</h2>
 
 <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
 
@@ -2531,21 +2531,21 @@ cursor: pointer;
 
 <footer>
 <section class="contact">
-  <h2>Contact Me<br>via Message</h2>
+  <h2>Contact Me - Message</h2>
   <form id="contactForm">
     <div>
       <label for="name">Name:</label>
-      <input type="text" id="name" name="name" placeholder="" required />
+      <input type="text" id="name" name="name" placeholder="Your Name" required />
     </div>
     <div>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="" required />
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" placeholder="Your Phone Number" required />
     </div>
     <div>
       <label for="message">Message:</label>
-      <textarea id="message" name="message" placeholder="" required></textarea>
+      <textarea id="message" name="message" placeholder="Your Message" required></textarea>
     </div>
-    <button type="submit" style="border-radius: 20px !important; height: 40px !important; ">Send Message</button>
+    <button type="submit" style="border-radius: 20px !important; height: 40px !important;">Send Message</button>
   </form>
   <div id="response-message-second"></div> <!-- Unique response message ID -->
 </section>
@@ -2565,19 +2565,21 @@ cursor: pointer;
 
 <script>
 
+
+//Contact form using Telegram bot
 document.getElementById("contactForm").addEventListener("submit", function(e) {
     e.preventDefault();
 
     const form = e.target;
     const name = form.name.value;
-    const email = form.email.value;
+    const phone = form.phone.value;
     const message = form.message.value;
 
     const telegramBotToken = '7622303352:AAHOPeI1Td8mTiIhkTecDonncikqE7HM-4I';
     const chatId = '7377338040';
     const text = `New message from your website:
 Name: ${name}
-Email: ${email}
+Phone: ${phone}
 Message: ${message}`;
 
     fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`)
