@@ -1565,7 +1565,7 @@ cursor: pointer;
 
 <body>
 
-<!--<div class="loader-container">
+<div class="loader-container">
 <svg xmlns="http://www.w3.org/2000/svg" height="200" width="200">
   <g style="order: -1;">
     <polygon
@@ -1690,7 +1690,7 @@ cursor: pointer;
     ></polygon>
   </g>
 </svg>
-</div>-->
+</div>
 
 
 
@@ -2401,77 +2401,127 @@ cursor: pointer;
 
 
 //Contact form using Telegram bot
-  const showForm1Btn = document.getElementById('showForm1');
-  const showForm2Btn = document.getElementById('showForm2');
-  const form1 = document.getElementById('form1Section');
-  const form2 = document.getElementById('form2Section');
-  const closeForm1Btn = document.getElementById('closeForm1');
-  const closeForm2Btn = document.getElementById('closeForm2');
+  
 
-  showForm1Btn.addEventListener('click', () => {
-    form1.style.display = 'block';
-    showForm1Btn.style.display = 'none';
-    showForm2Btn.style.display = 'none';
-  });
+  window.addEventListener('load', function () {
+  setTimeout(() => {
+    // Vault section logic
+    const vaultBox = document.getElementById('vault-box');
+    const closeBtn = document.getElementById('close-vault-btn');
+    const vaultContent = document.getElementById('vaultContent');
+    const submitButton = document.getElementById('submit');
+    const passwordInput = document.getElementById('vault-password');
+    const vaultInnerContent = document.getElementById('vault-content');
+    const errorMessage = document.getElementById('error');
 
-  showForm2Btn.addEventListener('click', () => {
-    form2.style.display = 'block';
-    showForm1Btn.style.display = 'none';
-    showForm2Btn.style.display = 'none';
-  });
+    const correctPassword = "12345";
 
-  closeForm1Btn.addEventListener('click', () => {
-    form1.style.display = 'none';
-    showForm1Btn.style.display = 'inline-block';
-    showForm2Btn.style.display = 'inline-block';
-  });
-
-  closeForm2Btn.addEventListener('click', () => {
-    form2.style.display = 'none';
-    showForm1Btn.style.display = 'inline-block';
-    showForm2Btn.style.display = 'inline-block';
-  });
-
-  // Form 1 Submission
-  document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    const formData = new FormData(this);
-
-    fetch(this.action, {
-      method: 'POST',
-      body: formData,
-    })
-    .then(response => response.json())
-    .then(data => {
-      document.getElementById('response-message').textContent = data.success ? 'Message sent successfully!' : 'Error sending message.';
-      if (data.success) this.reset();
-    })
-    .catch(() => {
-      document.getElementById('response-message').textContent = 'Error sending message. Please try again.';
+    vaultBox.addEventListener('click', function () {
+      if (!vaultBox.classList.contains('active')) {
+        vaultBox.classList.add('active');
+        vaultContent.classList.remove('hidden');
+        closeBtn.classList.remove('hidden');
+      }
     });
-  });
 
-  // Form 2 Submission
-  document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
-    const name = e.target.name.value;
-    const phone = e.target.phone.value;
-    const message = e.target.message.value;
+    submitButton.addEventListener('click', function (event) {
+      event.stopPropagation();
+      if (passwordInput.value === correctPassword) {
+        vaultInnerContent.classList.remove('hidden');
+        errorMessage.classList.add('hidden');
+      } else {
+        errorMessage.textContent = "Incorrect password. Please try again.";
+        errorMessage.classList.remove('hidden');
+        vaultInnerContent.classList.add('hidden');
+      }
+      passwordInput.value = '';
+    });
 
-    const telegramBotToken = '7658668915:AAGV0uoFT-oXi4AgxMLnbyFcgjnhyjM7GHg';
-    const chatId = '1299129410';
-    const text = `New message from your website:\nName: ${name}\nPhone: ${phone}\nMessage: ${message}`;
+    closeBtn.addEventListener('click', function (event) {
+      event.stopPropagation();
+      vaultBox.classList.remove('active');
+      closeBtn.classList.add('hidden');
+      vaultContent.classList.add('hidden');
+      vaultInnerContent.classList.add('hidden');
+      errorMessage.classList.add('hidden');
+      passwordInput.value = '';
+    });
 
-    fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`)
+    // Contact Form 1 & 2 Toggle Logic
+    const showForm1 = document.getElementById("showForm1");
+    const closeForm1 = document.getElementById("closeForm1");
+    const contactForm1 = document.getElementById("contactForm1");
+
+    const showForm2 = document.getElementById("showForm2");
+    const closeForm2 = document.getElementById("closeForm2");
+    const contactForm2 = document.getElementById("contactForm2");
+
+    showForm1.addEventListener("click", function () {
+      contactForm1.style.display = "block";
+      showForm1.style.display = "none";
+      showForm2.style.display = "none";
+    });
+
+    closeForm1.addEventListener("click", function () {
+      contactForm1.style.display = "none";
+      showForm1.style.display = "inline-block";
+      showForm2.style.display = "inline-block";
+    });
+
+    showForm2.addEventListener("click", function () {
+      contactForm2.style.display = "block";
+      showForm2.style.display = "none";
+      showForm1.style.display = "none";
+    });
+
+    closeForm2.addEventListener("click", function () {
+      contactForm2.style.display = "none";
+      showForm2.style.display = "inline-block";
+      showForm1.style.display = "inline-block";
+    });
+
+    // Form 1 Submission
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const formData = new FormData(this);
+
+      fetch(this.action, {
+        method: 'POST',
+        body: formData,
+      })
       .then(response => response.json())
       .then(data => {
-        document.getElementById('response-message-second').textContent = data.ok ? 'Message sent successfully!' : 'Failed to send message.';
-        if (data.ok) e.target.reset();
+        document.getElementById('response-message').textContent = data.success ? 'Message sent successfully!' : 'Error sending message.';
+        if (data.success) this.reset();
       })
       .catch(() => {
-        document.getElementById('response-message-second').textContent = 'Error sending message. Please try again.';
+        document.getElementById('response-message').textContent = 'Error sending message. Please try again.';
       });
-  });
+    });
+
+    // Form 2 Submission
+    document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = e.target.name.value;
+      const phone = e.target.phone.value;
+      const message = e.target.message.value;
+
+      const telegramBotToken = '7658668915:AAGV0uoFT-oXi4AgxMLnbyFcgjnhyjM7GHg';
+      const chatId = '1299129410';
+      const text = `New message from your website:\nName: ${name}\nPhone: ${phone}\nMessage: ${message}`;
+
+      fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`)
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('response-message-second').textContent = data.ok ? 'Message sent successfully!' : 'Failed to send message.';
+          if (data.ok) e.target.reset();
+        })
+        .catch(() => {
+          document.getElementById('response-message-second').textContent = 'Error sending message. Please try again.';
+        });
+    });
+  }, 5000); // Delay for loader
+});
 
 
 
@@ -2663,11 +2713,10 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(() => {
       mainContent.style.opacity = "1";
 
-      // Music player appearance
+      // Music player
       const musicPlayer = document.querySelector(".top-right-wrapper");
       musicPlayer.classList.add("slideIn");
 
-      // Play/pause functionality
       const audio = document.getElementById("background-audio");
       const playBtn = document.querySelector(".play-btn");
 
@@ -2679,7 +2728,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
       });
 
-      // Vault section logic — placed here so it waits for everything else
+      // Vault logic
       const vaultBox = document.getElementById('vault-box');
       const closeBtn = document.getElementById('close-vault-btn');
       const vaultContent = document.getElementById('vaultContent');
@@ -2687,7 +2736,6 @@ document.addEventListener("DOMContentLoaded", function () {
       const passwordInput = document.getElementById('vault-password');
       const vaultInnerContent = document.getElementById('vault-content');
       const errorMessage = document.getElementById('error');
-
       const correctPassword = "12345";
 
       vaultBox.addEventListener('click', function () {
@@ -2721,8 +2769,82 @@ document.addEventListener("DOMContentLoaded", function () {
         passwordInput.value = '';
       });
 
-    }, 50);
+      // Contact Form Toggle Logic
+      const form1Btn = document.getElementById('form1Btn');
+      const form2Btn = document.getElementById('form2Btn');
+      const form1 = document.getElementById('form1Section');
+      const form2 = document.getElementById('form2Section');
+      const closeForm1 = document.getElementById('closeForm1');
+      const closeForm2 = document.getElementById('closeForm2');
 
+      form1Btn.addEventListener('click', () => {
+        form1.style.display = 'block';
+        form1Btn.style.display = 'none';
+        form2Btn.style.display = 'none';
+      });
+
+      form2Btn.addEventListener('click', () => {
+        form2.style.display = 'block';
+        form1Btn.style.display = 'none';
+        form2Btn.style.display = 'none';
+      });
+
+      closeForm1.addEventListener('click', () => {
+        form1.style.display = 'none';
+        form1Btn.style.display = 'inline-block';
+        form2Btn.style.display = 'inline-block';
+      });
+
+      closeForm2.addEventListener('click', () => {
+        form2.style.display = 'none';
+        form1Btn.style.display = 'inline-block';
+        form2Btn.style.display = 'inline-block';
+      });
+
+      // Contact Form 1 Submission
+      document.getElementById('contact-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const formData = new FormData(this);
+
+        fetch(this.action, {
+          method: 'POST',
+          body: formData,
+        })
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('response-message').textContent =
+              data.success ? 'Message sent successfully!' : 'Error sending message.';
+            if (data.success) this.reset();
+          })
+          .catch(() => {
+            document.getElementById('response-message').textContent = 'Error sending message. Please try again.';
+          });
+      });
+
+      // Contact Form 2 Submission
+      document.getElementById("contactForm").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const name = e.target.name.value;
+        const phone = e.target.phone.value;
+        const message = e.target.message.value;
+
+        const telegramBotToken = '7658668915:AAGV0uoFT-oXi4AgxMLnbyFcgjnhyjM7GHg';
+        const chatId = '1299129410';
+        const text = `New message from your website:\nName: ${name}\nPhone: ${phone}\nMessage: ${message}`;
+
+        fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`)
+          .then(response => response.json())
+          .then(data => {
+            document.getElementById('response-message-second').textContent =
+              data.ok ? 'Message sent successfully!' : 'Failed to send message.';
+            if (data.ok) e.target.reset();
+          })
+          .catch(() => {
+            document.getElementById('response-message-second').textContent = 'Error sending message. Please try again.';
+          });
+      });
+
+    }, 50);
   }, 5000);
 });
 
