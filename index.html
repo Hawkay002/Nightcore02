@@ -1004,7 +1004,7 @@ cursor: pointer;
 </style>
 </head>
 <body>
-<div class="loader-container">
+<!--<div class="loader-container">
 <svg xmlns="http://www.w3.org/2000/svg" height="200" width="200">
   <g style="order: -1;">
     <polygon
@@ -1129,7 +1129,7 @@ cursor: pointer;
     ></polygon>
   </g>
 </svg>
-</div>
+</div>-->
 <!-- Hero Section -->
 <div id="mainContent">
 <div class="top-right-wrapper">
@@ -1667,65 +1667,67 @@ modal.style.display = 'none'; // Hide the modal
 //vault
 // JavaScript to handle the expand/collapse feature
 document.addEventListener("DOMContentLoaded", function () {
+  const mainContent = document.getElementById("mainContent");
+  mainContent.style.display = "block";
   setTimeout(() => {
-    const loader = document.querySelector(".loader-container");
-    const mainContent = document.getElementById("mainContent");
-    loader.style.display = "none";
-    mainContent.style.display = "block";
-    setTimeout(() => {
-      mainContent.style.opacity = "1";
-      // Music player appearance
-      const musicPlayer = document.querySelector(".top-right-wrapper");
-      musicPlayer.classList.add("slideIn");
-      // Play/pause functionality
-      const audio = document.getElementById("background-audio");
-      const playBtn = document.querySelector(".play-btn");
-      playBtn.addEventListener("change", function () {
-        if (this.checked) {
-          audio.play();
-        } else {
-          audio.pause();
-        }
-      });
-      // Vault section logic — placed here so it waits for everything else
-      const vaultBox = document.getElementById('vault-box');
-      const closeBtn = document.getElementById('close-vault-btn');
-      const vaultContent = document.getElementById('vaultContent');
-      const submitButton = document.getElementById('submit');
-      const passwordInput = document.getElementById('vault-password');
-      const vaultInnerContent = document.getElementById('vault-content');
-      const errorMessage = document.getElementById('error');
-      const correctPassword = "12345";
-      vaultBox.addEventListener('click', function () {
-        if (!vaultBox.classList.contains('active')) {
-          vaultBox.classList.add('active');
-          vaultContent.classList.remove('hidden');
-          closeBtn.classList.remove('hidden');
-        }
-      });
-      submitButton.addEventListener('click', function (event) {
-        event.stopPropagation();
-        if (passwordInput.value === correctPassword) {
-          vaultInnerContent.classList.remove('hidden');
-          errorMessage.classList.add('hidden');
-        } else {
-          errorMessage.textContent = "Incorrect password. Please try again.";
-          errorMessage.classList.remove('hidden');
-          vaultInnerContent.classList.add('hidden');
-        }
-        passwordInput.value = '';
-      });
-      closeBtn.addEventListener('click', function (event) {
-        event.stopPropagation();
-        vaultBox.classList.remove('active');
-        closeBtn.classList.add('hidden');
-        vaultContent.classList.add('hidden');
-        vaultInnerContent.classList.add('hidden');
+    mainContent.style.opacity = "1";
+
+    // Music player appearance
+    const musicPlayer = document.querySelector(".top-right-wrapper");
+    musicPlayer.classList.add("slideIn");
+
+    // Play/pause functionality
+    const audio = document.getElementById("background-audio");
+    const playBtn = document.querySelector(".play-btn");
+    playBtn.addEventListener("change", function () {
+      if (this.checked) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    });
+
+    // Vault section logic
+    const vaultBox = document.getElementById('vault-box');
+    const closeBtn = document.getElementById('close-vault-btn');
+    const vaultContent = document.getElementById('vaultContent');
+    const submitButton = document.getElementById('submit');
+    const passwordInput = document.getElementById('vault-password');
+    const vaultInnerContent = document.getElementById('vault-content');
+    const errorMessage = document.getElementById('error');
+    const correctPassword = "12345";
+
+    vaultBox.addEventListener('click', function () {
+      if (!vaultBox.classList.contains('active')) {
+        vaultBox.classList.add('active');
+        vaultContent.classList.remove('hidden');
+        closeBtn.classList.remove('hidden');
+      }
+    });
+
+    submitButton.addEventListener('click', function (event) {
+      event.stopPropagation();
+      if (passwordInput.value === correctPassword) {
+        vaultInnerContent.classList.remove('hidden');
         errorMessage.classList.add('hidden');
-        passwordInput.value = '';
-      });
-    }, 50);
-  }, 5000);
+      } else {
+        errorMessage.textContent = "Incorrect password. Please try again.";
+        errorMessage.classList.remove('hidden');
+        vaultInnerContent.classList.add('hidden');
+      }
+      passwordInput.value = '';
+    });
+
+    closeBtn.addEventListener('click', function (event) {
+      event.stopPropagation();
+      vaultBox.classList.remove('active');
+      closeBtn.classList.add('hidden');
+      vaultContent.classList.add('hidden');
+      vaultInnerContent.classList.add('hidden');
+      errorMessage.classList.add('hidden');
+      passwordInput.value = '';
+    });
+  }, 50);
 });
 //const video = document.getElementById('myVideo');
 //
