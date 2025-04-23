@@ -490,197 +490,6 @@ color: inherit; /* Inherit the color */
 
 
 
-/* Contact */
-
-.contact {
-
-margin-top: 20px; /* Space above the contact section */
-
-background-color: #141414; /* Dark background for the contact section */
-
-border-radius: 20px; /* Rounded corners */
-
-padding: 20px; /* Padding around the content */
-
-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Subtle shadow */
-
-}
-
-
-
-.contact h2 {
-
-text-align: center;
-
-margin-top: 5px;
-
-margin-bottom: 20px;
-
-color: #ff073a80; /* Neon red color for the heading */
-
-}
-
-
-
-.contact form {
-
-display: flex;
-
-flex-direction: column;
-
-max-width: 600px; /* Max width for the form */
-
-margin: 0 auto; /* Center the form */
-
-}
-
-
-
-.contact form div {
-
-margin-bottom: 15px; /* Space between form fields */
-
-}
-
-
-
-.contact label {
-
-margin-bottom: 10px; /* Space below the label */
-
-color: #fff; /* White text for labels */
-
-font-weight: bold;
-
-}
-
-
-
-.contact input, .contact textarea {
-
-padding: 12px; /* Increased padding for a better look */
-
-border-radius: 5px; /* Rounded corners */
-
-background-color: #222; /* Dark background for inputs */
-
-color: #fff; /* White text for inputs */
-
-font-size: 16px; /* Slightly larger font size */
-
-transition: border-color 0.3s; /* Smooth transition for border color */
-
-width: 100%;
-
-margin-top: 10px;
-
-}
-
-
-
-.contact input:focus, .contact textarea:focus {
-
-border-color: #ff073a80; /* Lighter neon red on focus */
-
-outline: none; /* Remove default outline */
-
-box-shadow: 0 0 5px #ff073a80; /* Subtle glow effect */
-
-background-color: #222;
-
-color: #fff;
-
-}
-
-
-
-.contact input::placeholder, .contact textarea::placeholder {
-
-color: #fff;
-
-}
-
-
-
-.contact input:focus, .contact textarea:focus, .contact input:focus:valid, .contact textarea:focus:valid {
-
-background-color: #222;
-
-color: #fff;
-
-}
-
-
-
-.contact input:-webkit-autofill {
-
-background-color: #222 !important;
-
-color: #fff !important;
-
--webkit-box-shadow: 0 0 0 1000px #222 inset !important;
-
-box-shadow: 0 0 0 1000px #222 inset !important;
-
--webkit-text-fill-color: #fff !important;
-
-}
-
-
-
-.contact button {
-
-padding: 10px;
-
-border-color: #ff073a80; /* Neon red button color */
-
-color: #000000; /* Text color */
-
-font-weight: bolder;
-
-border: none;
-
-cursor: pointer; /* Pointer on hover */
-
-transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transition */
-
-height: 40px;
-
-width: 100%;
-
-font-size: 15px;
-
-font-family: "Orbitron", sans-serif !important;
-
-}
-
-
-
-.contact button:hover {
-
-background-color: #ff073a80; /* Darker shade on hover */
-
-box-shadow:  0 0 10px #ff073a80;
-
-color: #fff;
-
-font-family: "Orbitron", sans-serif !important;
-
-}
-
-
-
-#response-message {
-
-text-align: center; /* Center response messages */
-
-color: #fff; /* White text color */
-
-margin-top: 15px; /* Space above response message */
-
-}
-
-
 
 /*Games*/
 
@@ -1634,87 +1443,117 @@ cursor: pointer;
   color: inherit; /* or any color you want */
 }
 
+    .buttons-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
 
-/*telegram contact form*/
-  .contact {
-    margin-top: 20px;
-    background-color: #141414;
-    border-radius: 20px;
-    padding: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  }
+    .toggle-button {
+      padding: 15px 30px;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      background-color: #ff073a80;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
 
-  .contact h2 {
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 20px;
-    color: #ff073a80;
-  }
+    .toggle-button:hover {
+      background-color: #ff073a;
+    }
 
-  .contact form {
-    display: flex;
-    flex-direction: column;
-    max-width: 600px;
-    margin: 0 auto;
-  }
+    .contact {
+      display: none;
+      margin-top: 20px;
+      background-color: #141414;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      position: relative;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-  .contact form div {
-    margin-bottom: 15px;
-  }
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      background: transparent;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
 
-  .contact label {
-    margin-bottom: 10px;
-    color: #fff;
-    font-weight: bold;
-  }
+    .contact h2 {
+      text-align: center;
+      margin-top: 5px;
+      margin-bottom: 20px;
+      color: #ff073a80;
+    }
 
-  .contact input, .contact textarea {
-    padding: 12px;
-    border-radius: 5px;
-    background-color: #222;
-    color: #fff;
-    font-size: 16px;
-    transition: border-color 0.3s;
-    width: 100%;
-    margin-top: 10px;
-  }
+    .contact form {
+      display: flex;
+      flex-direction: column;
+      margin: 0 auto;
+    }
 
-  .contact input:focus, .contact textarea:focus {
-    border-color: #ff073a80;
-    outline: none;
-    box-shadow: 0 0 5px #ff073a80;
-    background-color: #222;
-    color: #fff;
-  }
+    .contact form div {
+      margin-bottom: 15px;
+    }
 
-  .contact input::placeholder, .contact textarea::placeholder {
-    color: #fff;
-  }
+    .contact label {
+      margin-bottom: 10px;
+      color: #fff;
+      font-weight: bold;
+    }
 
-  .contact button {
-    padding: 10px;
-    border-color: #ff073a80;
-    color: #000000;
-    font-weight: bolder;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    height: 40px;
-    width: 100%;
-    font-size: 15px;
-    font-family: "Orbitron", sans-serif;
-  }
+    .contact input, .contact textarea {
+      padding: 12px;
+      border-radius: 5px;
+      background-color: #222;
+      color: #fff;
+      font-size: 16px;
+      transition: border-color 0.3s;
+      width: 100%;
+      margin-top: 10px;
+    }
 
-  .contact button:hover {
-    background-color: #ff073a80;
-    box-shadow: 0 0 10px #ff073a80;
-    color: #fff;
-  }
+    .contact input:focus, .contact textarea:focus {
+      border-color: #ff073a80;
+      outline: none;
+      box-shadow: 0 0 5px #ff073a80;
+    }
 
-  #response-message-second {
-    text-align: center;
-    color: #fff;
-    margin-top: 15px;
+    .contact button[type="submit"] {
+      padding: 10px;
+      background-color: #ff073a80;
+      color: #000;
+      font-weight: bolder;
+      border: none;
+      cursor: pointer;
+      height: 40px;
+      width: 100%;
+      font-size: 15px;
+      font-family: "Orbitron", sans-serif;
+      border-radius: 20px;
+    }
+
+    .contact button[type="submit"]:hover {
+      background-color: #ff073a;
+      color: #fff;
+    }
+
+    #response-message, #response-message-second {
+      text-align: center;
+      color: #fff;
+      margin-top: 15px;
     }
 
   
@@ -2486,65 +2325,54 @@ cursor: pointer;
 
 </header>
 
-<section class="contact">
-
-<h2>Contact Me - Email</h2>
-
-<form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
-
-<input type="hidden" name="access_key" value="e1fb3642-9b4f-426e-83e8-37c075513392"> <!-- Replace with your Web3Forms access key -->
-
-<div>
-
-<label for="name">Name:</label>
-
-<input type="text" id="name" name="name" required>
-
+<div class="buttons-container">
+  <button class="toggle-button" id="showForm1">Contact by Email</button>
+  <button class="toggle-button" id="showForm2">Contact by Message</button>
 </div>
 
-<div>
-
-<label for="email">Email:</label>
-
-<input type="email" id="email" name="email" required>
-
-</div>
-
-<div>
-
-<label for="message">Message:</label>
-
-<textarea id="message" name="message" required></textarea>
-
-</div>
-
-<button type="submit" style="border-radius: 20px;">Submit</button>
-
-</form>
-
-<div id="response-message"></div>
-
-</section>
-
-
-<section class="contact">
-  <h2>Contact Me - Message</h2>
-  <form id="contactForm">
+<!-- Contact Form 1 -->
+<section class="contact" id="form1Section">
+  <button class="close-button" id="closeForm1">X</button>
+  <h2>Contact Me - Email</h2>
+  <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="e1fb3642-9b4f-426e-83e8-37c075513392">
     <div>
       <label for="name">Name:</label>
-      <input type="text" id="name" name="name" placeholder="" required />
+      <input type="text" id="name" name="name" required>
     </div>
     <div>
-      <label for="phone">Phone Number:</label>
-      <input type="tel" id="phone" name="phone" placeholder="" required />
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
     </div>
     <div>
       <label for="message">Message:</label>
-      <textarea id="message" name="message" placeholder="" required></textarea>
+      <textarea id="message" name="message" required></textarea>
     </div>
-    <button type="submit" style="border-radius: 20px !important; height: 40px !important;">Send Message</button>
+    <button type="submit">Submit</button>
   </form>
-  <div id="response-message-second"></div> <!-- Unique response message ID -->
+  <div id="response-message"></div>
+</section>
+
+  <!-- Contact Form 2 -->
+<section class="contact" id="form2Section">
+  <button class="close-button" id="closeForm2">X</button>
+  <h2>Contact Me - Message</h2>
+  <form id="contactForm">
+    <div>
+      <label for="name2">Name:</label>
+      <input type="text" id="name2" name="name" required>
+    </div>
+    <div>
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" name="phone" required>
+    </div>
+    <div>
+      <label for="message2">Message:</label>
+      <textarea id="message2" name="message" required></textarea>
+    </div>
+    <button type="submit">Send Message</button>
+  </form>
+  <div id="response-message-second"></div>
 </section>
 </footer>
 
@@ -2564,36 +2392,75 @@ cursor: pointer;
 
 
 //Contact form using Telegram bot
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+  const showForm1Btn = document.getElementById('showForm1');
+  const showForm2Btn = document.getElementById('showForm2');
+  const form1 = document.getElementById('form1Section');
+  const form2 = document.getElementById('form2Section');
+  const closeForm1Btn = document.getElementById('closeForm1');
+  const closeForm2Btn = document.getElementById('closeForm2');
 
-    const form = e.target;
-    const name = form.name.value;
-    const phone = form.phone.value;
-    const message = form.message.value;
+  showForm1Btn.addEventListener('click', () => {
+    form1.style.display = 'block';
+    showForm1Btn.style.display = 'none';
+    showForm2Btn.style.display = 'none';
+  });
+
+  showForm2Btn.addEventListener('click', () => {
+    form2.style.display = 'block';
+    showForm1Btn.style.display = 'none';
+    showForm2Btn.style.display = 'none';
+  });
+
+  closeForm1Btn.addEventListener('click', () => {
+    form1.style.display = 'none';
+    showForm1Btn.style.display = 'inline-block';
+    showForm2Btn.style.display = 'inline-block';
+  });
+
+  closeForm2Btn.addEventListener('click', () => {
+    form2.style.display = 'none';
+    showForm1Btn.style.display = 'inline-block';
+    showForm2Btn.style.display = 'inline-block';
+  });
+
+  // Form 1 Submission
+  document.getElementById('contact-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const formData = new FormData(this);
+
+    fetch(this.action, {
+      method: 'POST',
+      body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('response-message').textContent = data.success ? 'Message sent successfully!' : 'Error sending message.';
+      if (data.success) this.reset();
+    })
+    .catch(() => {
+      document.getElementById('response-message').textContent = 'Error sending message. Please try again.';
+    });
+  });
+
+  // Form 2 Submission
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const name = e.target.name.value;
+    const phone = e.target.phone.value;
+    const message = e.target.message.value;
 
     const telegramBotToken = '7658668915:AAGV0uoFT-oXi4AgxMLnbyFcgjnhyjM7GHg';
     const chatId = '1299129410';
-    const text = `New message from your website:
-Name: ${name}
-Phone: ${phone}
-Message: ${message}`;
+    const text = `New message from your website:\nName: ${name}\nPhone: ${phone}\nMessage: ${message}`;
 
     fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`)
       .then(response => response.json())
       .then(data => {
-        const responseMessage = document.getElementById('response-message-second');
-        if (data.ok) {
-          responseMessage.textContent = 'Message sent successfully!';
-          form.reset(); // Reset the form fields after a successful submission
-        } else {
-          responseMessage.textContent = 'Failed to send message.';
-        }
+        document.getElementById('response-message-second').textContent = data.ok ? 'Message sent successfully!' : 'Failed to send message.';
+        if (data.ok) e.target.reset();
       })
-      .catch(error => {
-        console.error('Error:', error);
-        const responseMessage = document.getElementById('response-message-second');
-        responseMessage.textContent = 'Error sending message. Please try again.';
+      .catch(() => {
+        document.getElementById('response-message-second').textContent = 'Error sending message. Please try again.';
       });
   });
 
@@ -2680,47 +2547,7 @@ alert('Sharing not supported on this browser.');
 
 
 
-document.getElementById('contact-form').addEventListener('submit', function(event) {
 
-event.preventDefault(); // Prevent default form submission
-
-const formData = new FormData(this);
-
-fetch(this.action, {
-
-method: 'POST',
-
-body: formData,
-
-})
-
-.then(response => response.json())
-
-.then(data => {
-
-if (data.success) {
-
-document.getElementById('response-message').textContent = 'Message sent successfully!';
-
-this.reset(); // Reset form fields
-
-} else {
-
-document.getElementById('response-message').textContent = 'Error sending message. Please try again.';
-
-}
-
-})
-
-.catch(error => {
-
-console.error('Error:', error);
-
-document.getElementById('response-message').textContent = 'Error sending message. Please try again.';
-
-});
-
-});
 
 
 
