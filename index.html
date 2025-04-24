@@ -783,6 +783,12 @@ cursor: pointer;
   position: relative;
   z-index: 1;
 }
+  @media (min-width: 768px) {
+   .parent {
+     width: 940px;
+     gap: 7px;
+   }
+  }
 .cell {
   display: flex;
   align-items: center;
@@ -799,6 +805,13 @@ cursor: pointer;
   z-index: 1;
   padding: 6px 0px;
 }
+  @media (min-width: 768px) {
+   .cell {
+     font-size: 1.7rem;
+     min-height: 50px;
+     min-width: 930px;
+   }
+  }
 .cell span {
   flex: 1;
   display: inline-block;
