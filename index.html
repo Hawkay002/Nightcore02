@@ -791,6 +791,7 @@ cursor: pointer;
   }
 .cell {
   display: flex;
+  flex-wrap: wrap !important;
   align-items: center;
   justify-content: space-between;
   background: #141414;
@@ -807,6 +808,9 @@ cursor: pointer;
 }
   @media (min-width: 768px) {
    .cell {
+     display: flex;
+     align-items: center;
+     justify-content: center;
      font-size: 1rem;
      min-height: 50px;
      width: 900px;
@@ -914,6 +918,15 @@ cursor: pointer;
   text-align: center;
   margin-bottom: 10px;
   }
+  @media (min-width: 768px) {
+    .subtext {
+      display: flex;
+      width: 900px;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  
 .my-footer a {
   text-decoration: none;
   color: inherit; /* or any color you want */
@@ -1256,7 +1269,7 @@ cursor: pointer;
   <!--<div class="overlay"></div>-->  <!--this one is overlay div-->
  </div>  <!--this one is wrapper div-->
 <!--</div>-->  <!--this one is animation box div-->
-  <p style="display:flex; color: rgba(255, 255, 255, 0.5); font-size: 0.55rem !important; align-items: center; justify-content: center;">
+  <p class="table-p" style="display:flex; color: rgba(255, 255, 255, 0.5); font-size: 0.55rem !important; align-items: center; justify-content: center;">
     **Note :- I'm always available to play during official holidays or any other Indian festivals.
   </p>
 </footer>
