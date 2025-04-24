@@ -823,7 +823,11 @@ cursor: pointer;
 .cell span {
   flex: 1;
   display: inline-block;
-  white-space: nowrap;
+  white-space: normal;
+  overflow-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   overflow-wrap: break-word;
 }
 .cell span.1 {
