@@ -793,7 +793,6 @@ cursor: pointer;
   }
 .cell {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap !important;
   align-items: center;
   justify-content: space-between;
@@ -829,16 +828,25 @@ cursor: pointer;
 }
 .cell span.1 {
   text-align: left;
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: wrap !important;
   padding-left: 5px;
 }
 .cell span.2 {
   text-align: center;
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: wrap !important;
   padding: 0 5px;
 }
 .cell span.3 {
   text-align: right;
   padding-right: 5px;
-  }
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: wrap !important;
+}
 .animation-box {
     position: relative;
     top: 0;
