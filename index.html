@@ -1074,6 +1074,18 @@ cursor: pointer;
   .contact-me{
     margin-bottom: 5px !important;
   }
+  #cht-box {
+    min-width: 340px !important; 
+    justify-content: center !important; 
+    align-items: center !important;
+  }
+@media (min-width: 768px) {
+    #cht-box {
+      width: 940px;
+      align-items: center;
+      justify-content: center;
+    }
+}
 </style>
 </head>
 <body>
@@ -1422,7 +1434,7 @@ cursor: pointer;
 <section class="chat-section">
 <h2>Call</h2>
 <div class="grid">
-<div class="chat-box" style="min-width: 350px !important; justify-content: center !important; align-items: center !important; ">
+<div class="chat-box" id="cht-box" style="min-width: 340px !important; justify-content: center !important; align-items: center !important; ">
 <a href="tel:+918777845713">
 <span class="icon fas fa-phone" style="color: #ffffff;"></span>
 <p>Phone</p>
@@ -1434,7 +1446,7 @@ cursor: pointer;
 <h2>Payments</h2>
 <div class="grid">
 <!-- Google Pay Button -->
-<div class="chat-box">
+<div class="chat-box" style="min-width: 340px !important; justify-content: center !important; align-items: center !important;">
 <button id="gpay-button" class="icon fab fa-google-pay" style="color: #db4437; border: none; background: none;"></button>
 <p>Google Pay</p>
 </div>
