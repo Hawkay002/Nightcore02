@@ -124,8 +124,17 @@ body.light-mode #poly1 {
 body.light-mode #stoppo1 {
   stop-color: #00b4d800 !important; 
 }
-body.light-mode #stoppo2 {
+body.light-mode #animatedStop {
   stop-color: #00b4d854 !important; 
+}
+body.light-mode #poly2 {
+  fill: #e3f6ff !important; 
+}
+body.light-mode .part1 {
+  fill: #e3f6ff !important; 
+}
+body.light-mode .part2 {
+  fill: #00b4d8 !important; 
 }
 .trail {
   position: absolute;
@@ -1485,7 +1494,7 @@ body.light-mode .line {
       <defs>
         <linearGradient y2="100%" x2="0%" y1="-17%" x1="10%" id="gradiente2">
           <stop id="stoppo1" style="stop-color: #ff073a00;stop-opacity:1" offset="20%"></stop>
-          <stop id="stoppo2"
+          <stop
             style="stop-color:#ff073a54;stop-opacity:1"
             offset="100%"
             id="animatedStop"
@@ -1498,6 +1507,7 @@ body.light-mode .line {
         stroke=""
         fill="#ff99a780"
         points="80,50 80,75 80,99 40,75"
+        id="poly2"
       ></polygon>
       <polygon
         transform="rotate(0 100 100) translate(60, 20)"
@@ -1508,7 +1518,7 @@ body.light-mode .line {
       ></polygon>
       <defs>
         <linearGradient y2="100%" x2="10%" y1="0%" x1="0%" id="gradiente3">
-          <stop style="stop-color: #ff073a00;stop-opacity:1" offset="20%"></stop>
+          <stop id="stoppo1" style="stop-color: #ff073a00;stop-opacity:1" offset="20%"></stop>
           <stop
             style="stop-color:#ff073a54;stop-opacity:1"
             offset="100%"
@@ -1523,6 +1533,7 @@ body.light-mode .line {
         fill="#ff99a780"
         points="5,0 5,5 0,5 0,0"
         id="particles"
+        class="part1"
       ></polygon>
       <polygon
         transform="rotate(45 100 100) translate(80, 55)"
@@ -1531,6 +1542,7 @@ body.light-mode .line {
         fill="#ff073a80"
         points="6,0 6,6 0,6 0,0"
         id="particles"
+        class="part2"
       ></polygon>
       <polygon
         transform="rotate(45 100 100) translate(70, 80)"
