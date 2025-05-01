@@ -121,6 +121,12 @@ body.light-mode #bounce2 {
 body.light-mode #poly1 {
   fill: #00b4d8 !important; 
 }
+body.light-mode #stoppo1 {
+  stop-color: #00b4d800 !important; 
+}
+body.light-mode #stoppo2 {
+  stop-color: #00b4d854 !important; 
+}
 .trail {
   position: absolute;
   width: 20px;
@@ -1478,8 +1484,8 @@ body.light-mode .line {
       ></polygon>
       <defs>
         <linearGradient y2="100%" x2="0%" y1="-17%" x1="10%" id="gradiente2">
-          <stop style="stop-color: #ff073a00;stop-opacity:1" offset="20%"></stop>
-          <stop
+          <stop id="stoppo1" style="stop-color: #ff073a00;stop-opacity:1" offset="20%"></stop>
+          <stop id="stoppo2"
             style="stop-color:#ff073a54;stop-opacity:1"
             offset="100%"
             id="animatedStop"
