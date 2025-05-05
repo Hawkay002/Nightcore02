@@ -1472,11 +1472,12 @@ body.light-mode .line {
 .privacy-popup-container {
   position: fixed;
   top: 0; left: 0;
-  width: 100%; height: 100%;
+  width: 80%; height: 60%;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #292929, #1a1a1a, #292929);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   z-index: 9999;
   padding: 20px;
   border-radius: 20px;
@@ -1484,14 +1485,12 @@ body.light-mode .line {
 
 .privacy-popup-content {
   position: relative;
-  color: #000;
-  padding: 30px;
-  border-radius: 20px;
+  color: #fff;
+  padding: 20px;
   max-height: 90vh;
   overflow-y: auto;
   width: 100%;
   max-width: 500px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   margin: 20px;
 }
 
