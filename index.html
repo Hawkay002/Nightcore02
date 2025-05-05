@@ -303,12 +303,12 @@ footer {
   text-align: center;
   margin-top: 40px;
   padding-top: 20px;
-  border-top: 1px solid #333;
+  border-top: 1.5px solid #333;
   text-decoration: none;
   color: inherit;
 }
 body.light-mode footer {
-  border-top: 1px solid #ddd;
+  border-top: 1.5px solid #47627a;
 }
 footer p {
   font-size: 0.9rem;
@@ -778,6 +778,9 @@ body.light-mode #mainContent {
 body.light-mode .popup-content {
   background: linear-gradient(135deg, #f0faff, #dff2ff);
   box-shadow: 0 0 25px rgba(0, 60, 90, 0.4);
+}
+body.light-mode .pop-p {
+  color: #47627a !important; 
 }
 /* QR Code Image */
 .popup-content img {
@@ -1845,7 +1848,7 @@ body.light-mode .line {
 <div class="popup-content">
 <span id="close-popup" class="close-btn">&times;</span>
 <img src="GooglePay_QR.png" alt="Google Pay QR Code" style="width: 300px; height: auto;">
-<p style="margin-top: 15px;">Scan to pay with any UPI app</p>
+<p class="pop-p" style="margin-top: 15px;">Scan to pay with any UPI app</p>
 </div>
 </div>
 </div>
