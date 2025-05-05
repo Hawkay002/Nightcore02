@@ -771,7 +771,7 @@ body.light-mode #mainContent {
 .popup-content {
   background: linear-gradient(135deg, #292929, #1a1a1a, #292929);/* Matches body gradient */
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 20px;
   text-align: center;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
@@ -1476,30 +1476,32 @@ body.light-mode .line {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.7);
+  background: linear-gradient(135deg, #292929, #1a1a1a, #292929);
   z-index: 9999;
   padding: 20px;
+  border-radius: 20px;
 }
 
 .privacy-popup-content {
   position: relative;
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
+  color: #000;
+  padding: 30px;
+  border-radius: 20px;
   max-height: 90vh;
   overflow-y: auto;
   width: 100%;
   max-width: 500px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  margin: 20px;
 }
 
 .privacy-close-btn {
-  position: absolute;
+  position: fixed;
   top: 10px;
-  right: 10px;
+  right: 20px;
   cursor: pointer;
   font-size: 22px;
-  color: #333;
+  color: #fff;
   }
 </style>
 </head>
