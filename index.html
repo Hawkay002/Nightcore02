@@ -1479,9 +1479,12 @@ body.light-mode .line {
   background: linear-gradient(135deg, #292929, #1a1a1a, #292929);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   z-index: 9999;
-  border-radius: 20px;
+  padding: 15px;
 }
-
+body.light-mode .privacy-popup-container {
+  background: linear-gradient(135deg, #f0faff, #dff2ff);
+  box-shadow: 0 0 25px rgba(0, 60, 90, 0.4);
+}
 .privacy-popup-content {
   position: relative;
   color: #fff;
@@ -1489,10 +1492,8 @@ body.light-mode .line {
   overflow-y: auto;
   width: 100%;
   max-width: 500px;
-  margin: 5px;
-  padding: 15px;
+  margin: 5px; 
 }
-
 .privacy-close-btn {
   position: fixed;
   top: 20px;
@@ -1501,6 +1502,12 @@ body.light-mode .line {
   font-size: 25px;
   color: #fff;
   }
+body.light-mode .poli-h {
+  color: #1a2e3b; 
+}
+body.light-mode .poli-p {
+  color: #47627a !important;
+}
 </style>
 </head>
 <body>
@@ -2043,50 +2050,49 @@ body.light-mode .line {
     <a href="#" id="privacy-link">Privacy Policy</a>
   </p>  
 </footer>  
-
 <!-- Privacy Policy Popup -->
 <div id="privacy-popup" class="privacy-popup-container" style="display: none;">  
   <div class="privacy-popup-content">  
     <i id="privacy-close" class="fas fa-times privacy-close-btn"></i>  
-    <h2>Privacy Policy</h2>
-    <p style="font-size: 15px;">Welcome to Connect. Your privacy is important to me. This Privacy Policy outlines how I collect, use, and safeguard your information when you visit my website.</p>
+    <h2 class="poli-h">Privacy Policy</h2>
+    <p class="poli-p" style="font-size: 15px;">Welcome to Connect. Your privacy is important to me. This Privacy Policy outlines how I collect, use, and safeguard your information when you visit my website.</p>
 
-    <h2>1. Information I Collect</h2>
+    <h2 class="poli-h">1. Information I Collect</h2>
     <ul>
-      <li><strong>Personal Information:</strong> If you voluntarily provide it (e.g., via forms), such as your name, email address, or phone number.</li>
+      <li class="poli-p" style="font-size: 15px;"><strong>Personal Information: </strong> If you voluntarily provide it (e.g., via forms), such as your name, email address, or phone number.</li>
       <p></p>
-      <li><strong>Non-Personal Information:</strong> Browser type, operating system, referring URLs, and usage data collected via cookies or analytics tools.</li>
+      <li class="poli-p" style="font-size: 15px;"><strong>Non-Personal Information: </strong> Browser type, operating system, referring URLs, and usage data collected via cookies or analytics tools.</li>
     </ul>
 
-    <h2>2. How I Use Your Information</h2>
+    <h2 class="poli-h">2. How I Use Your Information</h2>
     <ul>
-      <li>Improve and personalize your experience on my website.</li>
-      <p></p>
-      <li>Communicate with you (if you provide contact info).</li>
-      <p></p>
-      <li>Analyze website usage to enhance functionality and performance.</li>
+      <li class="poli-p">Improve and personalize your experience on my website.</li>
+      <br>
+      <li class="poli-p">Communicate with you (if you provide contact info).</li>
+      <br>
+      <li class="poli-p">Analyze website usage to enhance functionality and performance.</li>
     </ul>
 
-    <h2>3. Sharing of Information</h2>
-    <p style="font-size: 15px;">I do not sell, trade, or otherwise transfer your personally identifiable information to outside parties. However, I may share data with trusted third-party services that help me operate the site, as long as they agree to keep it confidential.</p>
+    <h2 class="poli-h">3. Sharing of Information</h2>
+    <p class="poli-p" style="font-size: 15px;">I do not sell, trade, or otherwise transfer your personally identifiable information to outside parties. However, I may share data with trusted third-party services that help me operate the site, as long as they agree to keep it confidential.</p>
 
-    <h2>4. Cookies</h2>
-    <p style="font-size: 15px;">My website may use cookies to store information about visitors’ preferences and optimize their experience. You can choose to disable cookies through your browser settings.</p>
+    <h2 class="poli-h">4. Cookies</h2>
+    <p class="poli-p" style="font-size: 15px;">My website may use cookies to store information about visitors’ preferences and optimize their experience. You can choose to disable cookies through your browser settings.</p>
 
-    <h2>5. Third-Party Links</h2>
-    <p style="font-size: 15px;">I may include links to third-party websites. These external sites have their own privacy policies, and I am not responsible for their content or practices.</p>
+    <h2 class="poli-h">5. Third-Party Links</h2>
+    <p class="poli-p" style="font-size: 15px;">I may include links to third-party websites. These external sites have their own privacy policies, and I am not responsible for their content or practices.</p>
 
-    <h2>6. Data Security</h2>
-    <p style="font-size: 15px;">I implement basic security measures to maintain the safety of your information. However, no method of transmission over the internet is 100% secure.</p>
+    <h2 class="poli-h">6. Data Security</h2>
+    <p class="poli-p" style="font-size: 15px;">I implement basic security measures to maintain the safety of your information. However, no method of transmission over the internet is 100% secure.</p>
 
-    <h2>7. Children’s Privacy</h2>
-    <p style="font-size: 15px;">I do not knowingly collect personal information from children under 13. If I discover such data has been collected, I will take immediate steps to delete it.</p>
+    <h2 class="poli-h">7. Children’s Privacy</h2>
+    <p class="poli-p" style="font-size: 15px;">I do not knowingly collect personal information from children under 13. If I discover such data has been collected, I will take immediate steps to delete it.</p>
 
-    <h2>8. Changes to This Privacy Policy</h2>
-    <p style="font-size: 15px;">I may update this Privacy Policy from time to time. The revised version will be posted on this page with the updated date.</p>
+    <h2 class="poli-h">8. Changes to This Privacy Policy</h2>
+    <p class="poli-p" style="font-size: 15px;">I may update this Privacy Policy from time to time. The revised version will be posted on this page with the updated date.</p>
 
-    <h2>9. Contact Us</h2>
-    <p style="font-size: 15px;">If you have any questions about this Privacy Policy, feel free to contact me through the buttons.</p>
+    <h2 class="poli-h">9. Contact Us</h2>
+    <p class="poli-p" style="font-size: 15px;">If you have any questions about this Privacy Policy, feel free to contact me through the buttons.</p>
   </div>  
   </div>
 </div>
