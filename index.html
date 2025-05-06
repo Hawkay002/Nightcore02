@@ -615,6 +615,7 @@ body.light-mode .close-modal {
   max-width: 300px;
   text-align: center;
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  font-size: 8px;
 }
 body.light-mode .game-warning-content {
   background: #e3f6ff;
@@ -652,7 +653,7 @@ body.light-mode .game-warning-close {
   top: 15px;
   right: 15px;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 0px;
 }
 
 /* Vault Section */
@@ -2594,7 +2595,7 @@ function createGameWarningPopup(url, websiteName) {
   popup.innerHTML = `
     <div class="game-warning-content">
       <i class="fas fa-times game-warning-close-icon" id="close-warning"></i>
-      <p>You're about to be redirected to ${websiteName}</p>
+      <p>You're about to be redirected to <strong class="policy-strong">${websiteName}</strong> for detailed stats viewing</p>
       <p>Are you sure you want to continue?</p>
       <div class="game-warning-buttons">
         <button class="game-warning-button game-warning-continue" id="continue-to-site">Continue</button>
