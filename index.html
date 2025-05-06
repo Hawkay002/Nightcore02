@@ -612,10 +612,16 @@ body.light-mode .close-modal {
   background: #141414;
   padding: 20px;
   border-radius: 20px;
-  max-width: 300px;
+  max-width: 350px;
   text-align: center;
   box-shadow: 0 0 20px rgba(0,0,0,0.5);
   font-size: 8px;
+}
+.warn-p {
+  color: rgba(255, 255, 255, 0.5); 
+}
+body.light-mode warn-p {
+  color: #47627a;  
 }
 body.light-mode .game-warning-content {
   background: #e3f6ff;
@@ -2595,8 +2601,9 @@ function createGameWarningPopup(url, websiteName) {
   popup.innerHTML = `
     <div class="game-warning-content">
       <i class="fas fa-times game-warning-close-icon" id="close-warning"></i>
-      <p>You're about to be redirected to <strong class="policy-strong">${websiteName}</strong> for detailed stats viewing</p>
-      <p>Are you sure you want to continue?</p>
+      <p class="warn-p">You're about to be redirected to <strong class="policy-strong">${websiteName}</strong> for detailed stats viewing</p>
+      <br>
+      <p class="warn-p">Are you sure you want to continue?</p>
       <div class="game-warning-buttons">
         <button class="game-warning-button game-warning-continue" id="continue-to-site">Continue</button>
         <button class="game-warning-button game-warning-close" id="cancel-redirect">Cancel</button>
