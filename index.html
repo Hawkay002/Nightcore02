@@ -1948,6 +1948,27 @@ body.light-mode .policy-strong {
 </p>
 </div>
 </footer>
+<footer>
+<b class="game-name-b" style="font-size: 20px; margin-top: 10px; color: #fff;">Clash Royale</b>
+<a href="https://royaleapi.com/player/8P89JGGRJ">
+<img src="Game ss/Clash Royale/Screenshot_20250507_004424_Clash Royale.jpg" alt="Game Image" style="margin-bottom: 20px;">
+</a>
+<strong class="game-strong" style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem !important;">↓↓↓↓↓↓↓↓↓↓  Click to Enlarge  ↓↓↓↓↓↓↓↓↓↓</strong>
+<div class="img-container" style="display: flex; justify-content: space-between; align-items: center; gap: 1px !important; margin-top: 10px;">
+<p style="margin-right: 10px;">
+<img src="Game ss/Clash Royale/Screenshot_20250507_004424_Clash Royale.jpg" alt="Game 1" class="preview-img">
+</p>
+<p style="margin-right: 10px;">
+<img src="Game ss/Pokémon TCG Pocket/Screenshot_20250417_172548_Pokmon TCGP.jpg" alt="Game 2" class="preview-img">
+</p>
+<p style="margin-right: 10px;">
+<img src="Game ss/Pokémon TCG Pocket/Screenshot_20250417_172609_Pokmon TCGP.jpg" alt="Game 3" class="preview-img">
+</p>
+<p>
+<img src="Game ss/Pokémon TCG Pocket/Screenshot_20250422_134332_Pokmon TCGP.jpg" alt="Game 4" class="preview-img">
+</p>
+</div>
+</footer>
   
 </i>
 <i class="fas fa-times close-btn" id="close-btn"></i>
@@ -2638,7 +2659,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (uniteLink) {
     uniteLink.addEventListener('click', (e) => {
       e.preventDefault();
-      createGameWarningPopup(uniteLink.href, 'Pokémon Unite API');
+      createGameWarningPopup(uniteLink.href, 'Unite API');
     });
   }
   
@@ -2657,6 +2678,15 @@ document.addEventListener('DOMContentLoaded', () => {
     bsLink.addEventListener('click', (e) => {
       e.preventDefault();
       createGameWarningPopup(bsLink.href, 'Brawlify');
+    });
+  }
+
+  //Clash Royale link
+  const royaleLink = document.querySelector('a[href="https://royaleapi.com/player/8P89JGGRJ"]');
+  if (royaleLink) {
+    royaleLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      createGameWarningPopup(royaleLink.href, 'Royale API');
     });
   }
 });
