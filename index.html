@@ -593,6 +593,68 @@ body.light-mode .close-modal {
   transform: scale(1.05);
   box-shadow: 0 0 15px rgba(255,7,58,0.5);
 }
+/*warning popup*/
+/* Game Link Warning Popup */
+.game-warning-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  backdrop-filter: blur(5px);
+}
+.game-warning-content {
+  background: #141414;
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 300px;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+body.light-mode .game-warning-content {
+  background: #e3f6ff;
+}
+.game-warning-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+.game-warning-button {
+  padding: 8px 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-family: "Orbitron", sans-serif;
+}
+.game-warning-continue {
+  background-color: #ff073a80;
+  color: white;
+}
+body.light-mode .game-warning-continue {
+  background-color: #00b4d8;
+}
+.game-warning-close {
+  background-color: #333;
+  color: white;
+}
+body.light-mode .game-warning-close {
+  background-color: #ddd;
+  color: #1a2e3b;
+}
+.game-warning-close-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
 /* Vault Section */
 .vault-section {
   text-align: center;
@@ -2522,6 +2584,73 @@ document.addEventListener("DOMContentLoaded", function () {
   setInterval(updateDateTime, 1000);
   // Refresh weather every 10 minutes
   setInterval(getWeather, 10 * 60 * 1000);
+});
+
+//warning popup for games
+  // Game link warning popups
+function createGameWarningPopup(url, websiteName) {
+  const popup = document.createElement('div');
+  popup.className = 'game-warning-popup';
+  popup.innerHTML = `
+    <div class="game-warning-content">
+      <i class="fas fa-times game-warning-close-icon" id="close-warning"></i>
+      <p>You're about to be redirected to ${websiteName}</p>
+      <p>Are you sure you want to continue?</p>
+      <div class="game-warning-buttons">
+        <button class="game-warning-button game-warning-continue" id="continue-to-site">Continue</button>
+        <button class="game-warning-button game-warning-close" id="cancel-redirect">Cancel</button>
+      </div>
+    </div>
+  `;
+  
+  document.body.appendChild(popup);
+  
+  const continueBtn = popup.querySelector('#continue-to-site');
+  const cancelBtn = popup.querySelector('#cancel-redirect');
+  const closeBtn = popup.querySelector('#close-warning');
+  
+  continueBtn.addEventListener('click', () => {
+    window.location.href = url;
+  });
+  
+  const closePopup = () => {
+    document.body.removeChild(popup);
+  };
+  
+  cancelBtn.addEventListener('click', closePopup);
+  closeBtn.addEventListener('click', closePopup);
+  
+  return popup;
+}
+
+// Add warning to all game links
+document.addEventListener('DOMContentLoaded', () => {
+  // Pokémon Unite link
+  const uniteLink = document.querySelector('a[href="https://uniteapi.dev/p/LXLC5ET?type=auto"]');
+  if (uniteLink) {
+    uniteLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      createGameWarningPopup(uniteLink.href, 'Pokémon Unite API');
+    });
+  }
+  
+  // Clash of Clans link
+  const cocLink = document.querySelector('a[href="https://www.clashofstats.com/players/hawkay-9V9VRYJCL/summary"]');
+  if (cocLink) {
+    cocLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      createGameWarningPopup(cocLink.href, 'Clash of Stats');
+    });
+  }
+  
+  // Brawl Stars link
+  const bsLink = document.querySelector('a[href="https://brawlify.com/stats/profile/88880U08G"]');
+  if (bsLink) {
+    bsLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      createGameWarningPopup(bsLink.href, 'Brawlify');
+    });
+  }
 });
 </script>
 </body>
