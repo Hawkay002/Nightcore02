@@ -868,34 +868,43 @@ body.light-mode .pop-p {
 }
 /* Google Pay Button Styles */
 .gpay-direct-button {
+  display: inline-flex; 
+  align-items: center; 
+  padding: 10px 15px; 
+  background-color: #141414; 
+  color: white; 
+  border: none; 
+  border-radius: 20px; 
+  text-decoration: none; 
+  gap: 8px; 
+  font-size: 14px;
   transition: all 0.3s ease;
   border: 1px solid transparent;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
-
 .gpay-direct-button:hover {
   transform: scale(1.05);
-  background: #357abd !important;
+  background-color: #1a1a1a !important;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
-
 body.light-mode .gpay-direct-button {
-  background: #e3f6ff !important;
+  background-color: #e3f6ff !important;
   color: #1a2e3b !important;
-  border: 1px solid #00b4d8 !important;
+  box-shadow: 0 0 20px rgba(0, 60, 90, 0.4);
 }
-
-body.light-mode .gpay-direct-button img {
-  filter: invert(1); /* Optional: invert icon color for light mode */
+body.light-mode .gpay-direct-button:hover {
+  transform: scale(1.05);
+  background-color: #e9f8ff !important;
+  box-shadow: 0 0 20px rgba(0, 60, 90, 0.4);
 }
-
 /* Make button smaller */
 .gpay-direct-button {
   padding: 8px 12px !important;
   font-size: 13px !important;
 }
-
 .gpay-direct-button img {
-  height: 18px !important;
-  width: 18px !important;
+  height: 20px !important;
+  width: 20px !important;
   }
 /* Style for the datetime and weather container */
 #datetime-weather {
@@ -2048,11 +2057,10 @@ body.light-mode .policy-strong {
     <img src="GooglePay_QR.png" alt="Google Pay QR Code" style="width: 300px; height: auto;">
     <p class="pop-p" style="margin-top: 15px;">Scan to pay with any UPI app</p>
     <p class="pop-p" style="margin: 10px 0;">Or</p>
-    <p class="pop-p" style="margin-bottom: 15px;">Click the button below to be redirected to GOOGLE PAY app</p>
-    <a href="upi://pay?pa=shovith2@oksbi&pn=Shovith" 
-       class="gpay-direct-button"
-       style="display: inline-flex; align-items: center; padding: 10px 15px; background: #4285F4; color: white; border-radius: 15px; text-decoration: none; gap: 8px; font-size: 14px;">
-      <img src="icons8-google-pay-480.png" alt="Google Pay" style="height: 20px; width: 20px;">
+    <!--<p class="pop-p" style="margin-bottom: 15px;"></p>-->
+    <a href="upi://pay?pa=shovith2@oksbi&pn=Shovith Debnath" 
+       class="gpay-direct-button">
+       <img src="icons8-google-pay-480.png" alt="Google Pay" style="height: 20px; width: 20px;">
       <span>Open in Google Pay</span>
     </a>
   </div>
