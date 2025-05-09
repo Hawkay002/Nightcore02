@@ -866,29 +866,37 @@ body.light-mode .pop-p {
   cursor: pointer;
   z-index: 1000;
 }
-.gpay-direct-button:hover {
-  background: #357abd !important;
-  transform: scale(1.05);
+/* Google Pay Button Styles */
+.gpay-direct-button {
   transition: all 0.3s ease;
+  border: 1px solid transparent;
 }
 
-.gpay-icon {
-  fill: #fff;
-}
-
-body.light-mode .gpay-icon {
-  fill: #1a2e3b;
+.gpay-direct-button:hover {
+  transform: scale(1.05);
+  background: #357abd !important;
 }
 
 body.light-mode .gpay-direct-button {
-  color: #1a2e3b;
   background: #e3f6ff !important;
-  border: 1px solid #00b4d8;
+  color: #1a2e3b !important;
+  border: 1px solid #00b4d8 !important;
 }
 
-body.light-mode .gpay-direct-button .fab {
-  color: #1a2e3b;
+body.light-mode .gpay-direct-button img {
+  filter: invert(1); /* Optional: invert icon color for light mode */
 }
+
+/* Make button smaller */
+.gpay-direct-button {
+  padding: 8px 12px !important;
+  font-size: 13px !important;
+}
+
+.gpay-direct-button img {
+  height: 18px !important;
+  width: 18px !important;
+  }
 /* Style for the datetime and weather container */
 #datetime-weather {
   margin-top: 10px;
@@ -2043,12 +2051,9 @@ body.light-mode .policy-strong {
     <p class="pop-p" style="margin-bottom: 15px;">Click the button below to be redirected to GOOGLE PAY app</p>
     <a href="upi://pay?pa=shovith2@oksbi&pn=Shovith" 
        class="gpay-direct-button"
-       style="display: inline-flex; align-items: center; padding: 12px 20px; background: #4285F4; color: white; border-radius: 20px; text-decoration: none; gap: 10px;">
-      <i class="fab fa-google-pay" style="font-size: 24px;"></i>
-      <svg class="gpay-icon" width="24" height="24" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M3 20.5v-17c0-.61.47-1.09 1.05-1.09h16.9c.58 0 1.05.49 1.05 1.09v17c0 .61-.47 1.09-1.05 1.09H4.05c-.58 0-1.05-.49-1.05-1.09zm16.9-.5H4.05V4H20v16zM12 7.5c-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5c1.59 0 2.93-1.06 3.36-2.5H12v-2h5.46c.1.57.16 1.16.16 1.78 0 2.76-2.24 5-5 5s-5-2.24-5-5 2.24-5 5-5c1.25 0 2.4.46 3.28 1.22l1.42-1.42C14.4 6.11 13.27 5.5 12 5.5c-2.48 0-4.5 2.02-4.5 4.5s2.02 4.5 4.5 4.5 4.5-2.02 4.5-4.5h-1.5c0 1.93-1.57 3.5-3.5 3.5z"/>
-      </svg>
-      Open in Google Pay
+       style="display: inline-flex; align-items: center; padding: 10px 15px; background: #4285F4; color: white; border-radius: 15px; text-decoration: none; gap: 8px; font-size: 14px;">
+      <img src="gpay-icon.png" alt="Google Pay" style="height: 20px; width: 20px;">
+      <span>Open in Google Pay</span>
     </a>
   </div>
 </div>
