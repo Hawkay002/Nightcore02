@@ -42,8 +42,8 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('bg-dark.png') no-repeat center center / cover;
-  opacity: 0.3; /* Control background opacity here */
+  background: url('bg-dark.png');
+  opacity: 1; /* Control background opacity here */
   z-index: -1;
   pointer-events: none;
   transition: background 0.5s ease, opacity 0.5s ease;
@@ -56,8 +56,8 @@ body.light-mode {
 }
 
 body.light-mode::before {
-  background: url('bg-light.png') no-repeat center center / cover;
-  opacity: 0.6;
+  background: url('bg-light.png');
+  opacity: 0.4;
     }
 
 /* Loader Container */
