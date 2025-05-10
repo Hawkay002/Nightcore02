@@ -696,16 +696,32 @@ body.light-mode .game-warning-close {
   position: absolute;
   top: 8px;
   right: 10px;
-  font-size: 22px;
+  font-size: 20px;
   pointer-events: none;
   overflow: hidden;
   color: white;
-  filter: drop-shadow(0 0 8px #141414) drop-shadow(0 0 12px #141414);
+  filter: drop-shadow(0 0 4px #141414)
+          drop-shadow(0 0 8px #141414)
+          drop-shadow(0 0 16px #141414)
+          drop-shadow(0 0 24px #141414);
 }
 
 body.light-mode .external-link-icon {
   color: #1a2e3b;
-  filter: drop-shadow(0 0 8px #e9f8ff) drop-shadow(0 0 12px #e9f8ff);
+  filter: drop-shadow(0 0 4px #e9f8ff)
+          drop-shadow(0 0 8px #e9f8ff)
+          drop-shadow(0 0 16px #e9f8ff)
+          drop-shadow(0 0 24px #e9f8ff);
+  }
+.link-p {
+  color: #fff;
+  justify-content: center; 
+  align-items: center; 
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+body.light-mode .link-p {
+  color: #1a2e3b; 
 }
 /* Vault Section */
 .vault-section {
@@ -1310,7 +1326,7 @@ body.light-mode .cell {
     transform: translate(450px, -80vh)scale(2); /* Move to off-screen top-right*/
   }
 }
-.ggif-strong {
+.gif-strong {
   color: #fff !important;
 }
 body.light-mode .gif-strong {
@@ -1960,14 +1976,15 @@ body.light-mode .policy-strong {
 <i class="fas fa-gamepad" style="font-size: 40px; filter: drop-shadow(0 0 20px currentcolor) drop-shadow(0 0 17px currentcolor) !important; background-color: linear-gradient(270deg, #012E40, #023859, #592851, #F23D91, #A62461)!important;"></i>
 <!-- Hidden content -->
 <i id="game-desc" style="display: none; justify-content: center; flex-wrap: wrap;">
-<b class="game-name-b" style="font-size: 20px; margin-top: 10px; color: #fff;">Pokémon Unite</b>
+<p class ="link-p">'<i class="fas fa-external-link-alt"></i>' marked images has external links</p>
+<b class="game-name-b" style="font-size: 20px; margin-top: 10px; color: #fff; margin-bottom: 10px;">Pokémon Unite</b>
 <div style="position: relative; width: 100%; aspect-ratio: 16 / 8 ; border-radius: 5px; display: flex; justify-content: center; align-items: center; padding: 0; overflow: hidden;">
   <a href="https://uniteapi.dev/p/LXLC5ET?type=auto">
     <img src="Game ss/Pokémon Unite/Picsart_25-05-10_09-31-03-377_optimized.png" alt="Game Image" style="object-fit: cover; border-radius: 5px;">
     <i class="fas fa-external-link-alt external-link-icon"></i>
   </a>
 </div>
-<strong class="game-strong" style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem !important;">↓↓↓↓↓↓↓↓↓↓  Click to Enlarge  ↓↓↓↓↓↓↓↓↓↓</strong>
+<strong class="game-strong" style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem !important; margin-top: 20px;">↓↓↓↓↓↓↓↓↓↓  Click to Enlarge  ↓↓↓↓↓↓↓↓↓↓</strong>
 <div class="img-container" style="display: flex; justify-content: space-between; align-items: center; gap: 1px !important; margin-top: 10px;">
 <p style="margin-right: 10px;">
 <img src="Game ss/Pokémon Unite/Screenshot_20240923-181136_Pokmon UNITE.jpg" alt="Game 1" class="preview-img">
@@ -1983,7 +2000,7 @@ body.light-mode .policy-strong {
 </p>
 </div>
 <footer>
-<b class="game-name-b" style="font-size: 20px; margin-top: 10px; color: #fff;">Clash of Clans</b>
+<b class="game-name-b" style="font-size: 20px; margin-top: 10px; color: #fff; margin-bottom: 10px;">Clash of Clans</b>
 <!--<a href="https://www.clashofstats.com/players/hawkay-9V9VRYJCL/summary">
 <img src="Game ss/Clash of Clans/Picsart_25-05-07_21-23-53-179.png" alt="Game Image" style="margin-bottom: 20px;">
 </a>-->
@@ -1993,7 +2010,7 @@ body.light-mode .policy-strong {
     <i class="fas fa-external-link-alt external-link-icon"></i>
   </a>
 </div>
-<strong class="game-strong" style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem !important;">↓↓↓↓↓↓↓↓↓↓  Click to Enlarge  ↓↓↓↓↓↓↓↓↓↓</strong>
+<strong class="game-strong" style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem !important; margin-top: 20px;">↓↓↓↓↓↓↓↓↓↓  Click to Enlarge  ↓↓↓↓↓↓↓↓↓↓</strong>
 <div class="img-container" style="display: flex; justify-content: space-between; align-items: center; gap: 1px !important; margin-top: 10px;">
 <p style="margin-right: 10px;">
 <img src="Game ss/Clash of Clans/sk1.jpg" alt="Game 1" class="preview-img">
@@ -2010,7 +2027,7 @@ body.light-mode .policy-strong {
 </div>
 </footer>
 <footer>
-<b class="game-name-b" style="font-size: 20px; margin-top: 10px; color: #fff;">Brawl Stars</b>
+<b class="game-name-b" style="font-size: 20px; margin-top: 10px; color: #fff; margin-bottom: 10px;">Brawl Stars</b>
 <!--<a href="https://brawlify.com/stats/profile/88880U08G">
 <img src="Game ss/Brawl Stars/Picsart_25-05-07_21-16-48-447.png" alt="Game Image" style="margin-bottom: 20px;">
 </a>-->
@@ -2020,7 +2037,7 @@ body.light-mode .policy-strong {
     <i class="fas fa-external-link-alt external-link-icon"></i>
   </a>
 </div>
-<strong class="game-strong" style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem !important;">↓↓↓↓↓↓↓↓↓↓  Click to Enlarge  ↓↓↓↓↓↓↓↓↓↓</strong>
+<strong class="game-strong" style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem !important; margin-top: 20px;">↓↓↓↓↓↓↓↓↓↓  Click to Enlarge  ↓↓↓↓↓↓↓↓↓↓</strong>
 <div class="img-container" style="display: flex; justify-content: space-between; align-items: center; gap: 1px !important; margin-top: 10px;">
 <p style="margin-right: 10px;">
 <img src="Game ss/Brawl Stars/ns1.jpg" alt="Game 1" class="preview-img">
@@ -2056,7 +2073,7 @@ body.light-mode .policy-strong {
 </div>
 </footer>
 <footer>
-<b class="game-name-b" style="font-size: 20px; margin-top: 10px; color: #fff;">Clash Royale</b>
+<b class="game-name-b" style="font-size: 20px; margin-top: 10px; color: #fff; margin-bottom: 10px;">Clash Royale</b>
 <!--<a href="https://royaleapi.com/player/8P89JGGRJ">
 <img src="Game ss/Clash Royale/Picsart_25-05-07_01-29-52-431.png" alt="Game Image" style="margin-bottom: 20px;">
 </a>-->
@@ -2066,7 +2083,7 @@ body.light-mode .policy-strong {
     <i class="fas fa-external-link-alt external-link-icon"></i>
   </a>
 </div>
-<strong class="game-strong" style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem !important;">↓↓↓↓↓↓↓↓↓↓  Click to Enlarge  ↓↓↓↓↓↓↓↓↓↓</strong>
+<strong class="game-strong" style="color: rgba(255, 255, 255, 0.5); font-size: 0.85rem !important; margin-top: 20px;">↓↓↓↓↓↓↓↓↓↓  Click to Enlarge  ↓↓↓↓↓↓↓↓↓↓</strong>
 <div class="img-container" style="display: flex; justify-content: space-between; align-items: center; gap: 1px !important; margin-top: 10px;">
 <p style="margin-right: 10px;">
 <img src="Game ss/Clash Royale/Screenshot_20250507_005841_Clash Royale.jpg" alt="Game 1" class="preview-img">
