@@ -468,7 +468,7 @@ body.light-mode .share-button {
 .share-button a {
   color: inherit; /* Inherit the color */
 }
-/* ===== GAMES SECTION - COMPLETE STYLES ===== */
+/* ===== GAMES SECTION - OPTIMIZED CSS ===== */
 /* Base Styles */
 .games-section {
   position: relative;
@@ -519,12 +519,6 @@ body.light-mode .game-box {
   box-shadow: 0 0 25px rgba(0, 60, 90, 0.4);
 }
 
-/* Loading Animation */
-@keyframes loadingShimmer {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
-}
-
 /* Main Game Images */
 .game-box img {
   display: none;
@@ -535,26 +529,11 @@ body.light-mode .game-box {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   aspect-ratio: 16/9;
   object-fit: cover;
-  background: linear-gradient(90deg, 
-    rgba(32,32,32,0.1) 25%, 
-    rgba(64,64,64,0.2) 50%, 
-    rgba(32,32,32,0.1) 75%);
-  background-size: 200% 100%;
-  animation: loadingShimmer 2s infinite;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 body.light-mode .game-box img {
   box-shadow: 0 0 25px rgba(0, 60, 90, 0.4);
-  background: linear-gradient(90deg, 
-    rgba(227,246,255,0.3) 25%, 
-    rgba(201,233,247,0.5) 50%, 
-    rgba(227,246,255,0.3) 75%);
-}
-
-.game-box img.loaded {
-  animation: none;
-  background: none;
 }
 
 /* Preview Images Grid */
