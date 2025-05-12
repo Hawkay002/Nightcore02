@@ -522,53 +522,55 @@ body.light-mode .game-box {
   box-shadow: 0 0 25px rgba(0, 60, 90, 0.4);
 }
 
-.game-box h2 {
-  margin-top: 10px;
-  color: #fff;
-  font-size: 20px;
-  display: none;
-  flex-wrap: wrap;
-}
-
-body.light-mode .game-box h2 {
-  color: #1a2e3b;
-}
-
-.game-desc p {
-  margin-right: 10px;
-  margin-top: 10px;
-  display: none;
-}
-
-/* Game Images */
+/* Main Images */
 .game-box img {
   display: none;
   margin-top: 15px;
   max-width: 100%;
   border-radius: 10px;
-  transition: transform 0.3s ease;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 body.light-mode .game-box img {
-  box-shadow: none;
+  box-shadow: 0 0 25px rgba(0, 60, 90, 0.4);
 }
 
 .game-box.active img {
   display: block;
 }
 
+/* Preview Images (Sub Pictures) */
+.preview-img {
+  cursor: pointer;
+  max-width: 100px;
+  height: auto;
+  border-radius: 2px; /* Reduced from 5px */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+body.light-mode .preview-img {
+  box-shadow: 0 0 15px rgba(0, 60, 90, 0.3);
+}
+
+.preview-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 7, 58, 0.5);
+}
+
 /* External Link Icon Styling */
 .external-link-icon {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 16px;
+  top: 20px;
+  right: 15px;
+  font-size: 22px;
   color: white;
   background: rgba(0, 0, 0, 0.7);
   padding: 5px;
   border-radius: 50%;
-  width: 24px;
-  height: 24px;
+  width: 25px;
+  height: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -604,6 +606,11 @@ body.light-mode .game-box a:hover .external-link-icon {
 
 .game-box a:hover img {
   transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(255, 7, 58, 0.3);
+}
+
+body.light-mode .game-box a:hover img {
+  box-shadow: 0 0 30px rgba(0, 180, 216, 0.3);
 }
 
 /* Close Button */
@@ -652,6 +659,7 @@ body.light-mode .close-btn {
   transform: translate(-50%, -50%);
   border: 2px solid #ffffff20;
   border-radius: 10px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
 }
 
 .close-modal {
@@ -681,20 +689,6 @@ body.light-mode .close-modal {
 
 .close-modal:hover {
   opacity: 0.7;
-}
-
-/* Image Previews */
-.preview-img {
-  cursor: pointer;
-  max-width: 100px;
-  height: auto;
-  border-radius: 5px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.preview-img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(255,7,58,0.5);
 }
 
 /* Link Paragraph */
