@@ -1578,28 +1578,30 @@ body.light-mode .contact h2 {
 
 /* Close Button */
 .close-button {
-  position: absolute;
-  top: 10px;
-  right: 15px;
+  position: relative;
+  justify-content: center; 
+  align-items; center; 
   background: transparent;
   color: #fff;
   background: #ff073a80;
-  height: 28px;
-  width: 28px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
   padding: auto;
-  font-size: 28px;
+  font-size: 40px;
   font-weight: bold;
   border: none;
   cursor: pointer;
   transition: transform 0.2s;
   line-height: 1;
+  margin-top: 10px;
+  text-align: center;
 }
 
 body.light-mode .close-button {
   color: #1a2e3b;
   background: #00b4d8;
-                     }
+ }
 
 .close-button:hover {
   transform: scale(1.2);
@@ -2510,7 +2512,6 @@ body.light-mode .policy-strong {
 
     <!-- Email Form -->
     <section class="contact" id="form1Section">
-      <button class="close-button" id="closeForm1">×</button>
       <h2>Contact - Email</h2>
       <form id="contact-form" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="e1fb3642-9b4f-426e-83e8-37c075513392">
@@ -2546,11 +2547,11 @@ body.light-mode .policy-strong {
         <button type="submit">Submit</button>
       </form>
       <div id="response-message"></div>
+     <button class="close-button" id="closeForm1">×</button>
     </section>
 
     <!-- Message Form -->
     <section class="contact" id="form2Section">
-      <button class="close-button" id="closeForm2">×</button>
       <h2>Contact - Message</h2>
       <form id="contactForm">
         <div>
@@ -2584,6 +2585,7 @@ body.light-mode .policy-strong {
         <button type="submit">Send Message</button>
       </form>
       <div id="response-message-second"></div>
+     <button class="close-button" id="closeForm2">×</button>
     </section>
   </footer>
 
