@@ -2786,9 +2786,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const otherPurposeInput = document.getElementById('other-purpose2');
       const finalPurpose = purpose === 'Other' ? otherPurposeInput.value : purpose;
 
-      const telegramBotToken = 'YOUR_TELEGRAM_BOT_TOKEN';
-      const chatId = 'YOUR_CHAT_ID';
-      const text = `New message from your website:\nName: ${name}\nPhone: ${fullNumber}\nPurpose: ${finalPurpose}\nMessage: ${message}`;
+      const telegramBotToken = '8174571488:AAEbvdnFXRCXy-Qa1Q5ABJc1JoQnthJkmNI';
+      const chatId = '1299129410';
+      const text = `New message from your website:Shovith - Connect\nName: ${name}\nPhone: ${fullNumber}\nPurpose: ${finalPurpose}\nMessage: ${message}`;
 
       fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`)
         .then(response => response.json())
