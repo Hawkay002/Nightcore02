@@ -1889,14 +1889,23 @@ body.light-mode .theme-toggle i {
 }
 @media (min-width: 768px) {
     #cht-box {
-    width: 940px !important;
-    justify-content: center !important; 
-    align-items: center !important;
-    margin: 0 auto !important;
+    display: flex;
+    flex-direction: columns;
+    min-width: 470px !important;
+    justify-content: center ;
+    align-items: center; 
+    margin: 15 auto !important;
     padding-left: 20px !important; 
     padding-right: 20px !important;  
     }
-  }
+    .contact-grid {
+      display: flex;
+      flex-direction: row;
+      justify-content: center; 
+      align-items: center; 
+      min-width: 470px;
+    }
+}
 body.light-mode #phone-icon {
   color: #1a2e3b !important; 
 }
@@ -2367,8 +2376,8 @@ body.light-mode .policy-strong {
 <h1>Connections</h1>
 </header>
 <section class="chat-section">
-<h2>Call</h2>
-<div class="grid">
+<h2>Contact</h2>
+<div class="grid contact-grid">
   
 <div class="chat-box" id="cht-box">
 <a href="tel:+918777845713">
@@ -2376,8 +2385,56 @@ body.light-mode .policy-strong {
 <p>Phone</p>
 </a>
 </div>
+
+<div class="chat-box" id="cht-box">
+  <a href="#" id="contact-details-link">
+    <span class="icon fas fa-id-card" style="color: #ffffff;"></span>
+    <p>Contact Details</p>
+  </a>
 </div>
-</section>
+<!-- Add this popup container right before the closing </body> tag -->
+<div id="contact-details-popup" class="popup-container" style="display: none;">
+  <div class="popup-content" style="width: calc(100% - 40px); max-width: 500px; margin: 20px; padding: 20px;">
+    <span id="close-contact-popup" class="close-btn">×</span>
+    <h2 style="margin: 5px 0 20px; color: #ff073a80; text-align: center;">Contact Details</h2>
+    <div style="text-align: center; margin-bottom: 20px;">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
+        <i class="fas fa-user" style="font-size: 18px; color: #ff073a80;"></i>
+        <p class="pop-p">Shovith Debnath</p>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
+        <i class="fas fa-briefcase" style="font-size: 18px; color: #ff073a80;"></i>
+        <p class="pop-p">Student/Developer</p>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
+        <i class="fas fa-envelope" style="font-size: 18px; color: #ff073a80;"></i>
+        <p class="pop-p">shovith2@gmail.com1</p>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
+        <i class="fas fa-envelope" style="font-size: 18px; color: #ff073a80;"></i>
+        <p class="pop-p">shovith6@gmail.com</p>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
+        <i class="fas fa-phone" style="font-size: 18px; color: #ff073a80;"></i>
+        <p class="pop-p">+91 87778 45713</p>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 15px;">
+        <i class="fas fa-map-marker-alt" style="font-size: 18px; color: #ff073a80;"></i>
+        <p class="pop-p">Kolkata, India</p>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px;">
+        <i class="fas fa-globe" style="font-size: 18px; color: #ff073a80;"></i>
+        <a href="https://hawkay002.github.io/Connect/" class="pop-p" style="color: #ff073a80; text-decoration: underline;">hawkay002.github.io/Connect/</a>
+      </div>
+    </div>
+    <button id="download-vcf" class="toggle-button" style="width: 100%; margin-top: 10px; font-family: 'Orbitron', sans-serif;">
+      <i class="fas fa-address-card" style="margin-right: 8px;"></i>
+      <span>Add to Contacts</span>
+    </button>
+  </div>
+</div>
+</div>
+ </section>
 <section class="chat-section">
 <h2>Payments</h2>
 <div class="grid">
@@ -3191,6 +3248,115 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     }
   });
+});
+
+//vcf popup
+document.addEventListener("DOMContentLoaded", function() {
+  // Contact Details popup
+  const contactDetailsLink = document.getElementById("contact-details-link");
+  const contactDetailsPopup = document.getElementById("contact-details-popup");
+  const closeContactPopup = document.getElementById("close-contact-popup");
+  const downloadVcfBtn = document.getElementById("download-vcf");
+
+  // Open popup when contact details is clicked
+  if (contactDetailsLink) {
+    contactDetailsLink.addEventListener('click', function(e) {
+      e.preventDefault();
+      contactDetailsPopup.style.display = "flex";
+      document.body.style.overflow = "hidden";
+    });
+  }
+
+  // Close popup
+  if (closeContactPopup) {
+    closeContactPopup.addEventListener("click", () => {
+      contactDetailsPopup.style.display = "none";
+      document.body.style.overflow = "auto";
+    });
+  }
+
+  // Close when clicking outside
+  if (contactDetailsPopup) {
+    contactDetailsPopup.addEventListener("click", (event) => {
+      if (event.target === contactDetailsPopup) {
+        contactDetailsPopup.style.display = "none";
+        document.body.style.overflow = "auto";
+      }
+    });
+  }
+
+  // VCF download functionality with image
+  if (downloadVcfBtn) {
+    downloadVcfBtn.addEventListener("click", async function() {
+      try {
+        // Fetch the hero image as base64
+        const imageUrl = 'Dp/+91 87778 45713 20241201_101310.jpg';
+        const response = await fetch(imageUrl);
+        const blob = await response.blob();
+        const reader = new FileReader();
+        
+        reader.onload = function() {
+          const base64Image = reader.result.split(',')[1];
+          
+          // Create vCard with image
+          const vcfData = `BEGIN:VCARD
+VERSION:3.0
+FN:Shovith Debnath
+ORG:Autistic ass boi
+EMAIL;TYPE=INTERNET:shovith2@gmail.com
+EMAIL;TYPE=WORK:shovith6@gmail.com
+TEL;TYPE=CELL:+918777845713
+ADR;TYPE=HOME:;;Kolkata,;West Bengal,;;;India
+URL:https://hawkay002.github.io/Connect/
+PHOTO;ENCODING=b;TYPE=JPEG:${base64Image}
+END:VCARD`;
+
+          const vcfBlob = new Blob([vcfData], { type: 'text/vcard' });
+          const url = URL.createObjectURL(vcfBlob);
+          
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = 'Shovith_Debnath.vcf';
+          document.body.appendChild(a);
+          a.click();
+          
+          setTimeout(() => {
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+          }, 100);
+        };
+        
+        reader.readAsDataURL(blob);
+      } catch (error) {
+        console.error('Error generating vCard:', error);
+        // Fallback without image if there's an error
+        const vcfData = `BEGIN:VCARD
+VERSION:3.0
+FN:Shovith Debnath
+ORG:Autistic ass boi
+EMAIL;TYPE=INTERNET:shovith2@gmail.com
+EMAIL;TYPE=WORK:shovith6@gmail.com
+TEL;TYPE=CELL:+918777845713
+ADR;TYPE=HOME:;;Kolkata;West Bengal;;;India
+URL:https://hawkay002.github.io/Connect/
+END:VCARD`;
+
+        const blob = new Blob([vcfData], { type: 'text/vcard' });
+        const url = URL.createObjectURL(blob);
+        
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'Shovith_Debnath.vcf';
+        document.body.appendChild(a);
+        a.click();
+        
+        setTimeout(() => {
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+        }, 100);
+      }
+    });
+  }
 });
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
