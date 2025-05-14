@@ -3439,7 +3439,7 @@ if (sessionLink) {
       // Create and show a notification
       const notification = document.createElement('div');
       notification.style.position = 'fixed';
-      notification.style.bottom = '20px';
+      notification.style.top = '50%';
       notification.style.left = '50%';
       notification.style.transform = 'translateX(-50%)';
       notification.style.backgroundColor = document.body.classList.contains('light-mode') ? '#e3f6ff' : '#141414';
@@ -3450,6 +3450,10 @@ if (sessionLink) {
       notification.style.zIndex = '10000';
       notification.style.fontFamily = '"Orbitron", sans-serif';
       notification.style.fontSize = '0.9rem';
+      notification.style.textAlign = 'center'; // Center the text
+      notification.style.width = 'auto';
+      notification.style.maxWidth = '80%';
+      notification.style.whiteSpace = 'nowrap';
       notification.textContent = 'Session ID copied to clipboard!';
       
       document.body.appendChild(notification);
