@@ -78,15 +78,18 @@ body.light-mode::before {
   background: linear-gradient(135deg, #000, #1a1a1a, #000);
   z-index: 10000;
 }
+
 body.light-mode .loader-container {
   background: linear-gradient(135deg, #f0faff, #dff2ff) !important;
 }
+
 /* SVG Loader Styling */
 svg {
   width: 200px;
   height: auto;
 }
 
+/* Bounce Animations */
 @keyframes bounce {
   0%, 100% {
     translate: 0px 36px;
@@ -105,6 +108,7 @@ svg {
   }
 }
 
+/* Gradient Flicker Animations */
 @keyframes umbral {
   0% {
     stop-color: #ff073a2e;
@@ -117,6 +121,19 @@ svg {
   }
 }
 
+@keyframes umbral-Light {
+  0% {
+    stop-color: #00d4ff33; /* bright transparent cyan */
+  }
+  50% {
+    stop-color: #00b4ffdd; /* vivid blue-cyan glow */
+  }
+  100% {
+    stop-color: #00d4ff33;
+  }
+}
+
+/* Particle Animation */
 @keyframes particles {
   0%, 100% {
     translate: 0px 16px;
@@ -130,56 +147,52 @@ svg {
   animation: particles 4s ease-in-out infinite;
 }
 
+/* Animated Gradient Stops */
 #animatedStop {
   animation: umbral 4s infinite;
 }
+
 body.light-mode #animatedStop {
-  animation: umbral-Light 4s infinite;
+  animation: umbral-Light 4s infinite !important;
 }
-@keyframes umbral-Light {
-  0% {
-    stop-color: #00b4d86e !important; /* low opacity */
-  }
-  50% {
-    stop-color: rgba(0, 180, 216, 0.84) !important; /* medium opacity */
-  }
-  100% {
-    stop-color: #00b4d86e !important; /* back to low opacity */
-  }
-  }
+
+/* Bounce Elements */
 #bounce {
   animation: bounce 4s ease-in-out infinite;
   translate: 0px 36px;
 }
-body.light-mode #bounce {
-  stroke: #00b4d8 !important; 
-}
+
 #bounce2 {
   animation: bounce2 4s ease-in-out infinite;
   translate: 0px 46px;
   animation-delay: 0.5s;
 }
+
+/* Light Mode Specific Styles */
+body.light-mode #bounce,
 body.light-mode #bounce2 {
-  stroke: #00b4d8 !important; 
+  stroke: #00b4d8 !important;
 }
+
 body.light-mode #poly1 {
-  fill: #00b4d8 !important; 
+  fill: #00b4d8 !important;
 }
+
 body.light-mode #stoppo1 {
-  stop-color: #00b4d800 !important; 
+  stop-color: #00d4ff00 !important;
 }
-body.light-mode #animatedStop {
-  stop-color: #00b4d854 !important; 
-}
+
 body.light-mode #poly2 {
-  fill: #e3f6ff !important; 
+  fill: #e3f6ff !important;
 }
+
 body.light-mode .part1 {
-  fill: #e3f6ff !important; 
+  fill: #e3f6ff !important;
 }
+
 body.light-mode .part2 {
-  fill: #00b4d8 !important; 
-}
+  fill: #00b4d8 !important;
+ }
 .trail {
   position: absolute;
   width: 20px;
