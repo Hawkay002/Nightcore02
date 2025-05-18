@@ -24,9 +24,9 @@
             --gpay: #5F6368;
             --snapchat: #FFFC00;
             --signal: #3A76F0;
-            --session: #00C3FF;
+            --session: #05B171;
             --sms: #2196F3;
-            --facebook: #226;
+            --facebook: #1877F2;
             --glow: 0 0 10px rgba(255, 214, 102, 0.5);
         }
 
@@ -541,9 +541,12 @@
           /* Specific button colors */
         .phone-btn { background-color: var(--primary); }
         .contact-btn { background-color: var(--secondary); }
-        .gpay-btn { background: linear-gradient(90deg, #4285F4, #EA4335, #FBBC05, #34A853); 
-        background-size: 300% 100%;
-        animation: gradientMove 8s ease infinite;}
+        .gpay-btn { background: linear-gradient(90deg, 
+        #4285F4, #EA4335, #FBBC05, #34A853,
+        #4285F4, #EA4335, #FBBC05, #34A853);
+        background-size: 250% 100%;
+        animation: gradientScroll 8s linear infinite;
+        }
         .whatsapp-btn { background-color: var(--whatsapp); }
         .telegram-btn { background-color: var(--telegram); }
         .instagram-btn { background-color: var(--instagram); }
@@ -556,40 +559,37 @@
         .sms-btn { background-color: var(--sms);}
         .facebook-btn { background-color: var(--facebook);}
 
-        @keyframes gradientMove {
-        0% {
+        @keyframes gradientScroll {
+    0% {
         background-position: 0% 50%;
-        }
-        50% {
+    }
+    100% {
         background-position: 100% 50%;
-        }
-        100% {
-        background-position: 0% 50%;
-        }
+    }
         }
 
         /* Custom SVG icons */
         .x-icon {
-            width: 20px;
-            height: 20px;
+            width: 28px;
+            height: 28px;
             fill: white;
         }
         
         .signal-icon {
-            width: 20px;
-            height: 20px;
+            width: 28px;
+            height: 28px;
             fill: white;
         }
         
         .session-icon {
-            width: 20px;
-            height: 20px;
+            width: 28px;
+            height: 28px;
             fill: white;
         }
     
         .gpay-icon {
-            width: 20px;
-            height: 20px;
+            width: 28px;
+            height: 28px;
             fill: white;
         }
 
