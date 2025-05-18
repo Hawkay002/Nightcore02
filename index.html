@@ -3370,8 +3370,8 @@
             
             document.getElementById('clock').innerHTML = `
                 <div>${day}</div>
-                <div>${date}</div>
                 <div>${time}</div>
+                <div>${date}</div>
             `;
         }
         
@@ -3492,7 +3492,7 @@
         document.getElementById('shareBtn').addEventListener('click', () => {
             if (navigator.share) {
                 navigator.share({
-                    title: 'John Doe - Digital Creator',
+                    title: 'Shovith Debnath',
                     text: 'Check out my awesome profile!',
                     url: window.location.href
                 }).catch(err => {
