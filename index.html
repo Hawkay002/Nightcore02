@@ -570,28 +570,26 @@
         }
 
         /* Custom SVG icons */
-        .x-icon {
-            width: 28px;
-            height: 28px;
-            fill: white;
-        }
-        
-        .signal-icon {
-            width: 28px;
-            height: 28px;
-            fill: white;
-        }
-        
-        .session-icon {
-            width: 28px;
-            height: 28px;
-            fill: white;
-        }
-    
-        .gpay-icon {
-            width: 28px;
-            height: 28px;
-            fill: white;
+/* Add this to your existing CSS */
+.link-btn svg {
+    font-size: 1.8rem; /* Match the size of Font Awesome icons */
+    transition: transform 0.3s; /* Same transition as the i elements */
+    width: 1em; /* Use em units to match font-size scaling */
+    height: 1em;
+}
+
+.link-btn:hover svg {
+    transform: scale(1.2); /* Same scale effect as the i elements */
+}
+
+/* Update your existing SVG icon classes to remove fixed sizes */
+.x-icon, 
+.signal-icon, 
+.session-icon, 
+.gpay-icon {
+    width: 1em;
+    height: 1em;
+    fill: white;
         }
 
         /* Popups */
