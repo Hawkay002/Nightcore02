@@ -771,6 +771,80 @@
             transform: rotate(90deg) scale(1.1);
         }
 
+        /* Download Tray Styles */
+.download-tray-container {
+    grid-column: 1 / -1; /* Makes it span all columns */
+    margin-top: 20px;
+}
+
+.download-tray {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: white;
+    border: var(--border);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.download-tray:hover {
+    transform: translate(-8px, -8px);
+    box-shadow: 10px 10px 0px 0px var(--secondary), var(--glow);
+}
+
+.download-info h4 {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.download-info p {
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.file-info {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.file-name {
+    font-weight: bold;
+    font-family: 'Space Grotesk', monospace;
+    letter-spacing: 1px;
+}
+
+.file-size {
+    font-size: 0.9rem;
+    color: #666;
+    font-family: 'Space Grotesk', monospace;
+}
+
+.download-btn {
+    background: var(--primary);
+    color: white;
+    border: var(--border);
+    padding: 12px 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.download-btn:hover {
+    background: var(--secondary);
+    transform: translateY(-3px);
+}
+
+.download-btn i {
+    font-size: 1.1rem;
+}
+
         /* Contact Section */
         .contact-section {
             position: relative;
@@ -1616,37 +1690,57 @@
     </section>
 
     <!-- Vault Section -->
-    <section class="vault">
-        <h2>Vault</h2>
-        <button class="toggle-btn" onclick="toggleVault()">
-            <i class="fas fa-lock"></i> <span style="margin-left: 5px;">Open Vault</span>
-        </button>
-        <div class="vault-form" id="vaultForm">
-            <input type="password" placeholder="Enter Password" id="vaultPassword">
-            <button onclick="submitVault()">Submit</button>
-            <button class="close-btn" onclick="toggleVault()">&times;</button>
+<section class="vault">
+    <h2>Vault</h2>
+    <button class="toggle-btn" onclick="toggleVault()">
+        <i class="fas fa-lock"></i> <span style="margin-left: 5px;">Open Vault</span>
+    </button>
+    <div class="vault-form" id="vaultForm">
+        <input type="password" placeholder="Enter Password" id="vaultPassword">
+        <button onclick="submitVault()">Submit</button>
+        <button class="close-btn" onclick="toggleVault()">&times;</button>
+    </div>
+    
+    <div class="vault-media" id="vaultMedia">
+        <button class="vault-close-btn" onclick="closeVaultMedia()">&times;</button>
+        
+        <!-- Existing media items (unchanged) -->
+        <div class="media-item">
+            <img src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Media 1">
+            <h4>Exclusive Content 1</h4>
+            <p>Available only for vault members</p>
+        </div>
+        <div class="media-item">
+            <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Media 2">
+            <h4>Exclusive Content 2</h4>
+            <p>Available only for vault members</p>
+        </div>
+        <div class="media-item">
+            <img src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Media 3">
+            <h4>Exclusive Content 3</h4>
+            <p>Available only for vault members</p>
         </div>
         
-        <div class="vault-media" id="vaultMedia">
-            <button class="vault-close-btn" onclick="closeVaultMedia()">&times;</button>
-            <div class="media-item">
-                <img src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Media 1">
-                <h4>Exclusive Content 1</h4>
-                <p>Available only for vault members</p>
-            </div>
-            <div class="media-item">
-                <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Media 2">
-                <h4>Exclusive Content 2</h4>
-                <p>Available only for vault members</p>
-            </div>
-            <div class="media-item">
-                <img src="https://images.unsplash.com/photo-1614680376573-df3480f0c6ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Media 3">
-                <h4>Exclusive Content 3</h4>
-                <p>Available only for vault members</p>
+        <!-- New Download Tray for ZIP File -->
+        <!-- Inside your vault-media div, after the existing media items -->
+<div class="download-tray-container">
+    <div class="download-tray">
+        <div class="download-info">
+            <h4>Complete Collection</h4>
+            <p>Download all vault content in one package</p>
+            <div class="file-info">
+                <span class="file-name">vault_collection.zip</span>
+                <span class="file-size">68.5 MB</span>
             </div>
         </div>
-    </section>
-
+        <button class="download-btn" onclick="downloadLocalZip('vault_collection.zip')">
+            <i class="fas fa-download"></i> Download All
+        </button>
+    </div>
+</div>
+    </div>
+</section>
+    
    <!-- Contact Section -->
 <section class="contact-section">
     <h2>Contact Me</h2>
@@ -3806,6 +3900,25 @@ function showNotification(message, isError = false) {
         setTimeout(() => notification.remove(), 300);
     }, 3000);
 }
+//Vault zip download
+        function downloadLocalZip(filename) {
+    // For GitHub Pages, the path is relative to your root directory
+    // If your zip is in a 'downloads' folder in your repo:
+    const fileUrl = `/${filename}`; // or `/downloads/${filename}` if in a subfolder
+    
+    // Create a temporary anchor element
+    const link = document.createElement('a');
+    link.href = fileUrl;
+    link.download = filename;
+    
+    // Append to the body, click and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Optional: Track download event
+    console.log(`Downloading: ${filename}`);
+        }
     </script>
 </body>
 </html>
