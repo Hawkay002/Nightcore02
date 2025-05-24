@@ -1915,11 +1915,11 @@
             <h4>Neo-Brutalist</h4>
             <p>click download button to get the source code zip</p>
             <div class="file-info">
-                <span class="file-name">Neo.zip</span>
-                <span class="file-size">50 MB</span>
+                <span class="file-name">Gg.zip</span>
+                <span class="file-size">nil MB</span>
             </div>
         </div>
-        <button class="download-btn" onclick="downloadLocalZip('Neo.zip')">
+        <button class="download-btn" onclick="downloadLocalZip('Gg.zip')">
             <i class="fas fa-download" style="font-size: 8px;"></i> Download
         </button>
     </div>
@@ -4109,22 +4109,17 @@ function showNotification(message, isError = false) {
 }
 
 //Vault zip download
-        function downloadLocalZip(filename) {
-    // For GitHub Pages, the path is relative to your root directory
-    // If your zip is in a 'downloads' folder in your repo:
-    const fileUrl = `/${filename}`; // or `/downloads/${filename}` if in a subfolder
+function downloadLocalZip() {
+    const filename = "Gg.zip"; // Since it's always Gg.zip
+    const fileUrl = `/${filename}`; // Points to root directory
     
-    // Create a temporary anchor element
     const link = document.createElement('a');
     link.href = fileUrl;
     link.download = filename;
-    
-    // Append to the body, click and remove
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
     
-    // Optional: Track download event
     console.log(`Downloading: ${filename}`);
         }
     </script>
