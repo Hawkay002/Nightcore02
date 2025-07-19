@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nightcore Dream | Premium Link Hub</title>
+    <title>Nightcore | Premium Link Hub</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
@@ -831,9 +831,9 @@
 
         <!-- Hero Section -->
         <section class="hero">
-            <img src="Dp/+91 87778 45713 20241201_101310.jpg" alt="Profile" class="profile-img">
+            <img id="main-profile-img" src="Dp/+91%2087778%2045713%2020241201_101310.jpg" alt="Profile" class="profile-img">
             <h2 class="hero-h2">SHOVITH DEBNATH</h2>
-            <p class="bio">Howdy silly goose, it's your homeboy Shovith. Multi-talented, goofy, a little off-topic, and a lot of autism. Hope to know each other more!</p>
+            <p class="bio">Digital creator exploring the intersection of technology and art. Building immersive experiences in the nightcore dreamscape.</p>
             
             <div class="info-widget">
                 <div class="clock">19:45:32</div>
@@ -1068,7 +1068,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Nightcore | Made by <a href="https://wa.me/+918777845713" style="text-decoration: none; color: var(--neon-blue);">SHOVITH</a> | <span class="privacy-link" onclick="showPrivacyModal()">Privacy Policy</span></p>
+        <p>&copy; 2025 Nightcore | Made by <a href="" style="text-decoration: none; color: var(--neon-blue);">SHOVITH</a> | <span class="privacy-link" onclick="showPrivacyModal()">Privacy Policy</span></p>
     </footer>
 
     <!-- Toast Notification -->
@@ -1097,7 +1097,7 @@
 
         <!-- Profile Image -->
         <div style="text-align: center; margin-bottom: 5px;">
-            <img src="Dp/+91 87778 45713 20241201_101310.jpg" alt="Profile" class="profile-img" style="width: 100px !important; height: 100px !important; border-radius: 50%;">
+            <img id="profile-image-for-vcf" src="Dp/+91%2087778%2045713%2020241201_101310.jpg" alt="Profile" class="profile-img" style="width: 100px !important; height: 100px !important; border-radius: 50%;">
         </div>
         
         <!-- Details -->
@@ -1182,7 +1182,7 @@
         const WEATHER_API_KEY = "Y2BlwqZQGXrZ0fPqYQ9odAPRHpaIrmRN";
         const LATITUDE = 22.5726;
         const LONGITUDE = 88.3639;
-        const WEB3FORMS_KEY = "e1fb3642-9b4f-426e-83e8-37c075513392";
+        const WEB3FORMS_KEY = "298ef297-0fcb-495c-b11f-b90f58e94150"; // Fixed access key
         const TELEGRAM_BOT_TOKEN = "8174571488:AAEbvdnFXRCXy-Qa1Q5ABJc1JoQnthJkmNI";
         const TELEGRAM_CHAT_ID = "1299129410";
 
@@ -1386,6 +1386,8 @@
                 <form id="email-form" action="https://api.web3forms.com/submit" method="POST">
                     <input type="hidden" name="access_key" value="${WEB3FORMS_KEY}">
                     <input type="hidden" name="subject" value="New Message from Nightcore Dream">
+                    <!-- Honeypot Spam Protection -->
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                     
                     <div class="form-group">
                         <label for="full-name">Full Name</label>
@@ -1782,9 +1784,10 @@ function showSocialModal() {
         
         // Fixed vCard download function with image
         async function downloadVCF() {
-            const img = document.getElementById('profile-image');
-            
             try {
+                // Get the profile image
+                const img = document.getElementById('profile-image-for-vcf');
+                
                 // Create canvas to get base64 representation of image
                 const canvas = document.createElement('canvas');
                 const ctx = canvas.getContext('2d');
@@ -1794,7 +1797,7 @@ function showSocialModal() {
                 canvas.height = img.naturalHeight;
                 
                 // Draw image on canvas
-                ctx.drawImage(img, 0, 0);
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
                 
                 // Convert to data URL (JPEG, 80% quality)
                 const dataURL = canvas.toDataURL('image/jpeg', 0.8);
@@ -1802,7 +1805,7 @@ function showSocialModal() {
                 
                 // Create vCard content with image
                 const vcfContent = `BEGIN:VCARD
-VERSION:4.0
+VERSION:3.0
 FN:Shovith Debnath
 TEL;TYPE=CELL:+91877845713
 EMAIL:shovith2@gmail.com
@@ -1822,6 +1825,9 @@ END:VCARD`;
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
+                
+                // Revoke the object URL to free up memory
+                setTimeout(() => URL.revokeObjectURL(url), 100);
                 
                 // Show toast notification
                 showToast('vCard downloaded with profile image!');
@@ -1847,6 +1853,9 @@ END:VCARD`;
                 document.body.appendChild(a);
                 a.click();
                 document.body.removeChild(a);
+                
+                // Revoke the object URL to free up memory
+                setTimeout(() => URL.revokeObjectURL(url), 100);
                 
                 showToast('vCard downloaded without image');
             }
@@ -1879,7 +1888,7 @@ END:VCARD`;
   navigator.serviceWorker.register('./service-worker.js')
     .then(reg => console.log('Service Worker registered', reg))
     .catch(err => console.error('Service Worker registration failed', err));
-}
+        }
     </script>
 </body>
 </html>
